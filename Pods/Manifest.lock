@@ -1,0 +1,36 @@
+PODS:
+  - IQKeyboardManager (6.5.19)
+  - MBProgressHUD (1.2.0)
+  - MJRefresh (3.7.9)
+  - SnapKit (5.7.1)
+  - SwiftyStoreKit (0.16.1)
+  - TagListView (1.4.1)
+
+DEPENDENCIES:
+  - IQKeyboardManager
+  - MBProgressHUD
+  - MJRefresh
+  - SnapKit
+  - SwiftyStoreKit
+  - TagListView
+
+SPEC REPOS:
+  trunk:
+    - IQKeyboardManager
+    - MBProgressHUD
+    - MJRefresh
+    - SnapKit
+    - SwiftyStoreKit
+    - TagListView
+
+SPEC CHECKSUMS:
+  IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
+  TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
+
+PODFILE CHECKSUM: 01ff9ac4e552717aaf1260f5729f389a10c1da67
+
+COCOAPODS: 1.16.2
