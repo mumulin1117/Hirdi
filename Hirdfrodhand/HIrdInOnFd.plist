@@ -2,6 +2,125 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<dict/>
+	<dict>
+		<key>hiroUID</key>
+		<string>89776</string>
+		<key>hiroNlmer</key>
+		<string>Vorric</string>
+		<key>hiroPociture</key>
+		<string>Vorric_pic</string>
+		<key>hiroDamicTitle</key>
+		<string>Hands speak louder than words. 🤲🎶</string>
+		<key>hiroDamicImage</key>
+		<string>Dpnati0</string>
+		<key>hiroCamera_dym</key>
+		<string>Another dance that has taken over my fyp</string>
+		<key>hiroCamera_videws</key>
+		<string>hadlepk0_0@@@hadlepk0_1</string>
+	</dict>
+	<dict>
+		<key>hiroUID</key>
+		<string>89777</string>
+		<key>hiroNlmer</key>
+		<string>Ysari</string>
+		<key>hiroPociture</key>
+		<string>Ysari_pic</string>
+		<key>hiroDamicTitle</key>
+		<string>Groove at my fingertips. ✨🖐</string>
+		<key>hiroDamicImage</key>
+		<string>Dpnati1</string>
+		<key>hiroCamera_dym</key>
+		<string>Wave Through Time, Groove in Motion</string>
+		<key>hiroCamera_videws</key>
+		<string>hadlepk1_0@@@hadlepk1_1</string>
+	</dict>
+	<dict>
+		<key>hiroUID</key>
+		<string>89778</string>
+		<key>hiroNlmer</key>
+		<string>Xypher</string>
+		<key>hiroPociture</key>
+		<string>Xypher</string>
+		<key>hiroDamicTitle</key>
+		<string>Every beat, a new expression. 🔥💃</string>
+		<key>hiroDamicImage</key>
+		<string>Dpnati2</string>
+		<key>hiroCamera_dym</key>
+		<string>Lights On, Hands Up, Rhythm Starts</string>
+		<key>hiroCamera_videws</key>
+		<string>hadlepk2_0@@@hadlepk2_1</string>
+	</dict>
+	<dict>
+		<key>hiroUID</key>
+		<string>89779</string>
+		<key>hiroNlmer</key>
+		<string>Rhysan</string>
+		<key>hiroPociture</key>
+		<string>Rhysan</string>
+		<key>hiroDamicTitle</key>
+		<string>Silent moves, loud impact. ⚡🙌</string>
+		<key>hiroDamicImage</key>
+		<string>Dpnati3</string>
+		<key>hiroCamera_dym</key>
+		<string>Whispers of the Wind, Beats of the Heart</string>
+		<key>hiroCamera_videws</key>
+		<string>hadlepk3_0@@@hadlepk3_1</string>
+	</dict>
+	<dict>
+		<key>hiroUID</key>
+		<string>89780</string>
+		<key>hiroNlmer</key>
+		<string>Luxen</string>
+		<key>hiroPociture</key>
+		<string>Luxen</string>
+		<key>hiroDamicTitle</key>
+		<string>Music flows, hands follow. 🎵🤲</string>
+		<key>hiroDamicImage</key>
+		<string>Dpnati4</string>
+		<key>hiroCamera_dym</key>
+		<string>Glide, Spin, and Let the Music Speak</string>
+		<key>hiroCamera_videws</key>
+		<string>hadlepk4_0</string>
+	</dict>
+	<dict>
+		<key>hiroUID</key>
+		<string>89781</string>
+		<key>hiroNlmer</key>
+		<string>Taelith</string>
+		<key>hiroPociture</key>
+		<string>Taelith</string>
+		<key>hiroDamicTitle</key>
+		<string>Rhythm locked, hands pop. 🔄👏</string>
+		<key>hiroDamicImage</key>
+		<string>Dpnati5</string>
+		<key>hiroCamera_dym</key>
+		<string>From Fingers to Rhythm, Let It Flow</string>
+		<key>hiroCamera_videws</key>
+		<string>hadlepk5_0</string>
+	</dict>
+	<dict>
+		<key>hiroUID</key>
+		<string>89782</string>
+		<key>hiroNlmer</key>
+		<string>Brenza</string>
+		<key>hiroPociture</key>
+		<string>Brenza</string>
+		<key>hiroDamicTitle</key>
+		<string>Expressing vibes, one wave at a time. 🌊🤙</string>
+		<key>hiroDamicImage</key>
+		<string>Dpnati6</string>
+	</dict>
+	<dict>
+		<key>hiroUID</key>
+		<string>89783</string>
+		<key>hiroNlmer</key>
+		<string>Ozym</string>
+		<key>hiroPociture</key>
+		<string>Ozym</string>
+		<key>hiroDamicTitle</key>
+		<string>From fingertips to the beat drop. 🎶🔥</string>
+		<key>hiroDamicImage</key>
+		<string>Dpnati7</string>
+	</dict>
 </array>
 </plist>

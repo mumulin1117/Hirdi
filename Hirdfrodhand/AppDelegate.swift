@@ -28,11 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          if UserDefaults.standard.bool(forKey: "dpownedThisB") == false {
              //设置test账号
              let tedevbiouser = ["posmOID":"hirdi@gmail.com",
-                          "posmuNime":"Ava Miller",
+                          "hiroNlmer":"Veiren",
                          
-                          "posmuBlance":"200",
-             "SupplementaryText":"Here’s my latest selfie! Any tips for improvement?",
-             "Supplementaryimg":"Supplementaryimg61%Supplementaryimg62%Supplementaryimg60"]
+                          "hiroBlance":"10",
+             "hiroDamicTitle":"Expressing vibes, one gesture at a time. 🔥🤙",
+                                 "hiroPociture":"lodemoUer",
+             "hiroDamicImage":"Mineloguer_con"]
              UserDefaults.standard.set(tedevbiouser, forKey: "hirdi@gmail.com")
              //已经下载过
              UserDefaults.standard.set(true, forKey: "dpownedThisB")
@@ -43,45 +44,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
 }
 
-//HandRhythm
-//GestureFlow
-//AIChoreo
-//DanceSync
-//FreestyleHub
-//SkillChallenge
-//PerformanceFeed
-//RhythmAnalytics
-//StepGenerator
-//MotionFeedback
-//DanceConnect
-//CreativeBattles
-//GestureMaster
-//ChoreoAI
-//DynamicRoutines
-//MoveLibrary
-//CompetitionStage
-//SkillTracker
-//DancerNetwork
-//MotionInnovation
-//20个特色方法名
-//
-//startGestureChallenge()
-//uploadFreestyleVideo()
-//analyzeAIFeedback()
-//generateAIChoreo(steps: Int)
-//joinLiveBattle()
-//syncWithCommunityFeed()
-//trackSkillProgress()
-//competeInRealTime()
-//shareChoreoToNetwork()
-//optimizeMotionFlow()
-//launchDynamicChallenge()
-//triggerGestureRecognition()
-//createCustomRoutine()
-//enableRhythmAnalytics()
-//inviteToDanceOff()
-//adjustPerformanceMetrics()
-//discoverTrendingMoves()
-//submitCompetitionEntry()
-//generateStepByStepGuide()
-//connectWithDancerProfile()

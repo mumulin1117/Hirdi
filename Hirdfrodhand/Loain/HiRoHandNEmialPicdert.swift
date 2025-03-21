@@ -94,7 +94,7 @@ class HiRoHandNEmialPicdert: UIViewController {
         
         let emialihHirdi = UIImageView.init(image: UIImage.init(named: "Email_loaid"))
         view.addSubview(emialihHirdi)
-        emialihHirdi.contentMode = .scaleToFill
+        emialihHirdi.contentMode =     .scaleAspectFit
         emialihHirdi.snp.makeConstraints { make in
             
             make.width.height.equalTo(46)
@@ -105,7 +105,7 @@ class HiRoHandNEmialPicdert: UIViewController {
         
         let passworihHirdi = UIImageView.init(image: UIImage.init(named: "youepaswelop"))
         view.addSubview(passworihHirdi)
-        passworihHirdi.contentMode = .scaleToFill
+        passworihHirdi.contentMode = .scaleAspectFit
         passworihHirdi.snp.makeConstraints { make in
             
             make.width.height.equalTo(82)
@@ -128,6 +128,22 @@ class HiRoHandNEmialPicdert: UIViewController {
             make.leading.trailing.equalToSuperview().inset(15)
             make.height.equalTo(50)
             make.top.equalTo(passworihHirdi.snp.bottom).offset(10)
+        }
+        
+        
+        let creatingLabeh = UILabel.init()
+       
+        creatingLabeh.textColor = .white
+        creatingLabeh.textAlignment = .center
+        creatingLabeh.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        creatingLabeh.text = "No account, we'll create one automatically"
+        
+        view.addSubview(creatingLabeh)
+       
+        creatingLabeh.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(15)
+           
+            make.top.equalTo(paswekiolTexfield.snp.bottom).offset(8)
         }
         
     }
@@ -284,7 +300,7 @@ extension HiRoHandNEmialPicdert{
           
            ////如果邮箱id，对应的值不存在。则是注册
            let tedevbiouser = ["posmOID":enterEmi,
-                        "posmuNime":"No name",
+                        "hiroNlmer":"No name",
                        
                         "posmuBlance":"0"]
            
@@ -310,7 +326,7 @@ extension HiRoHandNEmialPicdert{
             statuslbl?.removeFromSuperview()
             HiRoHandPicdert.createappdemoingPOSM()
             self.addlayert(textCon: isCreate ? "Create account successful!" : "Welcom!",controller: self,textColor: 1)
-            
+            self.view.endEditing(true)
         }))
     }
 }

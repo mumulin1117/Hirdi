@@ -7,10 +7,14 @@
 import SwiftyStoreKit
 import UIKit
 import IQKeyboardManager
+import AVFoundation
 
 
 //launch
 class HiRoHandPicdert: UIViewController {
+    
+    static var chacheImage:Dictionary<String,UIImage> = Dictionary<String,UIImage>()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +59,18 @@ class HiRoHandPicdert: UIViewController {
       
        if let pose = try? PropertyListSerialization.propertyList(from: infolistdi, options: [], format: nil) as? [[String: String]]  {
            AppDelegate.totalinguseindi = pose
+           
+           AppDelegate.totalinguseindi.forEach { igjiii in
+               if let videlinkg = igjiii["hiroCamera_videws"]?.components(separatedBy: "@@@").first ,
+                  let videoURL = Bundle.main.url(forResource: videlinkg, withExtension: "mp4"){
+                   self.getThumbnail(from: videoURL) { viideoomage in
+                      
+                       self.chacheImage[videlinkg] = viideoomage
+                   }
+               }
+           }
+           
+          
        }
       let ingforuser = UserDefaults.standard.object(forKey: "logeduserhiedIndj") != nil
        if ingforuser {
@@ -65,6 +81,8 @@ class HiRoHandPicdert: UIViewController {
                AppDelegate.magiehangiconseindi = UIImage(named: "LOGOxloainjgf")!
                AppDelegate.lobveMeguseindi = Set(AppDelegate.totalinguseindi.prefix(1))
                AppDelegate.melobveeMeguseindi = Set(AppDelegate.totalinguseindi.suffix(1))
+               AppDelegate.magiehangiconseindi = UIImage(named: "lodemoUer")!
+               
                return
            }
            
@@ -73,5 +91,30 @@ class HiRoHandPicdert: UIViewController {
            ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = HiRoHandNEmialPicdert.init()
        }
    }
+    
+   class func getThumbnail(from url: URL, completion: @escaping (UIImage?) -> Void) {
+        let asset = AVAsset(url: url)
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+        imageGenerator.appliesPreferredTrackTransform = true // 修正视频方向
+        
+        // 获取第 0 秒的缩略图（视频开头）
+        let time = CMTime(seconds: 0, preferredTimescale: 1)
+        
+        imageGenerator.generateCGImagesAsynchronously(forTimes: [NSValue(time: time)]) { _, cgImage, _, _, error in
+            if let error = error {
+               
+                completion(nil)
+                return
+            }
+            
+            if let cgImage = cgImage {
+                let thumbnail = UIImage(cgImage: cgImage)
+                completion(thumbnail)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+
 
 }
