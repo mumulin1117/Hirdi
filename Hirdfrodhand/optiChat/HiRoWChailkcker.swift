@@ -2,14 +2,23 @@
 //  HiRoWChailkcker.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/20.
+//  Created by Hirdfrodhand on 2025/3/20.
 //
 
 import UIKit
 import MJRefresh
 
+
+
+
+
 class HiRoWChailkcker: HolePicdwei,UICollectionViewDelegate,UICollectionViewDataSource, HirdMChatHeaderViewDelegate {
    
+    var exsistDilog:[ChatConversation]{
+        ConVerSationLisrMan.shared.conversations.filter { ChatConversation in
+            ChatConversation.listMessage.count > 0
+        }
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -18,7 +27,7 @@ class HiRoWChailkcker: HolePicdwei,UICollectionViewDelegate,UICollectionViewData
     
     //顶部user点击
     func didPicjTopuser(offline: Dictionary<String, String>) {
-        
+        self.navigationController?.pushViewController(ConVUserCekaioTxker.init(shouleinger: offline), animated: true) 
     }
     
     
@@ -40,25 +49,31 @@ class HiRoWChailkcker: HolePicdwei,UICollectionViewDelegate,UICollectionViewData
         
     }
     
-    var superGert:Array<Dictionary<String,String>> = []
-    
+//    var superGert:Array<Dictionary<String,String>> = []
+//    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.superGert.count
+        self.exsistDilog.count
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //聊天详情
+        let Converds = ConVerSationIntgeoij.init(shouleinger: self.exsistDilog[indexPath.row])
+        self.navigationController?.pushViewController(Converds, animated: true)
     }
     
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let igjiii = self.superGert[indexPath.row]
+        let igjiii = self.exsistDilog[indexPath.row]
         
         let GestureMaster = collectionView.dequeueReusableCell(withReuseIdentifier: "HirdMMeassgecello", for: indexPath) as! HirdMMeassgecello
-        GestureMaster.cormaneHo.image = UIImage(named: igjiii["hiroDamicImage"] ?? "")
+        GestureMaster.cormaneHo.image = UIImage(named: igjiii.diploagUser["hiroPociture"] ?? "")
 //        GestureMaster.cormaneHo.image = UIImage(named: igjiii["hiroPociture"] ?? "")
-//        GestureMaster.poonetLabe.text =  igjiii["hiroNlmer"]
+        GestureMaster.poonetLabe.text =  igjiii.diploagUser["hiroNlmer"]
+        GestureMaster.puintEnterLabl.text = igjiii.listMessage.first?.meaage
+        
+        GestureMaster.timwlasttEnterLabl.text = igjiii.listMessage.first?.timeDate
+        
 //        GestureMaster.dympictLabe.text =  igjiii["hiroDamicTitle"]
 //        GestureMaster.paoiseAiHird.isSelected = (igjiii["hiroifprize"] == "hhhh")
 //        

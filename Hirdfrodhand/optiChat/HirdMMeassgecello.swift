@@ -2,7 +2,7 @@
 //  HirdMMeassgecello.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/21.
+//  Created by Hirdfrodhand on 2025/3/21.
 //
 
 import UIKit
@@ -57,7 +57,7 @@ class HirdMMeassgecello: UICollectionViewCell {
         contentView.addSubview(timwlasttEnterLabl)
         timwlasttEnterLabl.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(14)
-            make.top.equalTo(cormaneHo.snp.bottom)
+            make.top.equalTo(cormaneHo.snp.top)
         }
         
     }

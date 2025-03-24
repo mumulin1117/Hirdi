@@ -2,7 +2,7 @@
 //  HiRoHandPicdert.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/20.
+//  Created by Hirdfrodhand on 2025/3/20.
 //
 import SwiftyStoreKit
 import UIKit
@@ -77,10 +77,9 @@ class HiRoHandPicdert: UIViewController {
            
            ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = HiRoHandBarPicdert()
            let curentuser = UserDefaults.standard.object(forKey: "logeduserhiedIndj") as? [String:String]
-           if curentuser?["posmOID"] == "hirdi@gmail.com" {
+           if curentuser?["hiroUID"] == "hirdi@gmail.com" {
                AppDelegate.magiehangiconseindi = UIImage(named: "LOGOxloainjgf")!
-               AppDelegate.lobveMeguseindi = Set(AppDelegate.totalinguseindi.prefix(1))
-               AppDelegate.melobveeMeguseindi = Set(AppDelegate.totalinguseindi.suffix(1))
+              
                AppDelegate.magiehangiconseindi = UIImage(named: "lodemoUer")!
                
                return

@@ -2,7 +2,7 @@
 //  HiRoHandNAvigationPicdert.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/20.
+//  Created by Hirdfrodhand on 2025/3/20.
 //
 
 import UIKit
@@ -22,7 +22,14 @@ class HiRoHandNAvigationPicdert: UINavigationController {
         navigationBar.compactAppearance = appearance
     }
     
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+     
+        if children.count > 0  && !viewController.isMember(of:HiRoHRalFllaterPicdert.self) {
+            viewController.hidesBottomBarWhenPushed = true
+        }
 
+        super.pushViewController(viewController, animated: false)
+    }
    
 
 }
@@ -43,9 +50,29 @@ class HolePicdwei: UIViewController {
 class HiRoHRalFllaterPicdert: UIViewController {
     var moreType:Int = 0//0动态 1AI 2用户相关
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if moreType == 2 {
+            NotificationCenter.default.addObserver(self, selector: #selector(backButtonTapped), name: NSNotification.Name.init("delelUsertHIRDI"), object: nil)
+        }
+        
+        if moreType > 2 {
+            if let reportbuuton = view.viewWithTag(11) {
+                reportbuuton.isHidden = true
+            }
+        }
+       
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        if let image = UIImage(named: "hanfledance") {
+               
+            view.layer.contents = image.cgImage
+            // 设置内容模式（可选）
+            view.layer.contentsGravity = .resizeAspectFill
+        }
         let backButton = UIBarButtonItem(
             image: UIImage(named: "biuyck")?.withRenderingMode(.alwaysOriginal),
             style: .plain,
@@ -55,7 +82,8 @@ class HiRoHRalFllaterPicdert: UIViewController {
         backButton.tag = 10
         navigationItem.leftBarButtonItem = backButton
                
-               
+            
+        
         // 举报按钮配置
         let reportButton = UIBarButtonItem(
             image: UIImage(named: "repowedgink")?.withRenderingMode(.alwaysOriginal),
@@ -90,13 +118,9 @@ class HiRoHRalFllaterPicdert: UIViewController {
     }
     
     func updateAllItemBackButton(hiddenBack: Bool,hiddenReport:Bool) {
-        if let reportbuuton = view.viewWithTag(11) {
-            reportbuuton.isHidden = hiddenReport
-        }
+        self.navigationItem.rightBarButtonItem?.isHidden = hiddenReport
         
-        if let backbuuton = view.viewWithTag(10) {
-            backbuuton.isHidden = hiddenBack
-        }
+        self.navigationItem.leftBarButtonItem?.isHidden = hiddenBack
     }
     
     

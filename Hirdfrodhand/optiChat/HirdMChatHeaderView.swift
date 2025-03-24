@@ -2,7 +2,7 @@
 //  HirdMChatHeaderView.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/21.
+//  Created by Hirdfrodhand on 2025/3/21.
 //
 
 import UIKit
@@ -10,12 +10,13 @@ protocol HirdMChatHeaderViewDelegate {
     func didPicjTopuser(offline:Dictionary<String,String>)
 }
 
+
 class HirdMChatHeaderView: UICollectionReusableView,UICollectionViewDelegate,UICollectionViewDataSource {
     var delefeGater:HirdMChatHeaderViewDelegate?
     
     
     var superGert:Array<Dictionary<String,String>>{
-        AppDelegate.totalinguseindi.shuffled()
+        AppDelegate.totalinguseindi
         
     }
     

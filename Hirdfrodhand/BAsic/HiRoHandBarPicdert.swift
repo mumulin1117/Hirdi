@@ -2,7 +2,7 @@
 //  HiRoHandBarPicdert.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/20.
+//  Created by Hirdfrodhand on 2025/3/20.
 //
 
 import UIKit
@@ -13,7 +13,7 @@ class HiRoHandBarPicdert: UITabBarController {
         let hiro = UITabBarAppearance()
         
         
-
+      
         setupTabBarBackground()
        
       

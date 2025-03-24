@@ -2,7 +2,7 @@
 //  HirdMVideoAhuCell.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/21.
+//  Created by Hirdfrodhand on 2025/3/21.
 //
 
 import UIKit

@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/20.
+//  Created by Hirdfrodhand on 2025/3/20.
 //
 
 import UIKit
@@ -11,8 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     static var totalinguseindi = Array<Dictionary<String,String>>()
-    static var lobveMeguseindi = Set<Dictionary<String,String>>()
-    static var melobveeMeguseindi = Set<Dictionary<String,String>>()
+
     static var magiehangiconseindi:UIImage = UIImage(named: "LOGOxloainjgf")!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -27,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //是否已经下载过app
          if UserDefaults.standard.bool(forKey: "dpownedThisB") == false {
              //设置test账号
-             let tedevbiouser = ["posmOID":"hirdi@gmail.com",
+             let tedevbiouser = ["hiroUID":"hirdi@gmail.com",
                           "hiroNlmer":"Veiren",
                          
                           "hiroBlance":"10",
