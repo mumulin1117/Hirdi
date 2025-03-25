@@ -41,19 +41,26 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
    
     //camera
     @objc func startGestureChallenge()  {
-        
+        self.navigationController?.pushViewController(ConVShareDmITxker.init(), animated: true)
         
     }
     
     //AI
     @objc func analyzeAIFeedback()  {
         
-        
+        self.navigationController?.pushViewController(ConVPAdviceAITxker.init(), animated: true)
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
     
     //Record
     @objc func startRecordcealTime()  {

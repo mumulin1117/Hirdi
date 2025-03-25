@@ -7,7 +7,7 @@
 
 import UIKit
 import AVFoundation
-
+//create
 class ConVPBesginRecoerdreTxker: HiRoHRalFllaterPicdert ,UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     private var isAddPictureL:Bool = false
     
@@ -47,6 +47,8 @@ class ConVPBesginRecoerdreTxker: HiRoHRalFllaterPicdert ,UINavigationControllerD
         
         guard let enterEmi = emikiolTexfield.text?.trimmingCharacters(in: .whitespaces).lowercased(),
                let enterkepasw = estaimterTexfield.text?.trimmingCharacters(in: .whitespaces) else {
+            self.addlayert(textCon: "Please enter all content", controller: self,textColor: 2)
+            
              return
          }
          
