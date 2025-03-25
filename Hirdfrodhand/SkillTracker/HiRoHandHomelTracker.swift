@@ -30,28 +30,34 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
             let protalHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "hoayiHeader", for: indexPath) as! HirdCollectionPyousableView
             
             protalHeader.cameraPayHird.addTarget(self, action: #selector(startGestureChallenge), for: .touchUpInside)
-            protalHeader.cameraPayHird.addTarget(self, action: #selector(analyzeAIFeedback), for: .touchUpInside)
+            protalHeader.choreAiHird.addTarget(self, action: #selector(analyzeAIFeedback), for: .touchUpInside)
             
-            protalHeader.cameraPayHird.addTarget(self, action: #selector(competeInRealTime), for: .touchUpInside)
+            protalHeader.daceRecordAiHird.addTarget(self, action: #selector(startRecordcealTime), for: .touchUpInside)
            
             return protalHeader
         }
         return UICollectionReusableView()
     }
+   
     //camera
     @objc func startGestureChallenge()  {
         
         
     }
+    
     //AI
     @objc func analyzeAIFeedback()  {
         
         
     }
     
+    
+    
+    
+    
     //Record
-    @objc func competeInRealTime()  {
-        
+    @objc func startRecordcealTime()  {
+        self.navigationController?.pushViewController(ConVRecordertereTxker.init(), animated: true)
         
     }
     

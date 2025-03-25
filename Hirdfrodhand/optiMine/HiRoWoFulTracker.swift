@@ -42,7 +42,7 @@ class HiRoWoFulTracker: HolePicdwei {
     }()
     
     @objc func traikerSetoaskkdo()  {
-        
+        self.navigationController?.pushViewController(ConVPSasiteTxker.init(), animated: true)
     }
     //edit
     private  lazy var editiButttoen: UIButton = {
@@ -52,7 +52,7 @@ class HiRoWoFulTracker: HolePicdwei {
         return ssss
     }()
     @objc func traikerEdittoaskkdo()  {
-        
+        self.navigationController?.pushViewController(ConVPAEdioatereTxker.init(), animated: true)
     }
     lazy var abalance: UILabel = {
         let mIgub = UILabel.init()
@@ -137,10 +137,14 @@ class HiRoWoFulTracker: HolePicdwei {
        
     }
    
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
         let sudh = UserDefaults.standard.object(forKey: "logeduserhiedIndj") as? Dictionary<String,String>
         
         zhuiuaneHo.image =  AppDelegate.magiehangiconseindi
@@ -221,6 +225,8 @@ class HiRoWoFulTracker: HolePicdwei {
     let followcountLabe = UILabel.init()
    
     private func Sdafioaurorusjd()  {
+        
+        
         let vianufView = UIView.init()
         vianufView.backgroundColor = UIColor(white: 0, alpha: 0.7)
         vianufView.layer.cornerRadius = 16

@@ -95,7 +95,7 @@ class ConVUserCekaioTxker: HiRoHRalFllaterPicdert {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateAllItemBackButton(hiddenBack: true, hiddenReport: false)
+        updateAllItemBackButton(hiddenBack: false, hiddenReport: false)
         
        
         
