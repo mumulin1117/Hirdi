@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Siren
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -21,7 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = HiRoHandNAvigationPicdert.init(rootViewController: HiRoHandPicdert.init()) 
         window?.makeKeyAndVisible()
         
-        
+        let siren = Siren.shared
+        siren.rulesManager = RulesManager(
+               majorUpdateRules: .critical,      // 大版本强制更新
+               minorUpdateRules: .persistent,   // 小版本频繁提示
+               patchUpdateRules: .default,      // 补丁版本默认提示
+               revisionUpdateRules: .relaxed    // 修订版本宽松提示
+          
+        )
+        siren.wail() // 启动检测
         
         //是否已经下载过app
          if UserDefaults.standard.bool(forKey: "dpownedThisB") == false {

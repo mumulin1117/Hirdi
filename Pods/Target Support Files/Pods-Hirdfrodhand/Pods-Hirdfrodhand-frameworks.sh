@@ -176,20 +176,24 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Player/Player.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Siren/Siren.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Player/Player.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Siren/Siren.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

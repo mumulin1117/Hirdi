@@ -19,7 +19,10 @@ class HiRoWChailkcker: HolePicdwei,UICollectionViewDelegate,UICollectionViewData
             ChatConversation.listMessage.count > 0
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionViewIWei.reloadData()
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width - 17*2, height: 186 + 45 + 19 + 22 + 13)
@@ -117,7 +120,17 @@ class HiRoWChailkcker: HolePicdwei,UICollectionViewDelegate,UICollectionViewData
         }
         
         
+        NotificationCenter.default.addObserver(self, selector: #selector(regteerDataOnseve), name: NSNotification.Name.init("delelUsertHIRDI"), object: nil)
+       
     }
+    
+    @objc func regteerDataOnseve() {
+       
+      
+        self.collectionViewIWei.reloadData()
+        self.collectionViewIWei.mj_header?.endRefreshing()
+    }
+    
     
 
    

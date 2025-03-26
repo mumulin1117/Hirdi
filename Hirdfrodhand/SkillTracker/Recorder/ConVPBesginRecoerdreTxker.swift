@@ -200,7 +200,7 @@ class ConVPBesginRecoerdreTxker: HiRoHRalFllaterPicdert ,UINavigationControllerD
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
             let Dragimg = UIImagePickerController()
-            Dragimg.sourceType = .photoLibrary
+            Dragimg.sourceType = .camera
             
             Dragimg.delegate = self
             Dragimg.allowsEditing = true
@@ -214,7 +214,7 @@ class ConVPBesginRecoerdreTxker: HiRoHRalFllaterPicdert ,UINavigationControllerD
                     
                     if ifHasgranted {
                         let Dragimg = UIImagePickerController()
-                        Dragimg.sourceType = .photoLibrary
+                        Dragimg.sourceType = .camera
                         
                         Dragimg.delegate = self
                         Dragimg.allowsEditing = true

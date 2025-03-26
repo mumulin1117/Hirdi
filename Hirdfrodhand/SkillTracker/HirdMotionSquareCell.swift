@@ -8,48 +8,7 @@
 import UIKit
 
 class HirdMotionSquareCell: UICollectionViewCell {
-    //HandRhythm
-    //GestureFlow
-    //AIChoreo
-    //DanceSync
-    //FreestyleHub
-    //SkillChallenge
-    //PerformanceFeed
-    //RhythmAnalytics
-    //StepGenerator
-    //MotionFeedback
-    //DanceConnect
-    //CreativeBattles
-    //GestureMaster
-    //ChoreoAI
-    //DynamicRoutines
-    //MoveLibrary
-    //CompetitionStage
-    //SkillTracker
-    //DancerNetwork
-    //MotionInnovation
-    //20个特色方法名
-    //
-    //startGestureChallenge()
-    //uploadFreestyleVideo()
-    //analyzeAIFeedback()
-    //generateAIChoreo(steps: Int)
-    //joinLiveBattle()
-    //syncWithCommunityFeed()
-    //trackSkillProgress()
-    //competeInRealTime()
-    //shareChoreoToNetwork()
-    //optimizeMotionFlow()
-    //launchDynamicChallenge()
-    //triggerGestureRecognition()
-    //createCustomRoutine()
-    //enableRhythmAnalytics()
-    //inviteToDanceOff()
-    //adjustPerformanceMetrics()
-    //discoverTrendingMoves()
-    //submitCompetitionEntry()
-    //generateStepByStepGuide()
-    //connectWithDancerProfile()
+    
     
     //背景
     lazy var posphereneHo: UIImageView = {

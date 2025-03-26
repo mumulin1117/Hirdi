@@ -28,7 +28,7 @@ class HiRoVidertlTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionView
     //upload video
     @objc func uploVideorreChallenge()  {
         
-        
+        self.navigationController?.pushViewController(HirdUploaDanceViewConteller.init(), animated: true)
     }
     
     
@@ -40,6 +40,8 @@ class HiRoVidertlTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let Cesf = self.superGert[indexPath.row]
+        self.navigationController?.pushViewController(HirdDVideoSeePlayConteller.init(igjiii: Cesf), animated: true)
         
     }
     
@@ -124,9 +126,25 @@ class HiRoVidertlTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionView
         self.collectionViewIWei.mj_header?.beginRefreshing()
         
 
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(regteerDataOnseve), name: NSNotification.Name.init("delelUsertHIRDI"), object: nil)
+       
     }
     
-
+    @objc func regteerDataOnseve() {
+        let newrBatle = AppDelegate.totalinguseindi.filter { fsssss in
+            return fsssss["hiroCamera_videws"] != nil
+        }
+        
+        guard newrBatle.count >= 4 else {
+            self.superGert =  newrBatle
+            return
+           }
+           
+           // 随机打乱数组并取前四个元素
+        self.superGert = Array(newrBatle.prefix(4))
+      
+        self.collectionViewIWei.reloadData()
+        self.collectionViewIWei.mj_header?.endRefreshing()
+    }
     
 }

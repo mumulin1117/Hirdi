@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import PopupDialog
 class ConVPAdviceAITxker: HiRoHRalFllaterPicdert,UITextViewDelegate {
     var AllDAnceStyle:Array<UIButton> = Array<UIButton>()
     var AllDMusicStyle:Array<UIButton> = Array<UIButton>()
@@ -167,18 +167,55 @@ class ConVPAdviceAITxker: HiRoHRalFllaterPicdert,UITextViewDelegate {
             self.navigationController?.pushViewController(ConVAiGEtmITxker.init(descRequest: dokf + danceStyle + musicStyle + customStyle), animated: true)
             
         }else{
-            
-            let infulincealert = UIAlertAction(title: "Go recharge", style:.default){_ in 
-                self.navigationController?.pushViewController(ConVPanuekaioTxker.init(), animated: true)
+            let popup = PopupDialog(
+                title: "🪙 Insufficient Balance",
+                message: "This feature requires 200 diamonds to be used.\nWould you like to recharge and use it?",
+                transitionStyle: .zoomIn,  // 弹窗缩放动画
+                tapGestureDismissal: false // 禁用点击背景关闭
+            )
+            popup.view.backgroundColor = .systemBackground
+            popup.view.layer.cornerRadius = 12
+           
+
+            // 充值按钮（主操作）
+            let rechargeButton = DefaultButton(
+                title: "Go Recharge 💎",
+                height: 50,
+                action: {
+                    self.navigationController?.pushViewController(ConVPanuekaioTxker(), animated: true)
+                }
+            )
+
+            // 取消按钮（次要操作）
+            let cancelButton = CancelButton(
+                title: "Cancel",
+                height: 50,
+                action: nil
+            ) 
+
+            // 添加按钮并设置布局
+            popup.addButtons([rechargeButton, cancelButton])
+            popup.buttonAlignment = .vertical // 垂直排列按钮
+
+            // 呈现弹窗（带弹性动画）
+            present(popup, animated: true) {
+                popup.view.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5) {
+                    popup.view.transform = .identity
+                }
             }
             
-            
-            let icancekcealert = UIAlertAction(title: "Cancel", style:.default)
-            
-            let Buak = UIAlertController(title: "Insufficient Balance", message: "This feature requires 200 diamonds to be used. Would you like to recharge and use it", preferredStyle: .alert)
-            Buak.addAction(infulincealert)
-            Buak.addAction(icancekcealert)
-            self.present(Buak, animated: true)
+//            let infulincealert = UIAlertAction(title: "Go recharge", style:.default){_ in
+//                self.navigationController?.pushViewController(ConVPanuekaioTxker.init(), animated: true)
+//            }
+//            
+//            
+//            let icancekcealert = UIAlertAction(title: "Cancel", style:.default)
+//            
+//            let Buak = UIAlertController(title: "Insufficient Balance", message: "This feature requires 200 diamonds to be used. Would you like to recharge and use it", preferredStyle: .alert)
+//            Buak.addAction(infulincealert)
+//            Buak.addAction(icancekcealert)
+//            self.present(Buak, animated: true)
         }
 
        

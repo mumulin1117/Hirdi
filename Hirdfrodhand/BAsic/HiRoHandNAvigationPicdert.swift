@@ -118,9 +118,17 @@ class HiRoHRalFllaterPicdert: UIViewController {
     }
     
     func updateAllItemBackButton(hiddenBack: Bool,hiddenReport:Bool) {
-        self.navigationItem.rightBarButtonItem?.isHidden = hiddenReport
+        if #available(iOS 16.0, *) {
+            self.navigationItem.rightBarButtonItem?.isHidden = hiddenReport
+        } else {
+            // Fallback on earlier versions
+        }
         
-        self.navigationItem.leftBarButtonItem?.isHidden = hiddenBack
+        if #available(iOS 16.0, *) {
+            self.navigationItem.leftBarButtonItem?.isHidden = hiddenBack
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     

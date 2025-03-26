@@ -4,7 +4,7 @@
 //
 //  Created by mumu on 2025/3/25.
 //
-
+import PopupDialog
 import UIKit
 //设置
 class ConVPSasiteTxker: HiRoHRalFllaterPicdert {
@@ -110,12 +110,21 @@ class ConVPSasiteTxker: HiRoHRalFllaterPicdert {
     }
     
     @objc func fodeleteoutrINgtag() {
-        let alposeert = UIAlertController(
-                title: "Delete Account Permanently",
-                message: "This will immediately: \n• Erase all profile data \n• Remove active subscriptions \n• Delete chat history",
-                preferredStyle: .alert
-            )
- 
+        let popup = PopupDialog(
+            title: "Deleting Account?",
+            message: "Deleting account will delete all data associated with it, including build history and records. This action can't be undone, are you sure you wish to continue?"
+        )
+        let cancelButton = CancelButton(title: "Cancel", action: nil)
+        let deleteButton = DestructiveButton(title: "Sure") {
+            let statuslbl = self.addlayert(textCon: "Request....",controller: self,timedelay: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
+                statuslbl?.removeFromSuperview()
+                self.loadgoutrINgtag()
+                self.addlayert(textCon: "Deleted Successful!",controller: self,textColor: 1)
+                self.view.endEditing(true)
+            }))
+        }
+        
         let deleteAction = UIAlertAction(
                 title: "Sure",
                 style: .destructive) { _ in
@@ -129,11 +138,8 @@ class ConVPSasiteTxker: HiRoHRalFllaterPicdert {
                    
                     
                 }
-        alposeert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            
-        alposeert.addAction(deleteAction)
-    
-        present(alposeert, animated: true)
+        popup.addButtons([cancelButton, deleteButton])
+        present(popup, animated: true, completion: nil)
         
     }
     

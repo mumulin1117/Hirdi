@@ -7,10 +7,15 @@ target 'Hirdfrodhand' do
 
   # Pods for Hirdfrodhand
 pod "IQKeyboardManager"
-pod 'MBProgressHUD'
+
 pod "SwiftyStoreKit"
 pod 'SnapKit'
-pod 'TagListView'
+pod 'Siren'
+pod 'PopupDialog'
+
 pod 'MJRefresh'
-pod 'TagListView'
+pod "Player"
+
+
+
 end

@@ -18,8 +18,24 @@ var statusBarHeight: CGFloat {
 
 
 /// 首页
-class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionViewDataSource{
+class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionViewDataSource, HirdDuiayINmContellerDelegate{
+    func uoapfasdtecomment() {
+        regteerDataOnseve()
+    }
     
+    
+    @objc func regteerDataOnseve() {
+        guard AppDelegate.totalinguseindi.count >= 4 else {
+            self.superGert =  AppDelegate.totalinguseindi
+            return
+           }
+           
+           // 随机打乱数组并取前四个元素
+        self.superGert = Array(AppDelegate.totalinguseindi.prefix(4))
+        
+        self.collectionViewIWei.reloadData()
+    }
+  
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width - 17*2, height: 186 + 45 + 19 + 22 + 13)
@@ -55,8 +71,15 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
+        
+        
     }
     
+    
+    private func uoauddare()  {
+       
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
@@ -76,6 +99,11 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let Zhuwei = self.superGert[indexPath.row]
+        
+        let zdvc = HirdDuiayINmConteller.init(igjiii: Zhuwei)
+        zdvc.delegate = self
+        self.navigationController?.pushViewController(zdvc, animated: true)
         
     }
     
@@ -146,11 +174,12 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
         }
         
         self.collectionViewIWei.mj_header?.beginRefreshing()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(regteerDataOnseve), name: NSNotification.Name.init("delelUsertHIRDI"), object: nil)
        
     }
     
-
+   
+  
    
 
 }

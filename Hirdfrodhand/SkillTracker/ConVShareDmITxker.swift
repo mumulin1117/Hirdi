@@ -8,7 +8,10 @@
 import UIKit
 import AVFoundation
 //动态
+
+
 class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = nil
@@ -183,7 +186,7 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
                         Dragimg.allowsEditing = true
                         self.present(Dragimg, animated: true, completion: nil)
                     }else{
-                        self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+                        self.addlayert(textCon: "No Photo libary Permission!",controller: self,textColor: 2)
                     }
                     
                 }
