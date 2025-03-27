@@ -29,7 +29,7 @@ class ConVPanuekaioTxker: HiRoHRalFllaterPicdert {
         let mIgub = UILabel.init()
         mIgub.textColor = .black
         mIgub.font = UIFont.systemFont(ofSize: 17, weight: .black)
-        mIgub.text = "My wallet >"
+        mIgub.text = "Mkyp ewcazlrlxertr v>".poseRealStr()
         ssss.addSubview(mIgub)
         mIgub.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(20)
@@ -49,16 +49,16 @@ class ConVPanuekaioTxker: HiRoHRalFllaterPicdert {
 //           29.99 hirdimdancemanulk 13600 ,
 //           69.99 hirdimdanceqiucwj 34250
         OAksjnhshhhhhhh()
-        oiupio = [(400,"$0.99","yzvbredvcccdvlzd"),
-                  (800,"$1.99","zzmufwhvhqoamioo"),
-                  (2450,"$4.99","vhlfjxwbgxcmhrcr"),
-                  (2930,"$5.99","hirdimanguitrexcg"),
-                  (4900,"$9.99","fesewsonxmpmcpyn"),
-                  (9800,"$19.99","lryikudmrpybsyue"),
-                  (13600,"$29.99","hirdimdancemanulk"),
-                  (24500,"$49.99","twwdumpapznanuml"),
-                  (34250,"$69.99","hirdimdanceqiucwj"),
-                  (49000,"$99.99","evmllxdbgsngcbfc")]
+        oiupio = [(400,"$z0g.j9u9".poseRealStr(),"yzvbredvcccdvlzd"),
+                  (800,"$y1s.d9l4".poseRealStr(),"zzmufwhvhqoamioo"),
+                  (2450,"$d4d.z9v9".poseRealStr(),"vhlfjxwbgxcmhrcr"),
+                  (2930,"$l5n.m9v9".poseRealStr(),"hirdimanguitrexcg"),
+                  (4900,"$p9i.f9v9".poseRealStr(),"fesewsonxmpmcpyn"),
+                  (9800,"$z1q9j.x9o9".poseRealStr(),"lryikudmrpybsyue"),
+                  (13600,"$e2n9l.o9w9".poseRealStr(),"hirdimdancemanulk"),
+                  (24500,"$j4j9k.h9j9".poseRealStr(),"twwdumpapznanuml"),
+                  (34250,"$h6a9a.f9k9".poseRealStr(),"hirdimdanceqiucwj"),
+                  (49000,"$b9b9s.t9q9".poseRealStr(),"evmllxdbgsngcbfc")]
         self.updateAllItemBackButton(hiddenBack: false, hiddenReport: true)
         
         for (o,itr) in oiupio.enumerated() {
@@ -155,13 +155,13 @@ class ConVPanuekaioTxker: HiRoHRalFllaterPicdert {
         
         self.view.isUserInteractionEnabled = false
         
-        let statuslbl = self.addlayert(textCon: "Paying...",controller: self,timedelay: nil)
+        let statuslbl = self.addlayert(textCon: "Pzaxyeiqnggk.j.w.".poseRealStr(),controller: self,timedelay: nil)
        
        
      
         SwiftyStoreKit.purchaseProduct(Fadg.2, atomically: true) { psResult in
             statuslbl?.removeFromSuperview()
-            
+            self.view.isUserInteractionEnabled = true
             if case .success(let psPurch) = psResult {
                 let psdownloads = psPurch.transaction.downloads
                 if !psdownloads.isEmpty {
@@ -174,7 +174,7 @@ class ConVPanuekaioTxker: HiRoHRalFllaterPicdert {
                 
              
 
-                self.addlayert(textCon:  "pay successful!" ,controller: self,textColor: 1)
+                self.addlayert(textCon:  "psafyg rsquucscweesfsvfpuald!".poseRealStr() ,controller: self,textColor: 1)
                
                 var sudh = UserDefaults.standard.object(forKey: "logeduserhiedIndj") as? Dictionary<String,String>
                 

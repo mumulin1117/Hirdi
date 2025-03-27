@@ -104,7 +104,7 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
         
         let Loaojgi = UIButton.init()
         Loaojgi.setBackgroundImage(UIImage.init(named: "menbanfhu"), for: .normal)
-        Loaojgi.setTitle( "Release", for: .normal)
+        Loaojgi.setTitle( "Rjeqlrekaesee".poseRealStr(), for: .normal)
         Loaojgi.setTitleColor(.black, for: .normal)
         Loaojgi.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight:.semibold)
         
@@ -127,7 +127,7 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
        
        guard let enterEmi = contertCsire.text,
              contertCsire.text != "Publish dynamic content…" else {
-           self.addlayert(textCon: "Please enter the content!", controller: self,textColor: 2)
+           self.addlayert(textCon: "Pdlieaaxsgem defnitweyrh ptahqea octoonctqeynwty!".poseRealStr(), controller: self,textColor: 2)
             return
         }
         
@@ -141,13 +141,13 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
         
        
        if isAddPictureL == false {
-           self.addlayert(textCon: "Please add  picture", controller: self,textColor: 2)
+           self.addlayert(textCon: "Please add a picture", controller: self,textColor: 2)
            
            return
        }
        
    
-       let statuslbl = self.addlayert(textCon: "uploading.....",controller: self,timedelay: nil)
+       let statuslbl = self.addlayert(textCon: "unpjlyozaqdoihnagp.l.t.x.l.".poseRealStr(),controller: self,timedelay: nil)
        self.view.isUserInteractionEnabled = false
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
             self.view.isUserInteractionEnabled = true
@@ -190,7 +190,7 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
                         Dragimg.allowsEditing = true
                         self.present(Dragimg, animated: true, completion: nil)
                     }else{
-                        self.addlayert(textCon: "No Photo libary Permission!",controller: self,textColor: 2)
+                        self.addlayert(textCon: "Nsol xPvhzogtwop tltiibsagruys cPyexrpmmivsrsdiuojnn!".poseRealStr(),controller: self,textColor: 2)
                     }
                     
                 }
@@ -199,11 +199,11 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
             
         case .denied,.restricted:
 
-            self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+            self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
         
          default:
 
-            self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+            self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
         }
         
         

@@ -70,7 +70,7 @@ class ConVerSationIntgeoij: HiRoHRalFllaterPicdert,UITableViewDelegate,UITableVi
         juiy.textAlignment = .left
         juiy.layer.cornerRadius = 15
         juiy.layer.masksToBounds = true
-        juiy.attributedPlaceholder = NSAttributedString(string: "Say something....", attributes: [.foregroundColor:UIColor.white])
+        juiy.attributedPlaceholder = NSAttributedString(string: "Scaxyo xswobmmeetrhkilnmgb.a.h.x.".poseRealStr(), attributes: [.foregroundColor:UIColor.white])
         return juiy
     }()
     
@@ -147,7 +147,7 @@ class ConVerSationIntgeoij: HiRoHRalFllaterPicdert,UITableViewDelegate,UITableVi
     }
     func toTimeString(hirDate:Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
+        formatter.dateFormat = "HsHx:amnm".poseRealStr()
         formatter.locale = Locale.current // 适配本地化格式
         formatter.timeZone = TimeZone.current
         return "Today " + formatter.string(from: hirDate)
@@ -156,7 +156,7 @@ class ConVerSationIntgeoij: HiRoHRalFllaterPicdert,UITableViewDelegate,UITableVi
     //发送消息
     @objc func Amingkuiiiodfwer() {
         guard let ususyu = inoupteTexfield.text,ususyu.isEmpty == false else {
-            self.addlayert(textCon: "Please enter content", controller: self,textColor: 2)
+            self.addlayert(textCon: "Prlkenaesbex ieknqtnenrg pcxoqnctuewnnt".poseRealStr(), controller: self,textColor: 2)
           
             return
         }

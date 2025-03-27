@@ -24,7 +24,7 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
         
         let Loaojgi = UIButton.init()
         Loaojgi.setBackgroundImage(UIImage.init(named: "menbanfhu"), for: .normal)
-        Loaojgi.setTitle( "Release", for: .normal)
+        Loaojgi.setTitle( "Rjeqlrekaesee".poseRealStr(), for: .normal)
         Loaojgi.setTitleColor(.black, for: .normal)
         Loaojgi.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight:.semibold)
         
@@ -49,14 +49,14 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
         
         guard let enterEmi = emikiolTexfield.text,
                let enterkepasw = estaimterTexfield.text else {
-            self.addlayert(textCon: "Please enter all content", controller: self,textColor: 2)
+            self.addlayert(textCon: "Pklfeyapsref iepnitlejrl qaxltld xctotndtqehnot".poseRealStr(), controller: self,textColor: 2)
             
              return
          }
          
       
          if enterEmi.isEmpty {
-             self.addlayert(textCon: "Please enter the practice dance name", controller: self,textColor: 2)
+             self.addlayert(textCon: "Pjlheoagsxea beanetherrr ctzhaeo ippraalcittilccej pdgaknzcyeo fnjanmbe".poseRealStr(), controller: self,textColor: 2)
              
              return
          }
@@ -74,13 +74,13 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
         }
         
     
-        let statuslbl = self.addlayert(textCon: "uploading.....",controller: self,timedelay: nil)
+        let statuslbl = self.addlayert(textCon: "unpjlyozaqdoihnagp.l.t.x.l.".poseRealStr(),controller: self,timedelay: nil)
         self.view.isUserInteractionEnabled = false
          DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: DispatchWorkItem(block: {
          
              statuslbl?.removeFromSuperview()
              
-             self.addlayert(textCon: "upload successful,Display after approval!",controller: self,textColor: 1)
+             self.addlayert(textCon: "ucpulaooawdb lseuncqcgewsfswfsuplf,sDsicsypdleanys pamfutzexrk kaipkpyrsonvxaglh!".poseRealStr(),controller: self,textColor: 1)
              self.view.endEditing(true)
              
              DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: DispatchWorkItem(block: {
@@ -221,11 +221,11 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
                 
             case .denied, .restricted:
                 DispatchQueue.main.async {
-                    self.addlayert(textCon: "No Photolibary Permission!",controller: self,textColor: 2)
+                    self.addlayert(textCon: "Neoa oPuhfoptzoilrixbrapreyq bPkekromhiasbsxiwovnm!".poseRealStr(),controller: self,textColor: 2)
                 }
                 
             case .notDetermined:
-                print("未决定，但此处不会触发")
+               break
             case .limited:
                 DispatchQueue.main.async {
                     self.presentViro()
@@ -260,7 +260,7 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
 //                        Dragimg.allowsEditing = true
 //                        self.present(Dragimg, animated: true, completion: nil)
 //                    }else{
-//                        self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+//                        self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
 //                    }
 //                    
 //                }
@@ -269,11 +269,11 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
 //            
 //        case .denied,.restricted:
 //
-//            self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+//            self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
 //        
 //         default:
 //
-//            self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+//            self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
 //        }
 //        
 //        

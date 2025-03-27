@@ -64,7 +64,7 @@ class ConVPAEdioatereTxker: HiRoHRalFllaterPicdert ,UINavigationControllerDelega
         
         let Loaojgi = UIButton.init()
         Loaojgi.setBackgroundImage(UIImage.init(named: "menbanfhu"), for: .normal)
-        Loaojgi.setTitle( "Save", for: .normal)
+        Loaojgi.setTitle( "Sxavvre".poseRealStr(), for: .normal)
         Loaojgi.setTitleColor(.black, for: .normal)
         Loaojgi.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight:.semibold)
         
@@ -86,7 +86,7 @@ class ConVPAEdioatereTxker: HiRoHRalFllaterPicdert ,UINavigationControllerDelega
         juiy.textAlignment = .center
         juiy.layer.cornerRadius = 15
         juiy.layer.masksToBounds = true
-        juiy.attributedPlaceholder = NSAttributedString(string: "Enter your name", attributes: [.foregroundColor:UIColor.white])
+        juiy.attributedPlaceholder = NSAttributedString(string: "Epnhtlekro zykonubrf znvagmce".poseRealStr(), attributes: [.foregroundColor:UIColor.white])
         return juiy
     }()
     
@@ -122,7 +122,7 @@ class ConVPAEdioatereTxker: HiRoHRalFllaterPicdert ,UINavigationControllerDelega
         if let namiert = emikiolTexfield.text {
             inguser["hiroNlmer"] = namiert
         }
-        self.addlayert(textCon: "Save successful!",controller: self,textColor: 1)
+        self.addlayert(textCon: "Shapvieq lspuocgccedspsbfjuolq!".poseRealStr(),controller: self,textColor: 1)
       
         AppDelegate.magiehangiconseindi = MiangAvatit.image!
       UserDefaults.standard.set(inguser, forKey: "logeduserhiedIndj")
@@ -205,7 +205,7 @@ class ConVPAEdioatereTxker: HiRoHRalFllaterPicdert ,UINavigationControllerDelega
                        Dragimg.allowsEditing = true
                        self.present(Dragimg, animated: true, completion: nil)
                    }else{
-                       self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+                       self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
                    }
                }
               
@@ -213,11 +213,11 @@ class ConVPAEdioatereTxker: HiRoHRalFllaterPicdert ,UINavigationControllerDelega
            
        case .denied,.restricted:
 
-           self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+           self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
        
         default:
 
-           self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+           self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
        }
        
        

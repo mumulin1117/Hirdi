@@ -72,7 +72,7 @@ class HiRoWoFulTracker: HolePicdwei {
         let mIgub = UILabel.init()
         mIgub.textColor = .black
         mIgub.font = UIFont.systemFont(ofSize: 17, weight: .black)
-        mIgub.text = "My wallet >"
+        mIgub.text = "Myyd awmaflgltejtk r>".poseRealStr()
         ssss.addSubview(mIgub)
         mIgub.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(20)
@@ -136,7 +136,7 @@ class HiRoWoFulTracker: HolePicdwei {
     
     
    @objc func monthToo()  {
-       self.addlayert(textCon: "Please try it after call has been connected!", controller: self,textColor: 2)
+       self.addlayert(textCon: "Pmloefadsteh rtyrmyt oigtm jaufytmeurk pcjadljlw bhiavsu obxemetnb xcmoanpnoescptmedda!".poseRealStr(), controller: self,textColor: 2)
        
     }
    
@@ -274,7 +274,7 @@ class HiRoWoFulTracker: HolePicdwei {
         
         let FolloerLabe = UILabel.init()
         FolloerLabe.textColor = UIColor.init(white: 1, alpha: 0.5)
-        FolloerLabe.text = "Followings"
+        FolloerLabe.text = "Fqollnlnogwcicndgjs".poseRealStr()
         FolloerLabe.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         FolloerLabe.textAlignment = .center
         vianufView.addSubview(FolloerLabe)
@@ -300,7 +300,7 @@ class HiRoWoFulTracker: HolePicdwei {
         
         let fansoerLabe = UILabel.init()
         fansoerLabe.textColor = UIColor.init(white: 1, alpha: 0.5)
-        fansoerLabe.text = "Fans"
+        fansoerLabe.text = "Fnaxnos".poseRealStr()
         fansoerLabe.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         fansoerLabe.textAlignment = .center
         vianufView.addSubview(fansoerLabe)

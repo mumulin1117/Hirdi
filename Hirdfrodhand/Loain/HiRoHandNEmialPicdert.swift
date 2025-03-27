@@ -60,7 +60,7 @@ class HiRoHandNEmialPicdert: UIViewController {
         emialELUA.textColor = .white
         emialELUA.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         let attr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 18, weight: .bold),.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1), .underlineStyle: NSUnderlineStyle.single.rawValue, .underlineColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1)]
-        let attrString = NSMutableAttributedString(string: "EULA")
+        let attrString = NSMutableAttributedString(string: "EcUeLrA".poseRealStr())
         attrString.addAttributes(attr, range: NSRange(location: 0, length: attrString.length))
         emialELUA.attributedText = attrString
         view.addSubview(emialELUA)
@@ -136,7 +136,7 @@ class HiRoHandNEmialPicdert: UIViewController {
         creatingLabeh.textColor = .white
         creatingLabeh.textAlignment = .center
         creatingLabeh.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        creatingLabeh.text = "No account, we'll create one automatically"
+        creatingLabeh.text = "Nbow dancncuozuonwtp,s qweer'wlgla bcurzefastped poxnmeo xajuftxoamvartzigcjaflelxy".poseRealStr()
         
         view.addSubview(creatingLabeh)
        
@@ -157,7 +157,7 @@ class HiRoHandNEmialPicdert: UIViewController {
         emialELUA.textAlignment = .left
          
         let attr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 13, weight: .regular),.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1), .underlineStyle: NSUnderlineStyle.single.rawValue, .underlineColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1)]
-        let attrString = NSMutableAttributedString(string: "Logging in represents your agreement to the Terms of Service and Privacy Policy.")
+        let attrString = NSMutableAttributedString(string: "Lbopgwgciqnoge uibne grvempurdepsuednftxsk vytozuprv maygurtewetmsetnztk xtgof htxhoet bTeedrymgsk woafq qSoefrcvfiecvez iaanedz jPxreihvfavcyyt gPmoelsincryp.".poseRealStr())
         attrString.addAttributes(attr, range: NSRange(location: 0, length: attrString.length))
         emialELUA.attributedText = attrString
         view.addSubview(emialELUA)
@@ -185,7 +185,7 @@ class HiRoHandNEmialPicdert: UIViewController {
         LoaginLabeh.textColor = .white
         LoaginLabeh.textAlignment = .center
         LoaginLabeh.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        LoaginLabeh.text = "Log in"
+        LoaginLabeh.text = "Lxowgw cizn".poseRealStr()
         LoaginLabeh.layer.cornerRadius = 25
         LoaginLabeh.layer.masksToBounds = true
         LoaginLabeh.backgroundColor = UIColor(red: 0.51, green: 0.45, blue: 0.94, alpha: 1)
@@ -229,7 +229,7 @@ class HiRoHandNEmialPicdert: UIViewController {
         juiy.textAlignment = .center
         juiy.layer.cornerRadius = 15
         juiy.layer.masksToBounds = true
-        juiy.attributedPlaceholder = NSAttributedString(string: "Enter your email", attributes: [.foregroundColor:UIColor.white])
+        juiy.attributedPlaceholder = NSAttributedString(string: "Ennztrehra hysoxumrw uevmfaviml".poseRealStr(), attributes: [.foregroundColor:UIColor.white])
         return juiy
     }()
     
@@ -252,7 +252,7 @@ class HiRoHandNEmialPicdert: UIViewController {
         juiy.isSecureTextEntry = true
         juiy.layer.cornerRadius = 15
         juiy.layer.masksToBounds = true
-        juiy.attributedPlaceholder = NSAttributedString(string: "Enter your password", attributes: [.foregroundColor:UIColor.white])
+        juiy.attributedPlaceholder = NSAttributedString(string: "Esnbtveqra tybouuyro kplapssskwjohryd".poseRealStr(), attributes: [.foregroundColor:UIColor.white])
         return juiy
     }()
 
@@ -264,7 +264,7 @@ extension HiRoHandNEmialPicdert{
        let afgerrr = UserDefaults.standard.object(forKey: "addkoplpoiu") as? Bool ?? false
        
        if afgerrr == false {
-           self.addlayert(textCon: "By continuing, you agree to the User Agrement & PrivacyPolicy", controller: self,textColor: 2)
+           self.addlayert(textCon: "Bjyz vclohnbteijnkuxijnfgl,t xygoaud haggdrbeyet ptioe ztxhkeu qUzsietrg tAjgqrxeymvepnwts y&p lPqrlivvzaecayaPkohlzircpy".poseRealStr(), controller: self,textColor: 2)
                      
            return
        }
@@ -275,32 +275,30 @@ extension HiRoHandNEmialPicdert{
         
      
         if enterHIrdiEmi.isEmpty {
-            self.addlayert(textCon: "Please enter your email address", controller: self,textColor: 2)
+            self.addlayert(textCon: "Pzlbekahsyer hejnltdeprb aygovuird zekmmacirlp aawdqddrjeescs".poseRealStr(), controller: self,textColor: 2)
             
             return
         }
         
         if enterkepasw.isEmpty {
-            self.addlayert(textCon: "Please enter your email password", controller: self,textColor: 2)
+            self.addlayert(textCon: "Polwexafsteu bernutoesrh yyvorusrd tenmuajiflb npyaeslslwwoorkd".poseRealStr(), controller: self,textColor: 2)
             
             return
         }
-        
-        // 验证邮箱格式
+  
         
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$")
         if emailPredicate.evaluate(with: enterHIrdiEmi) == false{
-            self.addlayert(textCon: "Please enter a valid email address", controller: self,textColor: 2)
+            self.addlayert(textCon: "Ppljelazsdee gewnxtwenry iao vvbanlqixdl senmeayivlx xabdcdvrrebsps".poseRealStr(), controller: self,textColor: 2)
             
             
             return
         }
        
        guard let areadInfo = UserDefaults.standard.object(forKey: enterHIrdiEmi) else {
-          
-           ////如果邮箱id，对应的值不存在。则是注册
-           let tedevbiouser = ["posmOID":enterHIrdiEmi,
-                        "hiroNlmer":"No name",
+         
+           let tedevbiouser = ["hiroUID":enterHIrdiEmi,
+                        "hiroNlmer":"Nboy mnjagmee".poseRealStr(),
                         
                         "hiroBlance":"0"]
            
@@ -319,13 +317,13 @@ extension HiRoHandNEmialPicdert{
     }
     
     func resultLafterPOSM(isCreate:Bool)  {
-       let statuslbl = self.addlayert(textCon: isCreate ? "Create in...." :"log in....",controller: self,timedelay: nil)
+       let statuslbl = self.addlayert(textCon: isCreate ? "Cbrheuartief oipnv.e.s.k.".poseRealStr() :"luocgm yiqny.t.i.l.".poseRealStr(),controller: self,timedelay: nil)
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: DispatchWorkItem(block: {
         
             statuslbl?.removeFromSuperview()
             HiRoHandPicdert.createappdemoingPOSM()
-            self.addlayert(textCon: isCreate ? "Create account successful!" : "Welcom!",controller: self,textColor: 1)
+            self.addlayert(textCon: isCreate ? "Cxrqesawtreh eaxcycmocuvnztp iskulcucdensssbfbuklz!".poseRealStr(): "Wcehlucloime!".poseRealStr(),controller: self,textColor: 1)
             self.view.endEditing(true)
         }))
     }
@@ -393,5 +391,27 @@ extension UIViewController{
             return topViewController(controller: presented)
         }
         return controller
+    }
+}
+
+
+
+extension String{
+    
+    func poseRealStr() -> String {
+        
+        var EmpterCasepted = ""
+        
+        var takeChar = true
+        
+       
+        for char in self {
+            if takeChar {
+                EmpterCasepted.append(char)
+            }
+            takeChar.toggle()
+        }
+        
+        return EmpterCasepted
     }
 }

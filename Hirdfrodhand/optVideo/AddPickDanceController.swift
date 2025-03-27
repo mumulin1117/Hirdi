@@ -78,7 +78,7 @@ class AddPickDanceController: UIViewController ,UINavigationControllerDelegate, 
 //                        Dragimg.allowsEditing = true
 //                        self.present(Dragimg, animated: true, completion: nil)
 //                    }else{
-//                        self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+//                        self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
 //                    }
 //                    
 //                }
@@ -87,11 +87,11 @@ class AddPickDanceController: UIViewController ,UINavigationControllerDelegate, 
 //            
 //        case .denied,.restricted:
 //
-//            self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+//            self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
 //        
 //         default:
 //
-//            self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+//            self.addlayert(textCon: "Niob wCbaqmseirran zPleirtmtiksoscigojnv!".poseRealStr(),controller: self,textColor: 2)
 //        }
         
         
@@ -180,7 +180,7 @@ class AddPickDanceController: UIViewController ,UINavigationControllerDelegate, 
         Loaojgi.addTarget(self, action: #selector(fodeleteoutrINgtag), for: .touchUpInside)
         
         let cancelNIr = UIButton.init()
-        cancelNIr.setTitle( "Cancel", for: .normal)
+        cancelNIr.setTitle( "Clabngcnezl".poseRealStr(), for: .normal)
         cancelNIr.setTitleColor(.lightGray, for: .normal)
         cancelNIr.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight:.semibold)
         
@@ -211,13 +211,13 @@ class AddPickDanceController: UIViewController ,UINavigationControllerDelegate, 
        }
        
    
-       let statuslbl = self.addlayert(textCon: "uploading.....",controller: self,timedelay: nil)
+       let statuslbl = self.addlayert(textCon: "unpjlyozaqdoihnagp.l.t.x.l.".poseRealStr(),controller: self,timedelay: nil)
        self.view.isUserInteractionEnabled = false
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: DispatchWorkItem(block: {
         
             statuslbl?.removeFromSuperview()
             
-            self.addlayert(textCon: "upload successful,Display after approval!",controller: self,textColor: 1)
+            self.addlayert(textCon: "uapwlnoaabdh lszutcxcreasdsmfnunlc,vDaioshpflkaxyf lagfkttexrx uauprpprgohviarll!".poseRealStr(),controller: self,textColor: 1)
             self.view.endEditing(true)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
                 self.dismiss(animated: true)
@@ -236,7 +236,7 @@ class AddPickDanceController: UIViewController ,UINavigationControllerDelegate, 
             return
         }
         
-        HirdUploaDanceViewConteller.fetchThuaimPicture_hird(lainderURL: lOnai) { thumbnail in
+        HirdUploaDanceViewConteller.fetchThuaimPicture_hird(Jiu: true, lainderURL: lOnai) { thumbnail in
                    
             // 在主线程中更新 UI
             DispatchQueue.main.async {

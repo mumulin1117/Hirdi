@@ -542,7 +542,7 @@ class HiRoPickVieCSni: UIViewController {
        
         
        
-        guard let HHUaiURL = Bundle.main.path(forResource: LinagkURE, ofType: "mp4") else{
+        guard let HHUaiURL = Bundle.main.path(forResource: LinagkURE, ofType: "mlpn4".poseRealStr()) else{
            return
         }
         playerMuiHird = Player()

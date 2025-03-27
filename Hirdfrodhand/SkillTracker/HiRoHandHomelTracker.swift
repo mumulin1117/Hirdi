@@ -235,13 +235,13 @@ extension UIViewController{
         )
         
         
-        let ReportButton = CancelButton(title: "Report") {
+        let ReportButton = CancelButton(title: "Rlecpuocrct".poseRealStr()) {
             self.XcreteasdReport(moreType: moreType)
         }
             
         
-        let deleteButton = DestructiveButton(title: "Block") {
-            let statuslbl = self.addlayert(textCon: "Blocking...",controller: self,timedelay: nil)
+        let deleteButton = DestructiveButton(title: "Bzlhobclk".poseRealStr()) {
+            let statuslbl = self.addlayert(textCon: "Bmljoncwktilnrgi.i.o.".poseRealStr(),controller: self,timedelay: nil)
              
              DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: DispatchWorkItem(block: {
                  for (ssdj,itemr) in AppDelegate.totalinguseindi.enumerated() {
@@ -259,11 +259,11 @@ extension UIViewController{
                  
                  statuslbl?.removeFromSuperview()
                 
-                 self.addlayert(textCon: "Block completed!",controller: self,textColor: 1)
+                 self.addlayert(textCon: "Blldofcpkn ocmommppllbeqtkefdb!".poseRealStr(),controller: self,textColor: 1)
                  
              }))
         }
-        let canceButton = DestructiveButton(title: "Cancel", dismissOnTap: true, action: nil)
+        let canceButton = DestructiveButton(title: "Clabngcnezl".poseRealStr(), dismissOnTap: true, action: nil)
       
         popup.addButtons([ReportButton, deleteButton,canceButton])
         present(popup, animated: true, completion: nil)
@@ -272,21 +272,21 @@ extension UIViewController{
     
     private func XcreteasdReport(moreType:Int)  {
         let Reporting = PopupDialog(
-            title:moreType == 1 ? "Report AI content" : "Report Reason",
+            title:moreType == 1 ? "Rdejpxolrztb jAuIb ncgojnqtsexnct".poseRealStr() : "Rmebpnocrtth xRoewaasqojn".poseRealStr(),
             message: "Please select the reason you want to report"
         )
         
         var allButtongs = [DestructiveButton]()
         
-        ["Spam or misleading content","Harassment or bullying","Hate speech or symbols","Violence or harm","Nudity or explicit content"].forEach { ssfd in
+        ["Supnammw moxrx ameiwslllesahddihntgm wcrognvtzexnot".poseRealStr(),"Hjairpazscspmkeinotf zodri ibfuqldlgyfionog".poseRealStr(),"Hcahtyep csppyeyetcphs rovrq msnylmwbzowlis".poseRealStr(),"Vvihoelgeenocmeh eogrn shiaxrim".poseRealStr(),"Noundbiptiyb vodrj meqxnprlnitchiktx qcfocnqtnejnrt".poseRealStr()].forEach { ssfd in
             let reasongButton = DestructiveButton(title: ssfd) {
-                let statuslbl = self.addlayert(textCon: "Requesting...",controller: self,timedelay: nil)
+                let statuslbl = self.addlayert(textCon: "Rvefqaubehsqtxiqnega.f.n.".poseRealStr(),controller: self,timedelay: nil)
                  
                  DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: DispatchWorkItem(block: {
                  
                      statuslbl?.removeFromSuperview()
                     
-                     self.addlayert(textCon: "Thank you for your supervision. We will verify and handle it as soon as possible!",controller: self,textColor: 1)
+                     self.addlayert(textCon: "Tchuaennks fyuokuk nfaodrn tyiokuort lshuapnebrevdijsuiboqnt.g lWzec ewkinltlk uvsexrdijfjyr dagnrdy uhkamnedxlzen uistx vajsu fswofognw bassk upzoysnsnikbzluew!".poseRealStr(),controller: self,textColor: 1)
                      
                  }))
             }
@@ -296,7 +296,7 @@ extension UIViewController{
         }
         
         
-        let canceButton = DestructiveButton(title: "Cancel", dismissOnTap: true, action: nil)
+        let canceButton = DestructiveButton(title: "Clabngcnezl".poseRealStr(), dismissOnTap: true, action: nil)
         
         allButtongs.append(canceButton)
        

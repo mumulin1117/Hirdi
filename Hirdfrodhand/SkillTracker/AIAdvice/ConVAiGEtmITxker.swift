@@ -36,57 +36,57 @@ class ConVAiGEtmITxker: HiRoHRalFllaterPicdert {
          
          
              
-        guard let url = URL(string: "http://www.mnbvcx3456y.xyz/talktwo/askQuestionv2") else {
+        guard let url = URL(string: "hwtetnpa:y/h/cwvwkwc.yminkbxvncxxh3d4d5q6yyb.dxbywzw/stbaeldkotxwioi/kaysdkbQduoefsoteipognavt2".poseRealStr()) else {
            
-            self.addlayert(textCon: "Invalid URL", controller: self,textColor: 2)
+            self.addlayert(textCon: "Ihnwvwaalkiqdq yUgRtL".poseRealStr(), controller: self,textColor: 2)
           
             return
         }
         var Forguesdt = URLRequest(url: url)
-        Forguesdt.httpMethod = "POST"
+        Forguesdt.httpMethod = "PeOmScT".poseRealStr()
        
         let parameters: [String: Any] = [
-            "question": descRequest,
-            "questionType": 1,
-            "eqNo": "5555"
+            "qtudetsgtpiwoyn".poseRealStr(): descRequest,
+            "qcuseesptdisosnuTjytpie".poseRealStr(): 1,
+            "eeqiNzo".poseRealStr(): "5l5u5o5".poseRealStr()
         ]
         
-        Forguesdt.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        Forguesdt.setValue("atpnpalcimcualtqiaoanp/ijaszozn".poseRealStr(), forHTTPHeaderField: "Cxoynntfefnptj-fTaylpie".poseRealStr())
         
         Forguesdt.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
-        BeginResdfiru(hirREwu:Forguesdt)
+        BeginResdfiru(hirJd:Forguesdt)
         
 
         
     }
     
     
-    func BeginResdfiru(hirREwu:URLRequest)  {
-        let statuslbl = self.addlayert(textCon: "AI Generateing...",controller: self,timedelay: nil)
+    func BeginResdfiru(hirJd:URLRequest)  {
+        let statuslbl = self.addlayert(textCon: "AtIp vGtejnrearkadtgeginnegu.u.o.".poseRealStr(),controller: self,timedelay: nil)
         
-        URLSession.shared.dataTask(with: hirREwu) { [weak self] data, response, error in
+        URLSession.shared.dataTask(with: hirJd) { [weak self] data, response, chuai in
             
             DispatchQueue.main.async {
                 self?.view.isUserInteractionEnabled = true
                 statuslbl?.removeFromSuperview()
                 
-                if let error = error {
-                    self?.addlayert(textCon: "Network error: \(error.localizedDescription)", controller: self,textColor: 2)
+                if let error = chuai {
+                    self?.addlayert(textCon: error.localizedDescription, controller: self,textColor: 2)
                     return
                 }
                 
-                guard let data = data else {
-                    self?.addlayert(textCon: "No data received", controller: self,textColor: 2)
+                guard let resueldata = data else {
+                    self?.addlayert(textCon: "Nxow odxantqax nrdemcwesisveecd".poseRealStr(), controller: self,textColor: 2)
                    
                     
                     return
                 }
               
-                if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-                   let content = json["data"] as? String {
+                if let json = try? JSONSerialization.jsonObject(with: resueldata) as? [String: Any],
+                   let content = json["dcaotoa".poseRealStr()] as? String {
                     self?.contertCsire.text = content
                 } else {
-                    self?.addlayert(textCon: "Invalid data format", controller: self,textColor: 2)
+                    self?.addlayert(textCon: "Iwnrvgadlsijdg eddamtqav nfqosrzmiabt".poseRealStr(), controller: self,textColor: 2)
                    
                    
                 }
@@ -137,7 +137,7 @@ class ConVAiGEtmITxker: HiRoHRalFllaterPicdert {
         DOg.layer.borderWidth = 1
         DOg.isScrollEnabled = true
         DOg.layer.borderColor = UIColor.red.cgColor
-        DOg.text = "Waiting result..."
+        DOg.text = "Wwaoijtciynbgm bryewsruhlmtd.c.h.".poseRealStr()
         DOg.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         return DOg
     }()

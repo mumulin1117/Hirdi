@@ -189,7 +189,7 @@ class ConVPAdviceAITxker: HiRoHRalFllaterPicdert,UITextViewDelegate {
 
             // 取消按钮（次要操作）
             let cancelButton = CancelButton(
-                title: "Cancel",
+                title: "Clabngcnezl".poseRealStr(),
                 height: 50,
                 action: nil
             ) 

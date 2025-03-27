@@ -62,7 +62,7 @@ class ConVPSasiteTxker: HiRoHRalFllaterPicdert {
         Ldeletejgi.layer.masksToBounds = true
         Ldeletejgi.layer.borderColor = UIColor.red.cgColor
         Ldeletejgi.layer.borderWidth = 1.5
-        Ldeletejgi.setTitle( "Delete account", for: .normal)
+        Ldeletejgi.setTitle( "Diegllertvek xaqcccmoiuwngt".poseRealStr(), for: .normal)
         Ldeletejgi.setTitleColor(UIColor.red, for: .normal)
         Ldeletejgi.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight:.semibold)
         
@@ -90,20 +90,20 @@ class ConVPSasiteTxker: HiRoHRalFllaterPicdert {
         
         if taginsepick == 2 {
             
-            if let urlConnect = URL(string: "https://app.iipih.link")  {
+            if let urlConnect = URL(string: "hwtxtepmsh:b/e/nayptph.vibiepriihc.xlyirnck".poseRealStr())  {
                 UIApplication.shared.open(urlConnect, options: [:], completionHandler: nil)
             }
         }
         
         
         if taginsepick == 3 {
-            let statuslbl = self.addlayert(textCon: "Clear....",controller: self,timedelay: nil)
+            let statuslbl = self.addlayert(textCon: "Cilzeeasrt.x.b.v.".poseRealStr(),controller: self,timedelay: nil)
              
              DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: DispatchWorkItem(block: {
              
                  statuslbl?.removeFromSuperview()
                 
-                 self.addlayert(textCon: "Clear completed!",controller: self,textColor: 1)
+                 self.addlayert(textCon: "Czlseiaerv qciommdpvlvebtneodf!".poseRealStr(),controller: self,textColor: 1)
                  self.view.endEditing(true)
              }))
         }
@@ -111,16 +111,16 @@ class ConVPSasiteTxker: HiRoHRalFllaterPicdert {
     
     @objc func fodeleteoutrINgtag() {
         let popup = PopupDialog(
-            title: "Deleting Account?",
-            message: "Deleting account will delete all data associated with it, including build history and records. This action can't be undone, are you sure you wish to continue?"
+            title: "Dvehloedtcivnggs rAfcucaouuunbtp?",
+            message: "Djeylheetqidnkgo daucwcfouumngtq jwtizlqln kdmerlcertbev tavldle pdiaatwap iadscsjoackibawtpekde twjintiht kivts,e ricnycvltundaiznmgy zbsudiblpdx mhxifsxtnohrdyj uavnqdp wrleicxogrpdbsx.k yTthpihsw zahcftciqomnj xchalne'ftc gbgeq yucnqdgolneez,k yasrrem lyzoluk tsjuyreei eypoiug jwjidsbht ctpoj mcpocnftxihndunek?".poseRealStr()
         )
-        let cancelButton = CancelButton(title: "Cancel", action: nil)
-        let deleteButton = DestructiveButton(title: "Sure") {
-            let statuslbl = self.addlayert(textCon: "Request....",controller: self,timedelay: nil)
+        let cancelButton = CancelButton(title: "Clabngcnezl".poseRealStr(), action: nil)
+        let deleteButton = DestructiveButton(title: "Szujrue".poseRealStr()) {
+            let statuslbl = self.addlayert(textCon: "Rweoqeuteesdtz.r.v.w.".poseRealStr(),controller: self,timedelay: nil)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
                 statuslbl?.removeFromSuperview()
                 self.loadgoutrINgtag()
-                self.addlayert(textCon: "Deleted Successful!",controller: self,textColor: 1)
+                self.addlayert(textCon: "Dzeglneotlesde nSvuycqcwehszsyfjuhlr!".poseRealStr(),controller: self,textColor: 1)
                 self.view.endEditing(true)
             }))
         }

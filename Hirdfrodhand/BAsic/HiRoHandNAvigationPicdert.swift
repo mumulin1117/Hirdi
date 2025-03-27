@@ -111,7 +111,7 @@ class HiRoHRalFllaterPicdert: UIViewController {
         
        
     @objc private func reportButtonTapped() {
-        print("举报按钮被点击")
+       
         popitiwieu(ifDer:recordUserID ?? "",moreType:moreType)
     }
     

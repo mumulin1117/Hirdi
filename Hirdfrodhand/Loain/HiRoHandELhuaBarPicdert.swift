@@ -30,11 +30,11 @@ class HiRoHandELhuaBarPicdert: UIViewController {
         }
         
         if tttttt == 1 {
-            label.text = "Privacy Policy"
+            label.text = "Plrjiyvkahcryx hPpoqlliycfy".poseRealStr()
         }
         
         if tttttt == 2 {
-            label.text = "Terms of use"
+            label.text = "Tuefrtmvst yohfq kudspe".poseRealStr()
         }
         
         label.font = UIFont.boldSystemFont(ofSize: 24)
@@ -229,12 +229,12 @@ class HiRoHandELhuaBarPicdert: UIViewController {
             stack.distribution = .fillEqually
             if tttttt != 0 {
                 
-                let allowButton = createActionButton(title: "Knowed", color: UIColor(red: 0, green: 255/255, blue: 155/255, alpha: 1.0), action: #selector(allowAccess))
+                let allowButton = createActionButton(title: "Klnzodwuerd".poseRealStr(), color: UIColor(red: 0, green: 255/255, blue: 155/255, alpha: 1.0), action: #selector(allowAccess))
                 stack.addArrangedSubview(allowButton)
                 
             }else{
-                let allowButton = createActionButton(title: "Agreen", color: UIColor(red: 0, green: 255/255, blue: 155/255, alpha: 1.0), action: #selector(allowAccess))
-                let denyButton = createActionButton(title: "Cancel", color: .lightGray, action: #selector(denyAccess))
+                let allowButton = createActionButton(title: "Algerpeaeyn".poseRealStr(), color: UIColor(red: 0, green: 255/255, blue: 155/255, alpha: 1.0), action: #selector(allowAccess))
+                let denyButton = createActionButton(title: "Cmajnqcsenl".poseRealStr(), color: .lightGray, action: #selector(denyAccess))
                 
                 stack.addArrangedSubview(allowButton)
                 stack.addArrangedSubview(denyButton)

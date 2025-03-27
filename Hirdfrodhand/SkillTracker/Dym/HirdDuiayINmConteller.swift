@@ -281,12 +281,12 @@ class HirdDuiayINmConteller: HiRoHRalFllaterPicdert {
     //发送评论
     @objc func Amingkuiiiodfwer() {
         guard let ususyu = inoupteTexfield.text,ususyu.isEmpty == false else {
-            self.addlayert(textCon: "Please enter content", controller: self,textColor: 2)
+            self.addlayert(textCon: "Pilkevawshep fegnptkefru ucrofnoteeankt".poseRealStr(), controller: self,textColor: 2)
           
             return
         }
         if igjiii["minComment"] != nil {
-            self.addlayert(textCon: "Sorry,Comments too frequent!", controller: self,textColor: 2)
+            self.addlayert(textCon: "Swokrkrsyn,oCeommnmiebngtgsr gtwouos cfsrcerqyudegngtw!".poseRealStr(), controller: self,textColor: 2)
             
             return
         }
@@ -440,7 +440,7 @@ extension HirdDuiayINmConteller{
         
       
         pohnIJMG.image = AppDelegate.magiehangiconseindi
-        NameetLabe.text = "Me"
+        NameetLabe.text = "Mke".poseRealStr()
         contacttLabe.text = igjiii["minComment"]
     }
 }

@@ -62,7 +62,7 @@ class HiRoHandPicdert: UIViewController {
            
            AppDelegate.totalinguseindi.forEach { igjiii in
                if let videlinkg = igjiii["hiroCamera_videws"]?.components(separatedBy: "@@@").first ,
-                  let videoURL = Bundle.main.url(forResource: videlinkg, withExtension: "mp4"){
+                  let videoURL = Bundle.main.url(forResource: videlinkg, withExtension: "mmpb4".poseRealStr()){
                    HirdUploaDanceViewConteller.fetchThuaimPicture_hird(Jiu: true, lainderURL: videoURL) { viideoomage in
                        
                        self.chacheImage[videlinkg] = viideoomage

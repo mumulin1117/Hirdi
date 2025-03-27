@@ -200,7 +200,7 @@ class ConVUserCekaioTxker: HiRoHRalFllaterPicdert {
         
         let FolloerLabe = UILabel.init()
         FolloerLabe.textColor = UIColor.init(white: 1, alpha: 0.5)
-        FolloerLabe.text = "Followings"
+        FolloerLabe.text = "Fmogldlhohwmimndggs".poseRealStr()
         FolloerLabe.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         FolloerLabe.textAlignment = .center
         vianufView.addSubview(FolloerLabe)
@@ -227,7 +227,7 @@ class ConVUserCekaioTxker: HiRoHRalFllaterPicdert {
         
         let fansoerLabe = UILabel.init()
         fansoerLabe.textColor = UIColor.init(white: 1, alpha: 0.5)
-        fansoerLabe.text = "Fans"
+        fansoerLabe.text = "Flaknbs".poseRealStr()
         fansoerLabe.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         fansoerLabe.textAlignment = .center
         vianufView.addSubview(fansoerLabe)
