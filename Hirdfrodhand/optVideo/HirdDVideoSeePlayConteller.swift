@@ -8,7 +8,20 @@
 import UIKit
 import Player
 /// 视频播放
-class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert {
+class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert, HirdDVideoGistntellerGibeDele {
+    
+    //礼物特效显示
+    func figtNameGiven(name: String, count: Int) {
+        self.giftContent.image = UIImage(named: name)
+        self.giftCountShing.text = "\(count)"
+        UIView.animate(withDuration: 1.0) {
+            self.backgrounfsView.frame = CGRect.init(x: 0, y: self.view.frame.height - 450, width: 280, height: 68)
+        } completion: { bgi in
+            self.backgrounfsView.frame = CGRect.init(x: 0, y: self.view.frame.height , width: 280, height: 68)
+        }
+
+    }
+    
     var igjiii:Dictionary<String,String>
     init(igjiii: Dictionary<String, String>) {
         self.igjiii = igjiii
@@ -24,24 +37,24 @@ class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert {
     deinit {
         playerMuiHird?.willMove(toParent: nil)
         
+        VackINOFo()
+        
+    }
+    private  func VackINOFo()  {
         playerMuiHird?.view.removeFromSuperview()
         playerMuiHird?.removeFromParent()
-        
     }
     
     
-    
-    func AddInitelayer()  {
+    func AddHIRDIInitelayer()  {
         playerMuiHird = Player()
         self.playerMuiHird?.playerView.playerBackgroundColor = .clear
+        
+        
         self.addChild(self.playerMuiHird!)
         
         
-        self.posphereneHo.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(chokelaterBauietus)))
-        self.posphereneHo.insertSubview(self.playerMuiHird!.view, at: 0)
-        playerMuiHird?.didMove(toParent: self)
-        playerMuiHird?.fillMode = .resizeAspectFill
-        
+        DraverDance()
        
         guard let videlinkg = igjiii["hiroCamera_videws"]?.components(separatedBy: "@@@").first ,
            let videoURL = Bundle.main.path(forResource: videlinkg, ofType: "mp4") else{
@@ -49,19 +62,17 @@ class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert {
         }
        
         
-        let urlPathname = URL(fileURLWithPath: videoURL)
+        let Hirdishname = URL(fileURLWithPath: videoURL)
         
-        
-        self.playerMuiHird?.url = urlPathname
-        
-        self.playerMuiHird?.playbackLoops = true
-        self.playerMuiHird?.playFromBeginning()
+        BeginfPlayer(urlPathname: Hirdishname)
+       
         NotificationCenter.default.addObserver(self, selector: #selector(Vafgkuo), name: NSNotification.Name.init("delelUsertHIRDI"), object: nil)
     }
     
    @objc func Vafgkuo() {
         self.navigationController?.popViewController(animated: true)
     }
+    
     
     private lazy var PlaysBuuteon: UIButton = {
         let ad = UIButton.init()
@@ -71,11 +82,29 @@ class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert {
         ad.isUserInteractionEnabled = false
         return ad
     }()
-   
+    private func DraverDance()  {
+        self.posphereneHo.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(DervEDanceWithMusidfOff)))
+        self.posphereneHo.insertSubview(self.playerMuiHird!.view, at: 0)
+        playerMuiHird?.didMove(toParent: self)
+        playerMuiHird?.fillMode = .resizeAspectFill
+        
+    }
+    
+    
+ 
+    func BeginfPlayer(urlPathname:URL)  {
+        self.playerMuiHird?.url = urlPathname
+        
+        self.playerMuiHird?.playbackLoops = true
+        
+        
+        self.playerMuiHird?.playFromBeginning()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.moreType = 0
+        self.recordUserID = igjiii["hiroUID"]
         updateAllItemBackButton(hiddenBack: false, hiddenReport: false)
         poonetLabe.textColor = .white
         dympictLabe.textColor = .white
@@ -93,8 +122,20 @@ class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert {
             make.width.height.equalTo(60)
             make.centerY.equalToSuperview().offset(-40)
         }
+        playerMuiHird = Player()
+        self.playerMuiHird?.playerView.playerBackgroundColor = .clear
+        self.addChild(self.playerMuiHird!)
         
-        AddInitelayer()
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(DervEDanceWithMusidfOff)))
+        self.view.insertSubview(self.playerMuiHird!.view, at: 0)
+        playerMuiHird?.didMove(toParent: self)
+        playerMuiHird?.fillMode = .resizeAspectFill
+        
+        
+        AddHIRDIInitelayer()
+        
+        addGiftOliainer()
     }
     
     private func startGestureChallenge() {
@@ -200,10 +241,14 @@ class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert {
         return ad
     }()
     //
-   @objc func videoPickDance() {
-        
-   
-   }
+    @objc func videoPickDance() {
+        guard let videlinkg = igjiii["hiroCamera_videws"]?.components(separatedBy: "@@@").last else{
+           return
+        }
+      let perngs =  HiRoPickVieCSni.init(LinagkURE: videlinkg)
+//        perngs.modalPresentationStyle = .overCurrentContext
+        self.present(perngs, animated: true)
+    }
     
     
     
@@ -249,7 +294,7 @@ class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert {
     //
    @objc func showGIFTuserPuple() {
        let presentVc = HirdDVideoGistnteller.init()
-       
+       presentVc.deleagte = self
        self.present(presentVc, animated: true)
    }
     
@@ -264,8 +309,10 @@ class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert {
     }()
     //
    @objc func dancePickGIFTuserPuple() {
-        
-   
+       let presentVc = AddPickDanceController.init()
+       
+       self.present(presentVc, animated: true)
+       
    }
     
     //背景
@@ -296,28 +343,254 @@ class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert {
     let dympictLabe = UILabel.init()
     
    
-   @objc func chokelaterBauietus()  {
+   @objc func DervEDanceWithMusidfOff()  {
         
+       let statusd  = playerMuiHird?.playbackState
        
        
-        switch self.playerMuiHird?.playbackState {
-        case .stopped:
-            playerMuiHird?.playFromBeginning()
-            PlaysBuuteon.isHidden = true
-          
-        case .paused:
-            playerMuiHird?.playFromCurrentTime()
-            PlaysBuuteon.isHidden = true
-        case .playing:
-            playerMuiHird?.pause()
-            PlaysBuuteon.isHidden = false
+       if statusd == .stopped {
+           
+           playerMuiHird?.playFromBeginning()
+           PlaysBuuteon.isHidden = true
+       }else if  statusd == .paused {
+           playerMuiHird?.playFromCurrentTime()
+           PlaysBuuteon.isHidden = true
+       }else {
+           HiiidengDulendenf()
+       }
+       
+//        switch self.playerMuiHird?.playbackState {
+//        case .stopped:
+//            playerMuiHird?.playFromBeginning()
+//            PlaysBuuteon.isHidden = true
+//          
+//        case .paused:
+//            playerMuiHird?.playFromCurrentTime()
+//            PlaysBuuteon.isHidden = true
+//        case .playing:
+//            HiiidengDulendenf()
+//            
+//        case .failed:
+//            HiiidengDulendenf()
+//            
+//        case .none:
+//            break
+//        }
+    }
+    func HiiidengDulendenf()  {
+        playerMuiHird?.pause()
+        PlaysBuuteon.isHidden = false
+    }
+    
+    //MARK: - 送礼特效
+    lazy var backgrounfsView: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: self.view.frame.height, width: 280, height: 68))
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    lazy var giftContent:UIImageView = {
+        let pohn = UIImageView.init()
+        pohn.contentMode = .scaleAspectFill
+       
+        return pohn
+    }()
+    
+    lazy var giftCountShing: UILabel = {
+        let sdvsdfsa = UILabel.init()
+        sdvsdfsa.text = "x 1"
+        sdvsdfsa.textColor = UIColor.init(white: 1, alpha: 1)
+        sdvsdfsa.font = UIFont.systemFont(ofSize: 24, weight: .black)
+        return sdvsdfsa
+    }()
+    
+    //送礼人头像
+    lazy var giftsendaneHo: UIImageView = {
+        let pohn = UIImageView.init()
+        pohn.contentMode = .scaleAspectFill
+        pohn.layer.cornerRadius = 21
+        pohn.layer.borderWidth =  1
+        pohn.layer.masksToBounds = true
+        pohn.layer.borderColor = UIColor.white.cgColor
+        pohn.image = AppDelegate.magiehangiconseindi
+        return pohn
+    }()
+    
+    
+    private func addGiftOliainer()  {
+        view.addSubview(backgrounfsView)
+        
+        let iamg = UIImageView(image: UIImage.init(named: "shingGiftImageview"))
+        backgrounfsView.addSubview(iamg)
+        iamg.contentMode = .scaleToFill
+        iamg.snp.makeConstraints { make in
+            make.leading.bottom.equalToSuperview()
+            make.width.equalTo(220)
+            make.height.equalTo(52)
+        }
+        
+        backgrounfsView.addSubview(giftsendaneHo)
+        giftsendaneHo.snp.makeConstraints { make in
+            make.width.height.equalTo(42)
+            make.leading.bottom.equalToSuperview()
             
-        case .failed:
-            playerMuiHird?.pause()
-            PlaysBuuteon.isHidden = false
+        }
+        let menamenba = UILabel.init()
+        menamenba.text = "ME"
+        menamenba.textColor = .white
+        menamenba.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        
+        backgrounfsView.addSubview(menamenba)
+        menamenba.snp.makeConstraints { make in
+            make.leading.equalTo(giftsendaneHo.snp.trailing).offset(10)
+            make.top.equalTo(giftsendaneHo)
+        }
+        
+        
+        let sdvsdfsa = UILabel.init()
+        sdvsdfsa.text = "Send a gift"
+        sdvsdfsa.textColor = UIColor.init(white: 0.8, alpha: 1)
+        sdvsdfsa.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        
+        backgrounfsView.addSubview(sdvsdfsa)
+        sdvsdfsa.snp.makeConstraints { make in
+            make.leading.equalTo(giftsendaneHo.snp.trailing).offset(10)
+            make.top.equalTo(menamenba.snp.bottom).offset(3)
+        }
+        
+        backgrounfsView.addSubview(giftContent)
+        giftContent.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalTo(sdvsdfsa.snp.trailing).offset(18)
+            make.width.equalTo(80)
             
-        case .none:
-            break
+        }
+        backgrounfsView.addSubview(giftCountShing)
+        giftCountShing.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(giftContent.snp.trailing).offset(12)
+        }
+        
+    }
+}
+
+
+class HiRoPickVieCSni: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        AddInitelayer()
+        
+        view.addSubview(dismiaskfni)
+        dismiaskfni.snp.makeConstraints { make in
+            make.width.height.equalTo(30)
+            make.top.trailing.equalToSuperview().inset(20)
         }
     }
+    var playerMuiHird: Player?
+    deinit {
+        playerMuiHird?.willMove(toParent: nil)
+        
+        VackINOFo()
+        
+    }
+    private func DraverDance()  {
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(DervEDanceWithMusidfOff)))
+        self.view.insertSubview(self.playerMuiHird!.view, at: 0)
+        playerMuiHird?.didMove(toParent: self)
+        playerMuiHird?.fillMode = .resizeAspectFill
+        
+    }
+    
+    private  func VackINOFo()  {
+        playerMuiHird?.view.removeFromSuperview()
+        playerMuiHird?.removeFromParent()
+    }
+    
+    lazy var dismiaskfni: UIButton = {
+        let sdismie = UIButton.init()
+        sdismie.setImage(UIImage.init(named: "dismiaojdall"), for: .normal)
+        sdismie.addTarget(self, action: #selector(OSbacji), for: .touchUpInside)
+        return sdismie
+    }()
+    
+   @objc func OSbacji()  {
+       self.dismiss(animated: true)
+    }
+    var LinagkURE:String
+    init( LinagkURE: String) {
+        
+        self.LinagkURE = LinagkURE
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required  init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private lazy var PlaysBuuteon: UIButton = {
+        let ad = UIButton.init()
+        ad.setImage(UIImage.init(named: "iconPoikio_play"), for: .normal)
+        
+        ad.isHidden = true
+        ad.isUserInteractionEnabled = false
+        return ad
+    }()
+   
+    
+    func AddInitelayer()  {
+       
+        
+       
+        guard let HHUaiURL = Bundle.main.path(forResource: LinagkURE, ofType: "mp4") else{
+           return
+        }
+        playerMuiHird = Player()
+        self.playerMuiHird?.playerView.playerBackgroundColor = .clear
+        
+        
+        self.addChild(self.playerMuiHird!)
+        DraverDance()
+        
+        let urlPathname = URL(fileURLWithPath: HHUaiURL)
+        
+        CfatirBuy(urlPathname:urlPathname)
+        
+        
+    }
+    
+    private func CfatirBuy(urlPathname:URL)  {
+        self.playerMuiHird?.url = urlPathname
+        
+        self.playerMuiHird?.playbackLoops = true
+        self.playerMuiHird?.playFromBeginning()
+    }
+    
+    
+    @objc func DervEDanceWithMusidfOff()  {
+         
+        let statusd  = playerMuiHird?.playbackState
+        
+        
+        if statusd == .stopped {
+            
+            playerMuiHird?.playFromBeginning()
+            PlaysBuuteon.isHidden = true
+        }else if  statusd == .paused {
+            playerMuiHird?.playFromCurrentTime()
+            PlaysBuuteon.isHidden = true
+        }else {
+            HiiidengDulendenf()
+        }
+            
+         
+         
+     }
+    
+    
+    func HiiidengDulendenf()  {
+        playerMuiHird?.pause()
+        PlaysBuuteon.isHidden = false
+    }
+     
 }

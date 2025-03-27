@@ -50,6 +50,7 @@ class HolePicdwei: UIViewController {
 class HiRoHRalFllaterPicdert: UIViewController {
     var moreType:Int = 0//0动态 1AI 2用户相关
     
+    var recordUserID:String?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -59,6 +60,13 @@ class HiRoHRalFllaterPicdert: UIViewController {
         }
         
         if moreType > 2 {
+            if let reportbuuton = view.viewWithTag(11) {
+                reportbuuton.isHidden = true
+            }
+        }
+        
+        
+        if moreType > 4 {
             if let reportbuuton = view.viewWithTag(11) {
                 reportbuuton.isHidden = true
             }
@@ -104,17 +112,7 @@ class HiRoHRalFllaterPicdert: UIViewController {
        
     @objc private func reportButtonTapped() {
         print("举报按钮被点击")
-        if moreType == 0 {
-            //动态
-        }
-        
-        if moreType == 1 {
-            //举报AI
-        }
-        
-        if moreType == 2 {
-            //举报和拉黑
-        }
+        popitiwieu(ifDer:recordUserID ?? "",moreType:moreType)
     }
     
     func updateAllItemBackButton(hiddenBack: Bool,hiddenReport:Bool) {

@@ -61,8 +61,23 @@ class HiRoVidertlTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionView
         }
         
          
+       
+        
+        GestureMaster.morepportAiHird.tag = indexPath.row
+        GestureMaster.morepportAiHird.addTarget(self, action: #selector(Reportuoauddare(brickID:)), for: .touchUpInside)
         return GestureMaster
         
+        
+    }
+    
+    //report
+    @objc private func Reportuoauddare(brickID:UIButton)  {
+        let igjiii = self.superGert[brickID.tag]
+        
+        
+        self.popitiwieu(ifDer: igjiii["hiroUID"] ?? "", moreType: 0)
+
+       
     }
     
     lazy var collectionViewIWei: UICollectionView = {
@@ -89,6 +104,8 @@ class HiRoVidertlTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionView
                 
                 guard newrBatle.count >= 4 else {
                     self.superGert =  newrBatle.shuffled()
+                    self.collectionViewIWei.reloadData()
+                    self.collectionViewIWei.mj_header?.endRefreshing()
                     return
                    }
                    
@@ -137,14 +154,15 @@ class HiRoVidertlTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionView
         
         guard newrBatle.count >= 4 else {
             self.superGert =  newrBatle
+            self.collectionViewIWei.reloadData()
             return
            }
            
-           // 随机打乱数组并取前四个元素
+        
         self.superGert = Array(newrBatle.prefix(4))
       
         self.collectionViewIWei.reloadData()
-        self.collectionViewIWei.mj_header?.endRefreshing()
+      
     }
     
 }

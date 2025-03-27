@@ -10,6 +10,9 @@ import Siren
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    
+    static var IfRemoveRecord:Bool = false
+    
     static var totalinguseindi = Array<Dictionary<String,String>>()
 
     static var magiehangiconseindi:UIImage = UIImage(named: "LOGOxloainjgf")!

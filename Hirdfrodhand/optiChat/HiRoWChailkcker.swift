@@ -33,13 +33,15 @@ class HiRoWChailkcker: HolePicdwei,UICollectionViewDelegate,UICollectionViewData
         self.navigationController?.pushViewController(ConVUserCekaioTxker.init(shouleinger: offline), animated: true) 
     }
     
+    private var headerViewShing:HirdMChatHeaderView?
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             let protalHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HirdMChatHeaderView", for: indexPath) as! HirdMChatHeaderView
             protalHeader.pushremote.addTarget(self, action: #selector(remotepushnRealTime), for: .touchUpOutside)
-          
+           
             protalHeader.delefeGater = self
+            headerViewShing = protalHeader
             return protalHeader
         }
         return UICollectionReusableView()
@@ -126,7 +128,7 @@ class HiRoWChailkcker: HolePicdwei,UICollectionViewDelegate,UICollectionViewData
     
     @objc func regteerDataOnseve() {
        
-      
+        headerViewShing?.collectionViewIWei.reloadData()
         self.collectionViewIWei.reloadData()
         self.collectionViewIWei.mj_header?.endRefreshing()
     }

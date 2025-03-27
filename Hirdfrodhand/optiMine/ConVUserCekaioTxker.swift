@@ -47,6 +47,8 @@ class ConVUserCekaioTxker: HiRoHRalFllaterPicdert {
     
     //动态
     @objc func oaskkdo()  {
+       
+        self.navigationController?.pushViewController(HirdDuiayINmConteller.init(igjiii: shouleinger, ismecenet: false), animated: true)
         
     }
     // name
@@ -90,11 +92,12 @@ class ConVUserCekaioTxker: HiRoHRalFllaterPicdert {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         poonetLabe.text  = shouleinger["hiroNlmer"] ?? ""
-        
+        AddusertFollowe.isSelected = (shouleinger["AddusertFollowe"] ==  "true" )
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.recordUserID = shouleinger["hiroUID"]
         updateAllItemBackButton(hiddenBack: false, hiddenReport: false)
         
        
@@ -337,10 +340,16 @@ class ConVUserCekaioTxker: HiRoHRalFllaterPicdert {
     }
     
     @objc func follaowelonijer() {
+        AddusertFollowe.isSelected = !AddusertFollowe.isSelected
+        shouleinger["AddusertFollowe"] = AddusertFollowe.isSelected ? "true" : "false"
+        
+        for (ssdj,itemr) in AppDelegate.totalinguseindi.enumerated() {
+            if itemr["hiroUID"] == shouleinger["hiroUID"] {
+                AppDelegate.totalinguseindi[ssdj] = self.shouleinger
+            }
+        }
         
     }
     
-    @objc func postlonijer() {
-        
-    }
+  
 }

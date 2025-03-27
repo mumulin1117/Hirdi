@@ -125,19 +125,7 @@ class ConVPSasiteTxker: HiRoHRalFllaterPicdert {
             }))
         }
         
-        let deleteAction = UIAlertAction(
-                title: "Sure",
-                style: .destructive) { _ in
-                    let statuslbl = self.addlayert(textCon: "Request....",controller: self,timedelay: nil)
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
-                        statuslbl?.removeFromSuperview()
-                        self.loadgoutrINgtag()
-                        self.addlayert(textCon: "Deleted Successful!",controller: self,textColor: 1)
-                        self.view.endEditing(true)
-                    }))
-                   
-                    
-                }
+        
         popup.addButtons([cancelButton, deleteButton])
         present(popup, animated: true, completion: nil)
         

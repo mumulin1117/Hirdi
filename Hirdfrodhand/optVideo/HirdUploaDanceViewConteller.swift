@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 /// 上传视频
 class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControllerDelegate, UIImagePickerControllerDelegate{
@@ -67,7 +68,7 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
          }
         
         if isAddPictureL == false {
-            self.addlayert(textCon: "Please add dance picture", controller: self,textColor: 2)
+            self.addlayert(textCon: "Please add dance video", controller: self,textColor: 2)
             
             return
         }
@@ -197,48 +198,81 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
         
     }
     
+    func presentViro()  {
+        let Dragimg = UIImagePickerController()
+        Dragimg.sourceType = .photoLibrary
+        Dragimg.mediaTypes = ["public.movie"]
+        Dragimg.delegate = self
+        Dragimg.allowsEditing = true
+        self.present(Dragimg, animated: true, completion: nil)
+    }
     @objc func sajsb() {
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .authorized:
-            let Dragimg = UIImagePickerController()
-            Dragimg.sourceType = .photoLibrary
-            Dragimg.mediaTypes = ["public.movie"]
-            Dragimg.delegate = self
-            Dragimg.allowsEditing = true
-            self.present(Dragimg, animated: true, completion: nil)
-            
-        case .notDetermined:
-           
-            AVCaptureDevice.requestAccess(for: .video) { ifHasgranted in
-                
+        PHPhotoLibrary.requestAuthorization{ status in
+            switch status {
+            case .authorized:
                 DispatchQueue.main.async {
-                    
-                    if ifHasgranted {
-                        let Dragimg = UIImagePickerController()
-                        Dragimg.sourceType = .photoLibrary
-                        Dragimg.mediaTypes = ["public.movie"]
-                        Dragimg.delegate = self
-                        Dragimg.allowsEditing = true
-                        self.present(Dragimg, animated: true, completion: nil)
-                    }else{
-                        self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
-                    }
-                    
+                    self.presentViro()
                 }
                 
+            case .denied, .restricted:
+                DispatchQueue.main.async {
+                    self.addlayert(textCon: "No Photolibary Permission!",controller: self,textColor: 2)
+                }
+                
+            case .notDetermined:
+                print("未决定，但此处不会触发")
+            case .limited:
+                DispatchQueue.main.async {
+                    self.presentViro()
+                }
+            @unknown default:
+                break
             }
-            
-        case .denied,.restricted:
-
-            self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
-        
-         default:
-
-            self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
         }
-        
-        
-     }
+    }
+    
+//    @objc func sajsb() {
+//        switch AVCaptureDevice.authorizationStatus(for: .video) {
+//        case .authorized:
+//            let Dragimg = UIImagePickerController()
+//            Dragimg.sourceType = .photoLibrary
+//            Dragimg.mediaTypes = ["public.movie"]
+//            Dragimg.delegate = self
+//            Dragimg.allowsEditing = true
+//            self.present(Dragimg, animated: true, completion: nil)
+//            
+//        case .notDetermined:
+//           
+//            AVCaptureDevice.requestAccess(for: .video) { ifHasgranted in
+//                
+//                DispatchQueue.main.async {
+//                    
+//                    if ifHasgranted {
+//                        let Dragimg = UIImagePickerController()
+//                        Dragimg.sourceType = .photoLibrary
+//                        Dragimg.mediaTypes = ["public.movie"]
+//                        Dragimg.delegate = self
+//                        Dragimg.allowsEditing = true
+//                        self.present(Dragimg, animated: true, completion: nil)
+//                    }else{
+//                        self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+//                    }
+//                    
+//                }
+//                
+//            }
+//            
+//        case .denied,.restricted:
+//
+//            self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+//        
+//         default:
+//
+//            self.addlayert(textCon: "No Camera Permission!",controller: self,textColor: 2)
+//        }
+//        
+//        
+//     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         
@@ -246,7 +280,7 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
             return
         }
         
-        fetchThuaimPicture_hird(lainderURL: lOnai) { thumbnail in
+        HirdUploaDanceViewConteller.fetchThuaimPicture_hird(lainderURL: lOnai) { thumbnail in
                    
             // 在主线程中更新 UI
             DispatchQueue.main.async {
@@ -267,7 +301,7 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
 extension HirdUploaDanceViewConteller{
     
     
-    private func fetchThuaimPicture_hird(lainderURL: URL, hirdicompletion: @escaping (UIImage?) -> Void) {
+    class func fetchThuaimPicture_hird(lainderURL: URL, hirdicompletion: @escaping (UIImage?) -> Void) {
         let uerAssetHIRDI = AVAsset(url: lainderURL)
         let reandy = AVAssetImageGenerator(asset: uerAssetHIRDI)
         reandy.appliesPreferredTrackTransform = true
@@ -276,8 +310,8 @@ extension HirdUploaDanceViewConteller{
             if let error = error {
               
                 hirdicompletion(nil)
-                self.addlayert(textCon: error.localizedDescription,controller: self,textColor: 2)
-               
+                print(error.localizedDescription)
+                
                 return
             }
             

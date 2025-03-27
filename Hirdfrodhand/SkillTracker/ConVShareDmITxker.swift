@@ -180,7 +180,7 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
                     
                     if ifHasgranted {
                         let Dragimg = UIImagePickerController()
-                        Dragimg.sourceType = .photoLibrary
+                        Dragimg.sourceType = .camera
                         
                         Dragimg.delegate = self
                         Dragimg.allowsEditing = true

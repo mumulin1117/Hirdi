@@ -19,13 +19,30 @@ class ConVRecordertereTxker: HiRoHRalFllaterPicdert {
         xf.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(OSK)))
         xf.layer.masksToBounds = true
         xf.contentMode = .scaleAspectFill
-        xf.image = UIImage.init(named: "Mineloguer_con")
+        xf.image = UIImage.init(named: "Dpnati7")
         let cornView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 146, height: 57))
         cornView.image = UIImage(named: "advafbfbsbs")
         xf.addSubview(cornView)
+        
+        let chorePayHird = UIButton.init()
+        chorePayHird.setBackgroundImage(UIImage.init(named: "repowedgink"), for: .normal)
+        
+        xf.addSubview(chorePayHird)
+        chorePayHird.snp.makeConstraints { make in
+            make.width.height.equalTo(30)
+            make.bottom.right.equalToSuperview().inset(20)
+        }
+        chorePayHird.addTarget(self, action: #selector(Reportuoauddare), for: .touchUpInside)
         return xf
     }()
-    
+    //report
+    @objc private func Reportuoauddare()  {
+        
+        
+        self.popitiwieu(ifDer: "", moreType: 4)
+
+       
+    }
     private lazy var danceNmrelabl: UILabel = {
         let mIgub = UILabel.init(frame: CGRect.init(x: 10, y: 0, width: 146, height: 47))
         mIgub.textColor = .white
@@ -44,7 +61,11 @@ class ConVRecordertereTxker: HiRoHRalFllaterPicdert {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(KAjdijijf), name: NSNotification.Name.init("delelUsertHIRDI"), object: nil)
+       
         self.moreType = 4
+        
         updateAllItemBackButton(hiddenBack: false, hiddenReport: false)
         
         let reportButton = UIBarButtonItem(
@@ -61,6 +82,10 @@ class ConVRecordertereTxker: HiRoHRalFllaterPicdert {
         let windowScene = scene as? UIWindowScene
         let window = windowScene?.windows.first
         
+        if AppDelegate.IfRemoveRecord == true {
+            UIamgn.isHidden = true
+            return
+        }
         
         IAa.contentMode = .scaleAspectFit
         view.addSubview(IAa)
@@ -79,6 +104,13 @@ class ConVRecordertereTxker: HiRoHRalFllaterPicdert {
         self.navigationController?.pushViewController(ConVPDetailRecoerreTxker.init(), animated: true)
     }
     
+    
+   @objc func KAjdijijf()  {
+       if AppDelegate.IfRemoveRecord == true {
+           UIamgn.isHidden = true
+           
+       }
+    }
   @objc  func UpaloadingRecorenow()  {
       
       

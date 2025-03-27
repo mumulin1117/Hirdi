@@ -147,7 +147,7 @@ class ConVPAdviceAITxker: HiRoHRalFllaterPicdert,UITextViewDelegate {
         let nnedMonet = 200
 #endif
         
-        if akidonah > nnedMonet {
+        if akidonah >= nnedMonet {
             akidonah -= nnedMonet
             sudh?["hiroBlance"] = "\(akidonah)"
                     
@@ -205,17 +205,7 @@ class ConVPAdviceAITxker: HiRoHRalFllaterPicdert,UITextViewDelegate {
                 }
             }
             
-//            let infulincealert = UIAlertAction(title: "Go recharge", style:.default){_ in
-//                self.navigationController?.pushViewController(ConVPanuekaioTxker.init(), animated: true)
-//            }
-//            
-//            
-//            let icancekcealert = UIAlertAction(title: "Cancel", style:.default)
-//            
-//            let Buak = UIAlertController(title: "Insufficient Balance", message: "This feature requires 200 diamonds to be used. Would you like to recharge and use it", preferredStyle: .alert)
-//            Buak.addAction(infulincealert)
-//            Buak.addAction(icancekcealert)
-//            self.present(Buak, animated: true)
+
         }
 
        

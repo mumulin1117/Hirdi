@@ -14,7 +14,7 @@ class ConVPDetailRecoerreTxker: HiRoHRalFllaterPicdert {
         let xf = UIImageView.init()
        
         xf.contentMode = .scaleAspectFill
-        xf.image = UIImage.init(named: "Mineloguer_con")
+        xf.image = UIImage.init(named: "Dpnati7")
         
         xf.layer.masksToBounds = true
         return xf
@@ -39,13 +39,14 @@ class ConVPDetailRecoerreTxker: HiRoHRalFllaterPicdert {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.moreType = 4
+        
         updateAllItemBackButton(hiddenBack: false, hiddenReport: false)
         view.addSubview(UIamgn)
         UIamgn.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(vaABacking), name: NSNotification.Name.init("delelUsertHIRDI"), object: nil)
        
         
         UpaloadingRecorenow()
@@ -53,8 +54,8 @@ class ConVPDetailRecoerreTxker: HiRoHRalFllaterPicdert {
     }
     
     
-    @objc func OSK()  {
-        
+    @objc func vaABacking()  {
+        self.navigationController?.popViewController(animated: true)
     }
     
   @objc  func UpaloadingRecorenow()  {

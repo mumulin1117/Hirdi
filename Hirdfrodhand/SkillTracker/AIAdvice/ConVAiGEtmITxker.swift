@@ -23,6 +23,7 @@ class ConVAiGEtmITxker: HiRoHRalFllaterPicdert {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.moreType = 1
+       
         updateAllItemBackButton(hiddenBack: false, hiddenReport: false)
         
         
@@ -32,47 +33,48 @@ class ConVAiGEtmITxker: HiRoHRalFllaterPicdert {
         
       
         
-        let statuslbl = self.addlayert(textCon: "AI Generateing...",controller: self,timedelay: nil)
          
          
              
-        guard let url = URL(string: "http://www.ytrewq9876d.xyz/talktwo/askQuestionv2") else {
+        guard let url = URL(string: "http://www.mnbvcx3456y.xyz/talktwo/askQuestionv2") else {
            
             self.addlayert(textCon: "Invalid URL", controller: self,textColor: 2)
           
             return
         }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        var Forguesdt = URLRequest(url: url)
+        Forguesdt.httpMethod = "POST"
+       
         let parameters: [String: Any] = [
             "question": descRequest,
             "questionType": 1,
             "eqNo": "5555"
         ]
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
-        } catch {
-            self.addlayert(textCon: "JSON encoding failed", controller: self,textColor: 2)
-           
-            return
-        }
-        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
-            // 确保回到主线程
+        
+        Forguesdt.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        Forguesdt.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        BeginResdfiru(hirREwu:Forguesdt)
+        
+
+        
+    }
+    
+    
+    func BeginResdfiru(hirREwu:URLRequest)  {
+        let statuslbl = self.addlayert(textCon: "AI Generateing...",controller: self,timedelay: nil)
+        
+        URLSession.shared.dataTask(with: hirREwu) { [weak self] data, response, error in
+            
             DispatchQueue.main.async {
+                self?.view.isUserInteractionEnabled = true
                 statuslbl?.removeFromSuperview()
                 
-                // 处理错误
                 if let error = error {
                     self?.addlayert(textCon: "Network error: \(error.localizedDescription)", controller: self,textColor: 2)
-                   
-                   
                     return
                 }
                 
-              
-                
-                // 检查数据是否存在
                 guard let data = data else {
                     self?.addlayert(textCon: "No data received", controller: self,textColor: 2)
                    
@@ -80,27 +82,17 @@ class ConVAiGEtmITxker: HiRoHRalFllaterPicdert {
                     return
                 }
               
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                       let content = json["data"] as? String {
-                        self?.contertCsire.text = content
-                    } else {
-                        self?.addlayert(textCon: "Invalid data format", controller: self,textColor: 2)
-                       
-                       
-                    }
-                } catch {
-                    self?.addlayert(textCon: "JSON parsing failed", controller: self,textColor: 2)
-                    
+                if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                   let content = json["data"] as? String {
+                    self?.contertCsire.text = content
+                } else {
+                    self?.addlayert(textCon: "Invalid data format", controller: self,textColor: 2)
+                   
+                   
                 }
             }
-        }
-
-        // 6. 启动任务
-        task.resume()
-        
+        }.resume()
     }
-    
 
     
     
@@ -124,13 +116,14 @@ class ConVAiGEtmITxker: HiRoHRalFllaterPicdert {
             make.height.equalTo(20)
             make.centerY.equalTo((window?.safeAreaInsets.top ?? 0) + 20 )
         }
+        toptitleimage.isUserInteractionEnabled = true
         contertCsire.layer.cornerRadius = 16
         contertCsire.layer.masksToBounds = true
         
         
         view.addSubview(contertCsire)
         contertCsire.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(15)
             make.top.equalTo(toptitleimage.snp.bottom).offset(68)
             make.bottom.equalToSuperview().offset(-(window?.safeAreaInsets.bottom ?? 0) - 20 )
         }
@@ -139,7 +132,7 @@ class ConVAiGEtmITxker: HiRoHRalFllaterPicdert {
         let DOg = UITextView()
         DOg.backgroundColor = UIColor(red: 0.51, green: 0.45, blue: 0.94, alpha: 1)
         DOg.isEditable = false
-        DOg.contentInset = UIEdgeInsets(top: 16, left: 10, bottom: 15, right: 15)
+        DOg.contentInset = UIEdgeInsets(top: 16, left: 10, bottom: 30, right: 15)
         DOg.textColor = .white
         DOg.layer.borderWidth = 1
         DOg.isScrollEnabled = true

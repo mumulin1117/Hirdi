@@ -84,7 +84,7 @@ class HiRoWoFulTracker: HolePicdwei {
     
    @objc func toblancelgfor()  {
        let vsd = ConVPanuekaioTxker.init()
-       vsd.moreType = 4
+       vsd.moreType = 3
        self.navigationController?.pushViewController(vsd, animated: true)
     }
     
@@ -116,6 +116,9 @@ class HiRoWoFulTracker: HolePicdwei {
   
     
     @objc func oaskkdo()  {
+        if let sudh = UserDefaults.standard.object(forKey: "logeduserhiedIndj") as? Dictionary<String,String>{
+            self.navigationController?.pushViewController(HirdDuiayINmConteller.init(igjiii: sudh, ismecenet: true), animated: true)
+        }
         
     }
     // name
@@ -152,9 +155,15 @@ class HiRoWoFulTracker: HolePicdwei {
         abalance.text = sudh?["hiroBlance"]
         poonetLabe.text = sudh?["hiroNlmer"]
         
-       
-        followcountLabe.text = "0"
+        
+        
+       let akkkdcount = AppDelegate.totalinguseindi.filter { ddddd in
+            ddddd["AddusertFollowe"] == "true"
+        }.count
+        followcountLabe.text = "\(akkkdcount)"
+        
         fansrLabe.text = "0"
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

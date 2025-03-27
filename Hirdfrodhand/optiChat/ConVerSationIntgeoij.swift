@@ -78,7 +78,7 @@ class ConVerSationIntgeoij: HiRoHRalFllaterPicdert,UITableViewDelegate,UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.recordUserID = shouleinger.diploagUser["hiroUID"]
         updateAllItemBackButton(hiddenBack: false, hiddenReport: false)
         poonetLabe.textColor = .white
         poonetLabe.font = UIFont.systemFont(ofSize: 18, weight: .semibold)

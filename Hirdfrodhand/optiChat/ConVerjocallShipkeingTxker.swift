@@ -80,6 +80,8 @@ class ConVerjocallShipkeingTxker: HiRoHRalFllaterPicdert {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.recordUserID = shouleinger["hiroUID"]
         updateAllItemBackButton(hiddenBack: true, hiddenReport: false)
         poonetLabe.text  = shouleinger["hiroNlmer"] ?? ""
        

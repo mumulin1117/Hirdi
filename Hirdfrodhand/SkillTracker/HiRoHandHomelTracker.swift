@@ -6,6 +6,7 @@
 //
 import MJRefresh
 import UIKit
+import PopupDialog
 var statusBarHeight: CGFloat {
     if #available(iOS 13.0, *) {
         let windowScene = UIApplication.shared.connectedScenes
@@ -27,6 +28,7 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
     @objc func regteerDataOnseve() {
         guard AppDelegate.totalinguseindi.count >= 4 else {
             self.superGert =  AppDelegate.totalinguseindi
+            self.collectionViewIWei.reloadData()
             return
            }
            
@@ -49,7 +51,7 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
             protalHeader.choreAiHird.addTarget(self, action: #selector(analyzeAIFeedback), for: .touchUpInside)
             
             protalHeader.daceRecordAiHird.addTarget(self, action: #selector(startRecordcealTime), for: .touchUpInside)
-           
+            
             return protalHeader
         }
         return UICollectionReusableView()
@@ -77,9 +79,7 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
     }
     
     
-    private func uoauddare()  {
-       
-    }
+  
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
@@ -101,7 +101,7 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let Zhuwei = self.superGert[indexPath.row]
         
-        let zdvc = HirdDuiayINmConteller.init(igjiii: Zhuwei)
+        let zdvc = HirdDuiayINmConteller.init(igjiii: Zhuwei, ismecenet: false)
         zdvc.delegate = self
         self.navigationController?.pushViewController(zdvc, animated: true)
         
@@ -116,11 +116,43 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
         GestureMaster.cormaneHo.image = UIImage(named: igjiii["hiroPociture"] ?? "")
         GestureMaster.poonetLabe.text =  igjiii["hiroNlmer"]
         GestureMaster.dympictLabe.text =  igjiii["hiroDamicTitle"]
-        GestureMaster.paoiseAiHird.isSelected = (igjiii["hiroifprize"] == "hhhh")
-        
+        GestureMaster.paoiseAiHird.isSelected =  (igjiii["Laikethimonent"] == "1") ? true : false
+        GestureMaster.paoiseAiHird.tag = indexPath.row
+        GestureMaster.paoiseAiHird.addTarget(self, action: #selector(BeginFaveriteing(dfg: )), for: .touchUpInside)
+        GestureMaster.morepportAiHird.tag = indexPath.row
+        GestureMaster.morepportAiHird.addTarget(self, action: #selector(Reportuoauddare(brickID:)), for: .touchUpInside)
         return GestureMaster
         
+        
     }
+    
+    //report
+    @objc private func Reportuoauddare(brickID:UIButton)  {
+        let igjiii = self.superGert[brickID.tag]
+        
+        
+        self.popitiwieu(ifDer: igjiii["hiroUID"] ?? "", moreType: 0)
+
+       
+    }
+    @objc func BeginFaveriteing(dfg:UIButton)  {
+        
+        let HDuhg = dfg.tag
+        var igjiii = self.superGert[HDuhg]
+        
+        dfg.isSelected = !dfg.isSelected
+        
+        igjiii["Laikethimonent"] = dfg.isSelected ? "1" : "0"
+        
+       
+        for (ssdj,itemr) in AppDelegate.totalinguseindi.enumerated() {
+            if itemr["hiroUID"] == igjiii["hiroUID"] {
+                AppDelegate.totalinguseindi[ssdj] = igjiii
+            }
+        }
+        
+        regteerDataOnseve()
+     }
     
     lazy var collectionViewIWei: UICollectionView = {
         let Cloauout = UICollectionViewFlowLayout.init()
@@ -141,6 +173,8 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
                 
                 guard AppDelegate.totalinguseindi.count >= 4 else {
                     self.superGert =  AppDelegate.totalinguseindi.shuffled()
+                    self.collectionViewIWei.reloadData()
+                    self.collectionViewIWei.mj_header?.endRefreshing()
                     return
                    }
                    
@@ -175,7 +209,7 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
         
         self.collectionViewIWei.mj_header?.beginRefreshing()
         NotificationCenter.default.addObserver(self, selector: #selector(regteerDataOnseve), name: NSNotification.Name.init("delelUsertHIRDI"), object: nil)
-       
+        
     }
     
    
@@ -185,19 +219,87 @@ class HiRoHandHomelTracker: HolePicdwei ,UICollectionViewDelegate,UICollectionVi
 }
 
 
-extension HiRoHandHomelTracker{
+extension UIViewController{
     
-    
-    //点赞
-    @objc func gestureParseeChallenge()  {
+    func popitiwieu(ifDer:String,moreType:Int) {
+       
+       
+        if moreType == 1 {
+            self.XcreteasdReport(moreType: 1)
+            return
+        }
         
-        collectionViewIWei.reloadData()
+        let popup = PopupDialog(
+            title:"Report or Block \((moreType == 0 || moreType == 4) ? "Content" : "User")",
+            message: "After blocking, the \(((moreType == 0 || moreType == 4) ? "Content" : "User")) will no longer be displayed"
+        )
+        
+        
+        let ReportButton = CancelButton(title: "Report") {
+            self.XcreteasdReport(moreType: moreType)
+        }
+            
+        
+        let deleteButton = DestructiveButton(title: "Block") {
+            let statuslbl = self.addlayert(textCon: "Blocking...",controller: self,timedelay: nil)
+             
+             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: DispatchWorkItem(block: {
+                 for (ssdj,itemr) in AppDelegate.totalinguseindi.enumerated() {
+                     if itemr["hiroUID"] == ifDer{
+                         AppDelegate.totalinguseindi.remove(at: ssdj)
+                     }
+                 }
+                 
+                 if moreType == 4 {
+                     AppDelegate.IfRemoveRecord =  true
+                 }
+                 NotificationCenter.default.post(name: NSNotification.Name.init("delelUsertHIRDI"), object: nil)
+                 
+                 statuslbl?.removeFromSuperview()
+                
+                 self.addlayert(textCon: "Block completed!",controller: self,textColor: 1)
+                 
+             }))
+        }
+        let canceButton = DestructiveButton(title: "Cancel", dismissOnTap: true, action: nil)
+      
+        popup.addButtons([ReportButton, deleteButton,canceButton])
+        present(popup, animated: true, completion: nil)
+       
     }
-    //举报
-    @objc func azeReportack()  {
-        
-        
-    }
     
+    private func XcreteasdReport(moreType:Int)  {
+        let Reporting = PopupDialog(
+            title:moreType == 1 ? "Report AI content" : "Report Reason",
+            message: "Please select the reason you want to report"
+        )
+        
+        var allButtongs = [DestructiveButton]()
+        
+        ["Spam or misleading content","Harassment or bullying","Hate speech or symbols","Violence or harm","Nudity or explicit content"].forEach { ssfd in
+            let reasongButton = DestructiveButton(title: ssfd) {
+                let statuslbl = self.addlayert(textCon: "Requesting...",controller: self,timedelay: nil)
+                 
+                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: DispatchWorkItem(block: {
+                 
+                     statuslbl?.removeFromSuperview()
+                    
+                     self.addlayert(textCon: "Thank you for your supervision. We will verify and handle it as soon as possible!",controller: self,textColor: 1)
+                     
+                 }))
+            }
+            
+            allButtongs.append(reasongButton)
+           
+        }
+        
+        
+        let canceButton = DestructiveButton(title: "Cancel", dismissOnTap: true, action: nil)
+        
+        allButtongs.append(canceButton)
+       
+        Reporting.addButtons(allButtongs)
+        self.present(Reporting, animated: true)
+    }
    
 }

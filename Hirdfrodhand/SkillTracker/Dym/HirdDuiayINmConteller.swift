@@ -15,8 +15,10 @@ protocol HirdDuiayINmContellerDelegate {
 class HirdDuiayINmConteller: HiRoHRalFllaterPicdert {
     var delegate:HirdDuiayINmContellerDelegate?
     var igjiii:Dictionary<String,String>
-    init(igjiii: Dictionary<String, String>) {
+    var ismecenet: Bool
+    init(igjiii: Dictionary<String, String>,ismecenet:Bool) {
         self.igjiii = igjiii
+        self.ismecenet = ismecenet
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -62,9 +64,29 @@ class HirdDuiayINmConteller: HiRoHRalFllaterPicdert {
         chorePayHird.setImage(UIImage.init(named: "15aihaeadt"), for: .normal)
         chorePayHird.setImage(UIImage.init(named: "pinkaeadt"), for: .selected)
         chorePayHird.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4200)
+        chorePayHird.isSelected = (igjiii["Laikethimonent"] == "1") ? true : false
+        chorePayHird.addTarget(self, action: #selector(BeginFaveriteing), for: .touchUpInside)
         return chorePayHird
     }()
-    
+   @objc func BeginFaveriteing()  {
+       paoiseAiHird.isSelected = !paoiseAiHird.isSelected
+       
+       igjiii["Laikethimonent"] = paoiseAiHird.isSelected ? "1" : "0"
+       
+      
+       for (ssdj,itemr) in AppDelegate.totalinguseindi.enumerated() {
+           if itemr["hiroUID"] == igjiii["hiroUID"] {
+               AppDelegate.totalinguseindi[ssdj] = self.igjiii
+           }
+       }
+       
+       if self.delegate != nil {
+           self.delegate?.uoapfasdtecomment()
+       }
+       
+       self.inoupteTexfield.text = nil
+       self.inoupteTexfield.resignFirstResponder()
+    }
     
     //focus
     private  lazy var focusAiHird: UIButton = {
@@ -72,9 +94,15 @@ class HirdDuiayINmConteller: HiRoHRalFllaterPicdert {
         
         chorePayHird.setImage(UIImage.init(named: "focuasTo"), for: .normal)
         chorePayHird.setImage(UIImage.init(named: "focuasTo_skr"), for: .selected)
-        
+        chorePayHird.addTarget(self, action: #selector(centeruserPuple), for: .touchUpInside)
         return chorePayHird
     }()
+    
+    //个人中心
+   @objc func centeruserPuple() {
+       
+       self.navigationController?.pushViewController(ConVUserCekaioTxker.init(shouleinger: igjiii), animated: true)
+   }
     
     private lazy var inoupteTexfield: UITextField = {
         let juiy = UITextField.init()
@@ -102,9 +130,11 @@ class HirdDuiayINmConteller: HiRoHRalFllaterPicdert {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.moreType = 0
+        self.recordUserID = igjiii["hiroUID"]
         updateAllItemBackButton(hiddenBack: false, hiddenReport: false)
         Scrollowrwr.backgroundColor = .clear
         view.addSubview(Scrollowrwr)
@@ -113,7 +143,7 @@ class HirdDuiayINmConteller: HiRoHRalFllaterPicdert {
         
         }
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(vaABacking), name: NSNotification.Name.init("delelUsertHIRDI"), object: nil)
         connectWithDancerProfile()
         Uhudhuing()
         enableRhythmAnalytics()
@@ -123,9 +153,19 @@ class HirdDuiayINmConteller: HiRoHRalFllaterPicdert {
         if igjiii["minComment"] != nil {
             self.analyzeAIFeedback()
         }
+        
+        if ismecenet == true {
+            if #available(iOS 16.0, *) {
+                self.navigationController?.navigationItem.rightBarButtonItem?.isHidden = true
+            }
+            self.focusAiHird.isHidden = true
+            self.inoupteTexfield.isHidden = true
+        }
     }
     
-    
+    @objc func vaABacking()  {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     
@@ -253,15 +293,15 @@ class HirdDuiayINmConteller: HiRoHRalFllaterPicdert {
         
         
         igjiii["minComment"] = ususyu
-        if self.delegate != nil {
-            self.delegate?.uoapfasdtecomment()
-        }
+       
         for (ssdj,itemr) in AppDelegate.totalinguseindi.enumerated() {
             if itemr["hiroUID"] == igjiii["hiroUID"] {
                 AppDelegate.totalinguseindi[ssdj] = self.igjiii
             }
         }
-        
+        if self.delegate != nil {
+            self.delegate?.uoapfasdtecomment()
+        }
         self.inoupteTexfield.text = nil
         self.inoupteTexfield.resignFirstResponder()
         

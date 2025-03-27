@@ -6,11 +6,21 @@
 //
 
 import UIKit
-
+import PopupDialog
+protocol HirdDVideoGistntellerGibeDele {
+    func figtNameGiven(name:String,count:Int)
+}
+/// 送礼
 class HirdDVideoGistnteller: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    var deleagte:HirdDVideoGistntellerGibeDele?
     
     private let needcounatDiomentLabel = UILabel.init()
     var Itag:Int = 0
+    
+    
+    var GisftCount:Int = 0//礼物数量
+    let countLabel = UILabel.init()
     
     let AKdoj = ["gist cream","gist_beer","gist_castle","gist_flower","gist_heart","gistlollipop","gistprocket","gisttcar"]
     
@@ -40,15 +50,17 @@ class HirdDVideoGistnteller: UIViewController,UICollectionViewDelegate,UICollect
         drag.dataSource = self
         drag.backgroundColor = .clear
         drag.register(HirdDVideoGiftCell.self, forCellWithReuseIdentifier: "HirdDVideoGiftCell")
+        
         return drag
     }()
+    private let Bootime = UIView.init()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-//        self.view.alpha = 0.52
+        //        self.view.alpha = 0.52
         
         
-        let Bootime = UIView.init()
+        
         Bootime.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.27, alpha: 1)
         Bootime.layer.cornerRadius = 16
         
@@ -57,7 +69,7 @@ class HirdDVideoGistnteller: UIViewController,UICollectionViewDelegate,UICollect
         view.addSubview(Bootime)
         Bootime.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(410)
+            make.height.equalTo(350)
         }
         
         
@@ -80,21 +92,176 @@ class HirdDVideoGistnteller: UIViewController,UICollectionViewDelegate,UICollect
         
         needcounatDiomentLabel.textColor = .white
         needcounatDiomentLabel.font = UIFont.systemFont(ofSize: 16)
-        
+        needcounatDiomentLabel.text = "\(self.Itag * 199)"
         Bootime.addSubview(needcounatDiomentLabel)
         needcounatDiomentLabel.snp.makeConstraints { make in
             make.leading.equalTo(himageImageView.snp.trailing).offset(10)
-            make.centerY.equalTo(Bootime)
+            make.centerY.equalTo(himageImageView)
         }
+        
+        sgiftView.selectItem(at: IndexPath.init(row: 0, section: 0), animated: false, scrollPosition: .top)
+        
+        addNewapop()
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Itag = indexPath.row
     }
-
+    @objc func sureGiventGisft()  {
+        if self.GisftCount <= 0 {
+            return
+            
+        }
+        
+        var sudh = UserDefaults.standard.object(forKey: "logeduserhiedIndj") as? Dictionary<String,String>
+        
+        var akidonah = Int(sudh?["hiroBlance"] ?? "0") ?? 0
+        
+#if DEBUG
+        let nnedMonet = 0
+#else
+        let nnedMonet = self.GisftCount * 199
+#endif
+        
+        if akidonah >= nnedMonet {
+            akidonah -= nnedMonet
+            sudh?["hiroBlance"] = "\(akidonah)"
+            
+            UserDefaults.standard.set(sudh, forKey: "logeduserhiedIndj")
+            
+            UserDefaults.standard.set(sudh, forKey: sudh?["hiroUID"] ?? "")
+            
+            
+            self.dismiss(animated: true)
+            self.deleagte?.figtNameGiven(name: self.AKdoj[self.Itag], count: GisftCount)
+        }else{
+            let popup = PopupDialog(
+                title: "🪙 Insufficient Balance",
+                message: "Would you like to recharge and use it?",
+                transitionStyle: .zoomIn,  // 弹窗缩放动画
+                tapGestureDismissal: false // 禁用点击背景关闭
+            )
+            popup.view.backgroundColor = .systemBackground
+            popup.view.layer.cornerRadius = 12
+            
+            
+            // 充值按钮（主操作）
+            let rechargeButton = DefaultButton(
+                title: "Go Recharge 💎",
+                height: 50,
+                action: {
+                    self.navigationController?.pushViewController(ConVPanuekaioTxker(), animated: true)
+                }
+            )
+            
+            // 取消按钮（次要操作）
+            let cancelButton = CancelButton(
+                title: "Cancel",
+                height: 50,
+                action: nil
+            )
+            
+            // 添加按钮并设置布局
+            popup.addButtons([rechargeButton, cancelButton])
+            popup.buttonAlignment = .vertical // 垂直排列按钮
+            
+            // 呈现弹窗（带弹性动画）
+            present(popup, animated: true) {
+                popup.view.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5) {
+                    popup.view.transform = .identity
+                }
+            }
+        }
+        
+    }
+    
+    
+    @objc func addNewapop()  {
+    
+        let backBagimg = UIImageView(image: UIImage.init(named: "oprationeCountabg"))
+        backBagimg.isUserInteractionEnabled = true
+        backBagimg.contentMode = .scaleToFill
+        
+        Bootime.addSubview(backBagimg)
+        backBagimg.snp.makeConstraints { make in
+            make.width.equalTo(205)
+            make.height.equalTo(36)
+            make.trailing.equalToSuperview().inset(15)
+            make.top.equalTo(self.sgiftView.snp.bottom).offset(24)
+        }
+        
+        let presentbutton = UIButton.init()
+        presentbutton.setTitle("Give Present", for: .normal)
+        presentbutton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        presentbutton.setTitleColor(.white, for: .normal)
+        backBagimg.addSubview(presentbutton)
+        presentbutton.addTarget(self, action: #selector(sureGiventGisft), for: .touchUpInside)
+        presentbutton.snp.makeConstraints { make in
+            make.trailing.top.bottom.equalToSuperview()
+            make.width.equalTo(102.5)
+        }
+        
+        
+        let addtbutton = UIButton.init()
+        addtbutton.setTitle("+", for: .normal)
+        addtbutton.setTitleColor(.white, for: .normal)
+        backBagimg.addSubview(addtbutton)
+        addtbutton.addTarget(self, action: #selector(Adlllllll), for: .touchUpInside)
+        addtbutton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24 + 38)
+           
+            make.height.width.equalTo(24)
+            make.centerY.equalToSuperview()
+        }
+        
+        let descbutton = UIButton.init()
+        descbutton.setTitle("-", for: .normal)
+        descbutton.setTitleColor(.white, for: .normal)
+        backBagimg.addSubview(descbutton)
+        descbutton.addTarget(self, action: #selector(descshaolllllll), for: .touchUpInside)
+        
+        descbutton.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.height.width.equalTo(24)
+            make.centerY.equalToSuperview()
+        }
+        countLabel.textAlignment = .center
+        countLabel.textColor = .white
+        countLabel.font = UIFont.systemFont(ofSize: 16)
+        countLabel.text = "\(GisftCount)"
+        backBagimg.addSubview(countLabel)
+        countLabel.snp.makeConstraints { make in
+            make.leading.equalTo(descbutton.snp.trailing)
+            make.trailing.equalTo(addtbutton.snp.leading)
+            make.centerY.equalToSuperview()
+        }
+        
+     
+        
+        
+    }
+    
+    
+    @objc  func Adlllllll()  {
+        GisftCount += 1
+        self.countLabel.text = "\(GisftCount)"
+        needcounatDiomentLabel.text = "\(self.GisftCount * 199)"
+    }
+      
+    
+    
+    @objc  func descshaolllllll()  {
+          
+        if GisftCount > 0 {
+            GisftCount -= 1
+            self.countLabel.text = "\(GisftCount)"
+            needcounatDiomentLabel.text = "\(self.GisftCount * 199)"
+        }
+    }
+    
 }
-
 
 class HirdDVideoGiftCell: UICollectionViewCell {
     private var PauinBack = UIImageView()
@@ -152,4 +319,7 @@ class HirdDVideoGiftCell: UICollectionViewCell {
             }
         }
     }
+    
+    
+  
 }
