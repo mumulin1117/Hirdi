@@ -268,13 +268,13 @@ extension HiRoHandNEmialPicdert{
                      
            return
        }
-       guard let enterEmi = emikiolTexfield.text?.trimmingCharacters(in: .whitespaces).lowercased(),
+       guard let enterHIrdiEmi = emikiolTexfield.text?.trimmingCharacters(in: .whitespaces).lowercased(),
               let enterkepasw = paswekiolTexfield.text?.trimmingCharacters(in: .whitespaces) else {
             return
         }
         
      
-        if enterEmi.isEmpty {
+        if enterHIrdiEmi.isEmpty {
             self.addlayert(textCon: "Please enter your email address", controller: self,textColor: 2)
             
             return
@@ -289,25 +289,25 @@ extension HiRoHandNEmialPicdert{
         // 验证邮箱格式
         
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$")
-        if emailPredicate.evaluate(with: enterEmi) == false{
+        if emailPredicate.evaluate(with: enterHIrdiEmi) == false{
             self.addlayert(textCon: "Please enter a valid email address", controller: self,textColor: 2)
             
             
             return
         }
        
-       guard let areadInfo = UserDefaults.standard.object(forKey: enterEmi) else {
+       guard let areadInfo = UserDefaults.standard.object(forKey: enterHIrdiEmi) else {
           
            ////如果邮箱id，对应的值不存在。则是注册
-           let tedevbiouser = ["posmOID":enterEmi,
+           let tedevbiouser = ["posmOID":enterHIrdiEmi,
                         "hiroNlmer":"No name",
-                       
-                        "posmuBlance":"0"]
+                        
+                        "hiroBlance":"0"]
            
          
            
            UserDefaults.standard.set(tedevbiouser, forKey: "logeduserhiedIndj")//设置当前的登陆帐号
-           UserDefaults.standard.set(tedevbiouser, forKey: enterEmi)//存储到已经存在的账户
+           UserDefaults.standard.set(tedevbiouser, forKey: enterHIrdiEmi)//存储到已经存在的账户
            
            resultLafterPOSM(isCreate: true)
            return

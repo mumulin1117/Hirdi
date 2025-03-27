@@ -2,7 +2,7 @@
 //  ConVPanuekaioTxker.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/24.
+//  Created by Hirdfrod on 2025/3/24.
 //
 import SwiftyStoreKit
 import UIKit
@@ -45,17 +45,19 @@ class ConVPanuekaioTxker: HiRoHRalFllaterPicdert {
     override func viewDidLoad() {
         super.viewDidLoad()
         moreType = 3
-        
+//           5.99  hirdimanguitrexcg 2930 ,
+//           29.99 hirdimdancemanulk 13600 ,
+//           69.99 hirdimdanceqiucwj 34250
         OAksjnhshhhhhhh()
         oiupio = [(400,"$0.99","yzvbredvcccdvlzd"),
                   (800,"$1.99","zzmufwhvhqoamioo"),
                   (2450,"$4.99","vhlfjxwbgxcmhrcr"),
-                  (2930,"$5.99",""),
+                  (2930,"$5.99","hirdimanguitrexcg"),
                   (4900,"$9.99","fesewsonxmpmcpyn"),
                   (9800,"$19.99","lryikudmrpybsyue"),
-                  (13600,"$29.99",""),
+                  (13600,"$29.99","hirdimdancemanulk"),
                   (24500,"$49.99","twwdumpapznanuml"),
-                  (34250,"$69.99",""),
+                  (34250,"$69.99","hirdimdanceqiucwj"),
                   (49000,"$99.99","evmllxdbgsngcbfc")]
         self.updateAllItemBackButton(hiddenBack: false, hiddenReport: true)
         

@@ -2,7 +2,7 @@
 //  ConVPBesginRecoerdreTxker.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/25.
+//  Created by Hirdfrod on 2025/3/25.
 //
 
 import UIKit
@@ -45,8 +45,8 @@ class ConVPBesginRecoerdreTxker: HiRoHRalFllaterPicdert ,UINavigationControllerD
     //release
     @objc func loadgoutrINgtag() {
         
-        guard let enterEmi = emikiolTexfield.text?.trimmingCharacters(in: .whitespaces).lowercased(),
-               let enterkepasw = estaimterTexfield.text?.trimmingCharacters(in: .whitespaces) else {
+        guard let enterEmi = emikiolTexfield.text,
+               let enterkepasw = estaimterTexfield.text else {
             self.addlayert(textCon: "Please enter all content", controller: self,textColor: 2)
             
              return
@@ -78,8 +78,11 @@ class ConVPBesginRecoerdreTxker: HiRoHRalFllaterPicdert ,UINavigationControllerD
          
              statuslbl?.removeFromSuperview()
              
+             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: DispatchWorkItem(block: {
+                 self.navigationController?.popViewController(animated: true)
+             }))
              self.addlayert(textCon: "upload successful,Display after approval!",controller: self,textColor: 1)
-             self.view.endEditing(true)
+            
          }))
         
         
@@ -247,7 +250,7 @@ class ConVPBesginRecoerdreTxker: HiRoHRalFllaterPicdert ,UINavigationControllerD
             self.hirdiBUtteon.setBackgroundImage(image, for: .normal)//.image =
             self.isAddPictureL = true
             picker.dismiss(animated: true)
-            self.navigationController?.popToRootViewController(animated: true)
+            
         }
         
     }

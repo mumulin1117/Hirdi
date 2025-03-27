@@ -2,7 +2,7 @@
 //  HirdDVideoSeePlayConteller.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/26.
+//  Created by Hirdfrod on 2025/3/26.
 //
 
 import UIKit

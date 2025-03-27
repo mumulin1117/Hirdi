@@ -2,7 +2,7 @@
 //  ConVPAEdioatereTxker.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/25.
+//  Created by Hirdfrod on 2025/3/25.
 //
 
 import UIKit
@@ -124,7 +124,7 @@ class ConVPAEdioatereTxker: HiRoHRalFllaterPicdert ,UINavigationControllerDelega
         }
         self.addlayert(textCon: "Save successful!",controller: self,textColor: 1)
       
-      
+        AppDelegate.magiehangiconseindi = MiangAvatit.image!
       UserDefaults.standard.set(inguser, forKey: "logeduserhiedIndj")
         self.navigationController?.popViewController(animated: true)
       UserDefaults.standard.set(inguser, forKey: infoID)

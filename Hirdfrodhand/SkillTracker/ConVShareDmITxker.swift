@@ -2,7 +2,7 @@
 //  ConVShareDmITxker.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/25.
+//  Created by Hirdfrod on 2025/3/25.
 //
 
 import UIKit
@@ -125,8 +125,8 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
     //创建
    @objc func fodeleteoutrINgtag() {
        
-       guard let enterEmi = contertCsire.text?.trimmingCharacters(in: .whitespaces).lowercased(),
-       enterEmi != "Publish dynamic content…" else {
+       guard let enterEmi = contertCsire.text,
+             contertCsire.text != "Publish dynamic content…" else {
            self.addlayert(textCon: "Please enter the content!", controller: self,textColor: 2)
             return
         }
@@ -149,12 +149,16 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
    
        let statuslbl = self.addlayert(textCon: "uploading.....",controller: self,timedelay: nil)
        self.view.isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: DispatchWorkItem(block: {
-        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
+            self.view.isUserInteractionEnabled = true
             statuslbl?.removeFromSuperview()
             
             self.addlayert(textCon: "upload successful,Display after approval!",controller: self,textColor: 1)
-            self.view.endEditing(true)
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: DispatchWorkItem(block: {
+                self.navigationController?.popViewController(animated: true)
+            }))
+            
         }))
        
        
@@ -166,7 +170,7 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
             let Dragimg = UIImagePickerController()
-            Dragimg.sourceType = .photoLibrary
+            Dragimg.sourceType = .camera
             
             Dragimg.delegate = self
             Dragimg.allowsEditing = true
@@ -213,7 +217,7 @@ class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationC
             self.hirdiBUtteon.setBackgroundImage(image, for: .normal)//.image =
             self.isAddPictureL = true
             picker.dismiss(animated: true)
-            self.navigationController?.popToRootViewController(animated: true)
+            
         }
         
     }

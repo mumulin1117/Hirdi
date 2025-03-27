@@ -249,7 +249,9 @@ extension UIViewController{
                          AppDelegate.totalinguseindi.remove(at: ssdj)
                      }
                  }
-                 
+                 ConVerSationLisrMan.shared.conversations = ConVerSationLisrMan.shared.conversations.filter({ ChatConversation in
+                     ChatConversation.diploagUser["hiroUID"] != ifDer
+                 })
                  if moreType == 4 {
                      AppDelegate.IfRemoveRecord =  true
                  }

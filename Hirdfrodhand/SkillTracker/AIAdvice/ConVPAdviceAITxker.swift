@@ -2,7 +2,7 @@
 //  ConVPAdviceAITxker.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/25.
+//  Created by Hirdfrod on 2025/3/25.
 //
 
 import UIKit
@@ -115,6 +115,7 @@ class ConVPAdviceAITxker: HiRoHRalFllaterPicdert,UITextViewDelegate {
     var recordDanceStyle:String = ""
     var recordMusicStyle:String = ""
     
+    
     @objc func AllfoiCreate()  {
         AllDAnceStyle.forEach { utton in
             if utton.isSelected && utton.titleLabel?.text?.isEmpty == false{
@@ -129,7 +130,7 @@ class ConVPAdviceAITxker: HiRoHRalFllaterPicdert,UITextViewDelegate {
         }
         
         
-        guard let enterEmi = contertCsire.text?.trimmingCharacters(in: .whitespaces).lowercased(),
+        guard let enterEmi = contertCsire.text,
         enterEmi.isEmpty == false,enterEmi != "Please enter a personalised move or a blend of styles..." else {
             self.addlayert(textCon: "Please enter a personalised move or a blend of styles...", controller: self,textColor: 2)
             

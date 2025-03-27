@@ -2,7 +2,7 @@
 //  ConVPSasiteTxker.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/25.
+//  Created by Hirdfrod on 2025/3/25.
 //
 import PopupDialog
 import UIKit
@@ -90,7 +90,7 @@ class ConVPSasiteTxker: HiRoHRalFllaterPicdert {
         
         if taginsepick == 2 {
             
-            if let urlConnect = URL(string: "hftetqpesk:j/t/kaxpjpp.xrtnhmvyrkrmwnx.xliicntk")  {
+            if let urlConnect = URL(string: "https://app.iipih.link")  {
                 UIApplication.shared.open(urlConnect, options: [:], completionHandler: nil)
             }
         }

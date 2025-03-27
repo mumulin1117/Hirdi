@@ -2,7 +2,7 @@
 //  HirdUploaDanceViewConteller.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/26.
+//  Created by Hirdfrod on 2025/3/26.
 //
 
 import UIKit
@@ -47,8 +47,8 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
     //release
     @objc func loadgoutrINgtag() {
         
-        guard let enterEmi = emikiolTexfield.text?.trimmingCharacters(in: .whitespaces).lowercased(),
-               let enterkepasw = estaimterTexfield.text?.trimmingCharacters(in: .whitespaces) else {
+        guard let enterEmi = emikiolTexfield.text,
+               let enterkepasw = estaimterTexfield.text else {
             self.addlayert(textCon: "Please enter all content", controller: self,textColor: 2)
             
              return
@@ -82,6 +82,11 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
              
              self.addlayert(textCon: "upload successful,Display after approval!",controller: self,textColor: 1)
              self.view.endEditing(true)
+             
+             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: DispatchWorkItem(block: {
+                 self.navigationController?.popViewController(animated: true)
+             }))
+             
          }))
         
         
@@ -280,7 +285,7 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
             return
         }
         
-        HirdUploaDanceViewConteller.fetchThuaimPicture_hird(lainderURL: lOnai) { thumbnail in
+        HirdUploaDanceViewConteller.fetchThuaimPicture_hird(Jiu: true, lainderURL: lOnai) { thumbnail in
                    
             // 在主线程中更新 UI
             DispatchQueue.main.async {
@@ -301,16 +306,25 @@ class HirdUploaDanceViewConteller: HiRoHRalFllaterPicdert ,UINavigationControlle
 extension HirdUploaDanceViewConteller{
     
     
-    class func fetchThuaimPicture_hird(lainderURL: URL, hirdicompletion: @escaping (UIImage?) -> Void) {
+    class func fetchThuaimPicture_hird(Jiu:Bool,lainderURL: URL, hirdicompletion: @escaping (UIImage?) -> Void) {
         let uerAssetHIRDI = AVAsset(url: lainderURL)
+        var Shinew:Bool = Jiu
+        
+        
+        
         let reandy = AVAssetImageGenerator(asset: uerAssetHIRDI)
-        reandy.appliesPreferredTrackTransform = true
+        if Shinew == true {
+            reandy.appliesPreferredTrackTransform = true
+        }
+       
      
         reandy.generateCGImagesAsynchronously(forTimes: [NSValue(time: CMTime(seconds: 0, preferredTimescale: 600) )]) { _, image, _, result, error in
             if let error = error {
-              
-                hirdicompletion(nil)
-                print(error.localizedDescription)
+                if Shinew == true {
+                    hirdicompletion(nil)
+                    print(error.localizedDescription)
+                }
+               
                 
                 return
             }
@@ -319,8 +333,11 @@ extension HirdUploaDanceViewConteller{
                 hirdicompletion(nil)
                 return
             }
-            let thumbnail = UIImage(cgImage: image)
-            hirdicompletion(thumbnail)
+            if Shinew == true {
+                let thumbnail = UIImage(cgImage: image)
+                hirdicompletion(thumbnail)
+                
+            }
             
            
         }

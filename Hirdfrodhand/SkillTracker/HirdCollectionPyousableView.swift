@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyStoreKit
 
 class HirdCollectionPyousableView: UICollectionReusableView {
     lazy var cameraPayHird: UIButton = {
@@ -14,7 +15,21 @@ class HirdCollectionPyousableView: UICollectionReusableView {
         return chorePayHird
     }()
     
-   
+    class func clomepltespay(){
+        SwiftyStoreKit.completeTransactions(atomically: true) { hiiiit in
+            
+            
+            hiiiit.forEach { Purchase in
+                if Purchase.transaction.transactionState == .purchased ||
+                    Purchase.transaction.transactionState == .restored{
+                    if Purchase.needsFinishTransaction {
+                        SwiftyStoreKit.finishTransaction(Purchase.transaction)
+                    }
+                }
+            }
+            
+        }
+    }
     
    
     lazy var choreAiHird: UIButton = {

@@ -63,8 +63,8 @@ class HiRoHandPicdert: UIViewController {
            AppDelegate.totalinguseindi.forEach { igjiii in
                if let videlinkg = igjiii["hiroCamera_videws"]?.components(separatedBy: "@@@").first ,
                   let videoURL = Bundle.main.url(forResource: videlinkg, withExtension: "mp4"){
-                   self.getThumbnail(from: videoURL) { viideoomage in
-                      
+                   HirdUploaDanceViewConteller.fetchThuaimPicture_hird(Jiu: true, lainderURL: videoURL) { viideoomage in
+                       
                        self.chacheImage[videlinkg] = viideoomage
                    }
                }
@@ -78,7 +78,6 @@ class HiRoHandPicdert: UIViewController {
            ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = HiRoHandBarPicdert()
            let curentuser = UserDefaults.standard.object(forKey: "logeduserhiedIndj") as? [String:String]
            if curentuser?["hiroUID"] == "hirdi@gmail.com" {
-               AppDelegate.magiehangiconseindi = UIImage(named: "LOGOxloainjgf")!
               
                AppDelegate.magiehangiconseindi = UIImage(named: "lodemoUer")!
                
@@ -91,29 +90,6 @@ class HiRoHandPicdert: UIViewController {
        }
    }
     
-   class func getThumbnail(from url: URL, completion: @escaping (UIImage?) -> Void) {
-        let asset = AVAsset(url: url)
-        let imageGenerator = AVAssetImageGenerator(asset: asset)
-        imageGenerator.appliesPreferredTrackTransform = true // 修正视频方向
-        
-        // 获取第 0 秒的缩略图（视频开头）
-        let time = CMTime(seconds: 0, preferredTimescale: 1)
-        
-        imageGenerator.generateCGImagesAsynchronously(forTimes: [NSValue(time: time)]) { _, cgImage, _, _, error in
-            if let error = error {
-               
-                completion(nil)
-                return
-            }
-            
-            if let cgImage = cgImage {
-                let thumbnail = UIImage(cgImage: cgImage)
-                completion(thumbnail)
-            } else {
-                completion(nil)
-            }
-        }
-    }
 
 
 }

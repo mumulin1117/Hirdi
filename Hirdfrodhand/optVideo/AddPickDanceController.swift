@@ -2,7 +2,7 @@
 //  AddPickDanceController.swift
 //  Hirdfrodhand
 //
-//  Created by mumu on 2025/3/27.
+//  Created by Hirdfrod on 2025/3/27.
 //
 
 import UIKit
@@ -219,6 +219,10 @@ class AddPickDanceController: UIViewController ,UINavigationControllerDelegate, 
             
             self.addlayert(textCon: "upload successful,Display after approval!",controller: self,textColor: 1)
             self.view.endEditing(true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
+                self.dismiss(animated: true)
+            }
+           
         }))
        
        
@@ -238,10 +242,13 @@ class AddPickDanceController: UIViewController ,UINavigationControllerDelegate, 
             DispatchQueue.main.async {
                 picker.dismiss(animated: true)
                 if let nailiamge = thumbnail {
+                    
                     self.hirdiBUtteon.setBackgroundImage(nailiamge, for: .normal)
                    
                     self.hirdiBUtteon.setImage(UIImage.init(named: "iconPoikio_play"), for: .normal)
                     self.isAddPictureL = true
+                    
+                    
                 }
             }
         }

@@ -304,7 +304,7 @@ class ConVUserCekaioTxker: HiRoHRalFllaterPicdert {
         
         if shouleinger["hiroDamicTitle"] != nil {
             hirdiButttoen.imageView?.contentMode = .scaleAspectFill
-            hirdiButttoen.setImage(UIImage(named: shouleinger["hiroDamicImage"] ?? ""), for: .normal)
+            hirdiButttoen.setBackgroundImage(UIImage(named: shouleinger["hiroDamicImage"] ?? ""), for: .normal)
             contetnettttView.addSubview(hirdiButttoen)
             hirdiButttoen.snp.makeConstraints { make in
                 make.leading.equalToSuperview().inset(15)
@@ -331,7 +331,7 @@ class ConVUserCekaioTxker: HiRoHRalFllaterPicdert {
     
     @objc func chatclonijer() {
         guard  let chat = ConVerSationLisrMan.shared.conversations.filter { ChatConversation in
-            return ChatConversation.diploagUser == self.shouleinger
+            return ChatConversation.diploagUser["hiroUID"] == self.shouleinger["hiroUID"]
         }.first else{
             return
         }
