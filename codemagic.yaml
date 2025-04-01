@@ -14,7 +14,7 @@ workflows:
         XCODE_WORKSPACE: Hirdfrodhand.xcworkspace # <-- Put the name of your Xcode workspace here
         XCODE_SCHEME: "Hirdfrodhand" # <-- Put the name of your Xcode scheme here
 #        APP_STORE_APPLE_ID: 6744045903
-      xcode: latest
+      xcode: "16.0"
       cocoapods: default
     scripts:
       - name: Install CocoaPods dependencies
