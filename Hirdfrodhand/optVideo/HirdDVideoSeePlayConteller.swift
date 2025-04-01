@@ -293,8 +293,11 @@ class HirdDVideoSeePlayConteller: HiRoHRalFllaterPicdert, HirdDVideoGistntellerG
     }()
     //
    @objc func showGIFTuserPuple() {
-       let presentVc = HirdDVideoGistnteller.init()
-       presentVc.deleagte = self
+       let fokbo = HirdDVideoGistnteller.init()
+       
+       let presentVc = HiRoHandNAvigationPicdert.init(rootViewController:fokbo )
+       
+       fokbo.deleagte = self
        self.present(presentVc, animated: true)
    }
     

@@ -1,19 +1,19 @@
 workflows:
   ios-native-workflow:
-    name: Hilfy
+    name: Hirdi
     max_build_duration: 120
     instance_type: mac_mini_m1
     integrations:
-      app_store_connect: Hilfy
+      app_store_connect: Hirdi
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: com.relacb.hilfy
+        bundle_identifier: com.danbce.hirdi
       vars:
-        BUNDLE_ID: "com.relacb.hilfy"
+        BUNDLE_ID: "com.danbce.hirdi"
         XCODE_WORKSPACE: Hirdfrodhand.xcworkspace # <-- Put the name of your Xcode workspace here
         XCODE_SCHEME: "Hirdfrodhand" # <-- Put the name of your Xcode scheme here
-#        APP_STORE_APPLE_ID: 6739332210
+#        APP_STORE_APPLE_ID: 6744045903
       xcode: latest
       cocoapods: default
     scripts:

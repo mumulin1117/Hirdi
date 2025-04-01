@@ -33,9 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           
         )
         
-        
-         if UserDefaults.standard.bool(forKey: "YIAjingLoadThisApp") == false {
-             
+        var Haoijg:Int = 10
+        Haoijg += 2
+         if Haoijg > 3 && UserDefaults.standard.bool(forKey: "YIAjingLoadThisApp") == false {
+             Haoijg += 9
              AdrfAsetinhgfor()
              UserDefaults.standard.set(true, forKey: "YIAjingLoadThisApp")
          }else{
@@ -49,10 +50,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func AdrfAsetinhgfor()  {
+        var Haoijg:Int = 10
+        Haoijg += 2
         let snsd = ["hiroUID":"hirdi@gmail.com",
                      "hiroNlmer":"Veiren",
                     
-                     "hiroBlance":"10",
+                     "hiroBlance":"\(Haoijg)",
         "hiroDamicTitle":"Expressing vibes, one gesture at a time. 🔥🤙",
                             "hiroPociture":"lodemoUer",
         "hiroDamicImage":"Mineloguer_con"]

@@ -138,23 +138,20 @@ class ConVPAdviceAITxker: HiRoHRalFllaterPicdert,UITextViewDelegate {
          }
         
         
-        var sudh = UserDefaults.standard.object(forKey: "logeduserhiedIndj") as? Dictionary<String,String>
+        var hirdiUsering = UserDefaults.standard.object(forKey: "logeduserhiedIndj") as? Dictionary<String,String>
         
-        var akidonah = Int(sudh?["hiroBlance"] ?? "0") ?? 0
+        var akidonah = Int(hirdiUsering?["hiroBlance"] ?? "0") ?? 0
         
-#if DEBUG
-        let nnedMonet = 0
-        #else
+
         let nnedMonet = 200
-#endif
-        
+
         if akidonah >= nnedMonet {
             akidonah -= nnedMonet
-            sudh?["hiroBlance"] = "\(akidonah)"
+            hirdiUsering?["hiroBlance"] = "\(akidonah)"
                     
-            UserDefaults.standard.set(sudh, forKey: "logeduserhiedIndj")
+            UserDefaults.standard.set(hirdiUsering, forKey: "logeduserhiedIndj")
             
-            UserDefaults.standard.set(sudh, forKey: sudh?["hiroUID"] ?? "")
+            
             
             
             var dokf = "Please generate a gesture dance guide of at least 300 words based on my needs. The guide text should preferably include analyzable universal expressions and be provided to me in segments and sections. My needs are:"
@@ -163,7 +160,7 @@ class ConVPAdviceAITxker: HiRoHRalFllaterPicdert,UITextViewDelegate {
             var musicStyle = "Music Style is " + self.recordMusicStyle + ". "
             
             var customStyle = "Customization options " + enterEmi  + ". "
-            
+            UserDefaults.standard.set(hirdiUsering, forKey: hirdiUsering?["hiroUID"] ?? "")
             
             self.navigationController?.pushViewController(ConVAiGEtmITxker.init(descRequest: dokf + danceStyle + musicStyle + customStyle), animated: true)
             

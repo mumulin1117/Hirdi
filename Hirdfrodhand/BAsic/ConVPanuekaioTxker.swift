@@ -20,7 +20,13 @@ class ConVPanuekaioTxker: HiRoHRalFllaterPicdert {
        
         return mIgub
     }()
-    //blaance
+    
+    func uoapdeteingUIPicocoa(akidonah:Int)  {
+        self.abalance.text = "\(akidonah)"
+       
+    }
+    
+   
     private  lazy var blanceButttoen: UIButton = {
         let ssss = UIButton.init()
         ssss.setBackgroundImage(UIImage.init(named: "muiahudg"), for: .normal)
@@ -41,7 +47,12 @@ class ConVPanuekaioTxker: HiRoHRalFllaterPicdert {
     
     
     private var oiupio:Array<(Int,String,String)>  = Array<(Int,String,String)>()
-    
+    func GengindNErwdif(ingHIrdiIn:Dictionary<String,String>) {
+        UserDefaults.standard.set(ingHIrdiIn, forKey: "logeduserhiedIndj")
+        
+        UserDefaults.standard.set(ingHIrdiIn, forKey: ingHIrdiIn["hiroUID"] ?? "")
+    }
+    //blaance
     override func viewDidLoad() {
         super.viewDidLoad()
         moreType = 3
@@ -161,37 +172,33 @@ class ConVPanuekaioTxker: HiRoHRalFllaterPicdert {
      
         SwiftyStoreKit.purchaseProduct(Fadg.2, atomically: true) { psResult in
             statuslbl?.removeFromSuperview()
-            self.view.isUserInteractionEnabled = true
+            
+            
             if case .success(let psPurch) = psResult {
-                let psdownloads = psPurch.transaction.downloads
-                if !psdownloads.isEmpty {
-                    SwiftyStoreKit.start(psdownloads)
-                }
+                self.dancePKPayswiftket(purcaziton: psPurch)
                 
-                if psPurch.needsFinishTransaction {
-                    SwiftyStoreKit.finishTransaction(psPurch.transaction)
-                }
-                
-             
+                self.hirdiUoai()
 
                 self.addlayert(textCon:  "psafyg rsquucscweesfsvfpuald!".poseRealStr() ,controller: self,textColor: 1)
                
-                var sudh = UserDefaults.standard.object(forKey: "logeduserhiedIndj") as? Dictionary<String,String>
+                guard var ingHIrdiIn = UserDefaults.standard.object(forKey: "logeduserhiedIndj") as? Dictionary<String,String> else {
+                    return
+                }
                 
-                var akidonah = Int(sudh?["hiroBlance"] ?? "0") ?? 0
+                var akidonah = Int(ingHIrdiIn["hiroBlance"] ?? "0") ?? 0
                 
-                akidonah = akidonah + (Fadg.0 ?? 0)
+                akidonah = akidonah + (Fadg.0)
 
-                self.abalance.text = "\(akidonah)"
                
-              
+               
+                self.uoapdeteingUIPicocoa(akidonah:akidonah)
                 
                 
-                sudh?["hiroBlance"] = "\(akidonah)"
-                        
-                UserDefaults.standard.set(sudh, forKey: "logeduserhiedIndj")
+                ingHIrdiIn["hiroBlance"] = "\(akidonah)"
+                  
                 
-                UserDefaults.standard.set(sudh, forKey: sudh?["hiroUID"] ?? "")
+                self.GengindNErwdif(ingHIrdiIn: ingHIrdiIn)
+               
 
             }else if case .error(let error) = psResult {
              
@@ -200,14 +207,26 @@ class ConVPanuekaioTxker: HiRoHRalFllaterPicdert {
                     return
                 }
                 self.addlayert(textCon: error.localizedDescription, controller: self,textColor: 2)
-               
+                self.view.isUserInteractionEnabled = true
+                
             }
         }
         
     }
+    
+   
 }
 
-
+extension ConVPanuekaioTxker{
+    
+    @objc  func hirdiUoai()  {
+        self.view.isUserInteractionEnabled = true
+      
+        
+    }
+    
+    
+}
 
 
 
@@ -266,4 +285,21 @@ extension ConVPanuekaioTxker{
        
       
     }
+}
+
+
+extension ConVPanuekaioTxker{
+    func dancePKPayswiftket(purcaziton:PurchaseDetails)  {
+        let psdownloads = purcaziton.transaction.downloads
+        if !psdownloads.isEmpty {
+            SwiftyStoreKit.start(psdownloads)
+        }
+        
+        if purcaziton.needsFinishTransaction {
+            SwiftyStoreKit.finishTransaction(purcaziton.transaction)
+        }
+        
+    }
+    
+    
 }

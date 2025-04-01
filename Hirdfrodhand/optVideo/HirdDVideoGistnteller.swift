@@ -118,11 +118,9 @@ class HirdDVideoGistnteller: UIViewController,UICollectionViewDelegate,UICollect
         
         var akidonah = Int(sudh?["hiroBlance"] ?? "0") ?? 0
         
-#if DEBUG
-        let nnedMonet = 0
-#else
+
         let nnedMonet = self.GisftCount * 199
-#endif
+
         
         if akidonah >= nnedMonet {
             akidonah -= nnedMonet
@@ -130,11 +128,12 @@ class HirdDVideoGistnteller: UIViewController,UICollectionViewDelegate,UICollect
             
             UserDefaults.standard.set(sudh, forKey: "logeduserhiedIndj")
             
-            UserDefaults.standard.set(sudh, forKey: sudh?["hiroUID"] ?? "")
+          
             
             
             self.dismiss(animated: true)
             self.deleagte?.figtNameGiven(name: self.AKdoj[self.Itag], count: GisftCount)
+            UserDefaults.standard.set(sudh, forKey: sudh?["hiroUID"] ?? "")
         }else{
             let popup = PopupDialog(
                 title: "🪙 Insufficient Balance",
