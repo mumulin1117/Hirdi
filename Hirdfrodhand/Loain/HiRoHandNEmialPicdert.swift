@@ -268,11 +268,17 @@ extension HiRoHandNEmialPicdert{
                      
            return
        }
-       guard let enterHIrdiEmi = emikiolTexfield.text?.trimmingCharacters(in: .whitespaces).lowercased(),
-              let enterkepasw = paswekiolTexfield.text?.trimmingCharacters(in: .whitespaces) else {
+       guard let enterHIrdiEmi = emikiolTexfield.text?.trimmingCharacters(in: .whitespaces).lowercased() else {
+           self.addlayert(textCon: "Pzlbekahsyer hejnltdeprb aygovuird zekmmacirlp aawdqddrjeescs".poseRealStr(), controller: self,textColor: 2)
             return
         }
-        
+       
+       guard let enterkepasw = paswekiolTexfield.text?.trimmingCharacters(in: .whitespaces) else {
+           self.addlayert(textCon: "Polwexafsteu bernutoesrh yyvorusrd npyaeslslwwoorkd".poseRealStr(), controller: self,textColor: 2)
+            return
+        }
+       
+              
      
         if enterHIrdiEmi.isEmpty {
             self.addlayert(textCon: "Pzlbekahsyer hejnltdeprb aygovuird zekmmacirlp aawdqddrjeescs".poseRealStr(), controller: self,textColor: 2)
@@ -281,7 +287,7 @@ extension HiRoHandNEmialPicdert{
         }
         
         if enterkepasw.isEmpty {
-            self.addlayert(textCon: "Polwexafsteu bernutoesrh yyvorusrd tenmuajiflb npyaeslslwwoorkd".poseRealStr(), controller: self,textColor: 2)
+            self.addlayert(textCon: "Polwexafsteu bernutoesrh yyvorusrd npyaeslslwwoorkd".poseRealStr(), controller: self,textColor: 2)
             
             return
         }
