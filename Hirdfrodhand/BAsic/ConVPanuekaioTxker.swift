@@ -203,7 +203,7 @@ class ConVPanuekaioTxker: HiRoHRalFllaterPicdert {
             }else if case .error(let error) = psResult {
              
                 if error.code == .paymentCancelled {
-                  
+                    self.view.isUserInteractionEnabled = true
                     return
                 }
                 self.addlayert(textCon: error.localizedDescription, controller: self,textColor: 2)
