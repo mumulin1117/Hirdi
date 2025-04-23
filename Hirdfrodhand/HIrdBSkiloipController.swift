@@ -43,41 +43,42 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
        
     }
  
-    
+    private func startLoaginChallenge()  {
+        
+        
+        let LoaginLabeh = UILabel.init()
+        LoaginLabeh.isUserInteractionEnabled = true
+       
+        LoaginLabeh.textColor = .white
+        LoaginLabeh.textAlignment = .center
+        LoaginLabeh.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        LoaginLabeh.text = "Lxowgw cizn".poseRealStr()
+        LoaginLabeh.layer.cornerRadius = 25
+        LoaginLabeh.layer.masksToBounds = true
+        LoaginLabeh.backgroundColor = UIColor(red: 0.51, green: 0.45, blue: 0.94, alpha: 1)
+        view.addSubview(LoaginLabeh)
+       
+        LoaginLabeh.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(15)
+            make.height.equalTo(48)
+            make.bottom.equalToSuperview().offset(-self.view.safeAreaInsets.bottom - 15 - 40 - 10)
+        }
+    }
   
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
-        let matherlang = UIImageView.init(frame:UIScreen.main.bounds)
-        matherlang.contentMode = .scaleAspectFill
-        if fmersousifgnin {
-            matherlang.image = UIImage(named: "FoeloaginPage")
-        }else{
-            matherlang.image = UIImage(named: "poajfLainj")
+        if let image = UIImage(named: "naokeyi") {
+               
+            view.layer.contents = image.cgImage
+            // 设置内容模式（可选）
+            view.layer.contentsGravity = .resizeAspectFill
         }
-       
-        view.addSubview(matherlang)
         
        
         
         if fmersousifgnin == true {
-            let  lsignintouchHTL = UIButton.init()
-            lsignintouchHTL.setBackgroundImage(UIImage.init(named: "posdaiNbc"), for: .normal)
-           
-            lsignintouchHTL.setTitle("Quick Log", for: .normal)
-            lsignintouchHTL.setTitleColor(UIColor.black, for: .normal)
-            lsignintouchHTL.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .black)
-           
-            lsignintouchHTL.isUserInteractionEnabled = false
-            view.addSubview(lsignintouchHTL)
-           
-            lsignintouchHTL.snp.makeConstraints { make in
-                make.centerX.equalToSuperview()
-                make.height.equalTo(52)
-                make.width.equalTo(335)
-                make.bottom.equalToSuperview().offset(-self.view.safeAreaInsets.bottom - 85)
-            }
+            startLoaginChallenge()
         }
         
         

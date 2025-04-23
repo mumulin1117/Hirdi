@@ -20,43 +20,49 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
-        
-        let matherlang = UIImageView.init(frame:UIScreen.main.bounds)
-        matherlang.contentMode = .scaleAspectFill
-        matherlang.image = UIImage(named: "FoeloaginPage")
-        view.addSubview(matherlang)
-        
-        
-        
-        let  lsignintouchHTL = UIButton.init()
-        lsignintouchHTL.setBackgroundImage(UIImage.init(named: "posdaiNbc"), for: .normal)
-       
-        lsignintouchHTL.setTitle("Quick Log", for: .normal)
-        lsignintouchHTL.setTitleColor(UIColor.black, for: .normal)
-        lsignintouchHTL.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .black)
-        
-        view.addSubview(lsignintouchHTL)
-        lsignintouchHTL.addTarget(self, action: #selector(touchEntanceEnterFME), for: .touchUpInside)
-        lsignintouchHTL.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.height.equalTo(52)
-            make.width.equalTo(335)
-            make.bottom.equalToSuperview().offset(-self.view.safeAreaInsets.bottom - 85)
+        if let image = UIImage(named: "naokeyi") {
+               
+            view.layer.contents = image.cgImage
+            // 设置内容模式（可选）
+            view.layer.contentsGravity = .resizeAspectFill
         }
+        
+        startLoaginChallenge()
         
 
         getnlocationAuthsFMer()
 
     }
     
+    private func startLoaginChallenge()  {
+        
+        
+        let LoaginLabeh = UILabel.init()
+        LoaginLabeh.isUserInteractionEnabled = true
+        LoaginLabeh.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchEntanceEnterFME)))
+        LoaginLabeh.textColor = .white
+        LoaginLabeh.textAlignment = .center
+        LoaginLabeh.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        LoaginLabeh.text = "Lxowgw cizn".poseRealStr()
+        LoaginLabeh.layer.cornerRadius = 25
+        LoaginLabeh.layer.masksToBounds = true
+        LoaginLabeh.backgroundColor = UIColor(red: 0.51, green: 0.45, blue: 0.94, alpha: 1)
+        view.addSubview(LoaginLabeh)
+       
+        LoaginLabeh.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(15)
+            make.height.equalTo(48)
+            make.bottom.equalToSuperview().offset(-self.view.safeAreaInsets.bottom - 15 - 40 - 10)
+        }
+    }
+    
+    
     @objc func touchEntanceEnterFME() {
         getnlocationAuthsFMer()
         let lakdj = self.addlayert(textCon: "log in.....",controller: self,timedelay: nil)
         
             
-        let combinadinAllFME = "userLocationAddressVO****city****countryCode****district****geonameId****latitude****longitude".components(separatedBy: "****")
-    
+      
          let pushtokeng = UserDefaults.standard.object(forKey: "remotetokenHIRDI") as? String ?? ""
 #if DEBUG
         let adventurepatherFME = "/api/login/v3/quickLogin"

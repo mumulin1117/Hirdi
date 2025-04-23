@@ -90,40 +90,47 @@ class HIrdBSkilNetaing: NSObject {
                                path: String,
                                completion: @escaping (Result<[String : Any]?, Error>) -> Void) {
         URLSession.shared.dataTask(with: request) { data, response, error in
-            // 统一错误处理
-            if let error = error {
-                return completion(.failure(error))
-            }
             
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200...299).contains(httpResponse.statusCode),
-                  let data = data else {
-                return completion(.failure(NSError(domain: "HTTP Error", code: (response as? HTTPURLResponse)?.statusCode ?? 500)))
-            }
-            
-            // JSON 解析
-            do {
-                let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-                guard let responseDict = jsonObject as? [String: Any] else {
-                    throw NSError(domain: "Data Format Error", code: 500)
+            DispatchQueue.main.async(execute: DispatchWorkItem(block: {
+                
+                
+                // 统一错误处理
+                if let error = error {
+                    return completion(.failure(error))
                 }
                 
-                // 业务逻辑处理
-                if responseDict["code"] as? String == "0000" {
-                    completion(.success(responseDict["result"] as? [String: Any]))
-                } else {
-                    let errorMessage = responseDict["message"] as? String ?? "Unknown Error"
-                    throw NSError(domain: "Business Error", code: 0, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                guard let httpResponse = response as? HTTPURLResponse,
+                      (200...299).contains(httpResponse.statusCode),
+                      let data = data else {
+                    return completion(.failure(NSError(domain: "HTTP Error", code: (response as? HTTPURLResponse)?.statusCode ?? 500)))
                 }
                 
-                // 调试模式特殊处理
-                #if DEBUG
-                self.handleDebugDisplay(path: path, response: responseDict)
-                #endif
+                // JSON 解析
+                do {
+                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+                    guard let responseDict = jsonObject as? [String: Any] else {
+                        throw NSError(domain: "Data Format Error", code: 500)
+                    }
+                    
+                    // 业务逻辑处理
+                    if responseDict["code"] as? String == "0000" {
+                        completion(.success(responseDict["result"] as? [String: Any]))
+                    } else {
+                        let errorMessage = responseDict["message"] as? String ?? "Unknown Error"
+                        throw NSError(domain: "Business Error", code: 0, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                    }
+                    
+                    // 调试模式特殊处理
+                    #if DEBUG
+                    self.handleDebugDisplay(path: path, response: responseDict)
+                    #endif
+                    
+                } catch {
+                    completion(.failure(error))
+                }
                 
-            } catch {
-                completion(.failure(error))
-            }
+            }))
+           
         }.resume()
     }
     
@@ -171,7 +178,7 @@ class HIrdBSkilNetaing: NSObject {
                    }
                    
                    // 10秒后自动移除
-                   DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                   DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                        // 淡出动画
                        UIView.animate(withDuration: 0.3, animations: {
                            container.alpha = 0

@@ -13,7 +13,25 @@ import Network
 
 //launch
 class HiRoHandPicdert: UIViewController {
-    var netrequestCountFME:Int = 0
+   
+    var status: NWPath.Status = .requiresConnection
+    
+    func startMonitoring() {
+        let monitor = NWPathMonitor()
+            
+        monitor.pathUpdateHandler = { [weak self] path in
+           
+            self?.status = path.status
+            
+           
+        }
+        
+        let queue = DispatchQueue(label: "com.youapp.network.monitor")
+        monitor.start(queue: queue)
+       
+    }
+
+    
     
     static var chacheImage:Dictionary<String,UIImage> = Dictionary<String,UIImage>()
     
@@ -24,6 +42,7 @@ class HiRoHandPicdert: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        startMonitoring()
         if let image = UIImage(named: "naokeyi") {
                
             view.layer.contents = image.cgImage
@@ -36,37 +55,28 @@ class HiRoHandPicdert: UIViewController {
         
     }
     
-    
+   
+     
     private  func onceawayNowInlaunch()  {
-        let monitor = NWPathMonitor()
-        
-        guard  monitor.currentPath.status == .satisfied else {
-            print("无法检测到网络状态")
-            if self.netrequestCountFME <= 5 {
-                self.onceawayNowInlaunch()
-                self.netrequestCountFME += 1
-                return
-            }
-            self.showalertReloadFME()
-            
-            return
-            
-        }
-        
+        if self.status == .satisfied{
+          
 #if DEBUG
-                self.inWhichEntranceFME()
+            self.inWhichEntranceFME()
 #else
-           
-                if self.reviewingBuildITimeIsokayFME() == true {
-                   
-                    self.inWhichEntranceFME()
-                    
-                }else{
-                    
-                    HiRoHandPicdert.createappdemoingPOSM()
-                }
+       
+            if self.reviewingBuildITimeIsokayFME() == true {
+               
+                self.inWhichEntranceFME()
+                
+            }else{
+                
+                HiRoHandPicdert.createappdemoingPOSM()
+            }
 #endif
             
+        } else {
+            self.showalertReloadFME()
+        }
 
        
     }
