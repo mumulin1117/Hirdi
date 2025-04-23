@@ -11,8 +11,6 @@ import AVFoundation
 
 
 class ConVShareDmITxker: HiRoHRalFllaterPicdert,UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
-    
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = nil
     }

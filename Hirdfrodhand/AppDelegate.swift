@@ -19,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let siren = Siren.shared
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        
+        gestureFlowe()
         HiRoHandPicdert.addCompletyForPay()
-        self.window?.rootViewController = HiRoHandNAvigationPicdert.init(rootViewController: HiRoHandPicdert.init()) 
-        window?.makeKeyAndVisible()
+        self.window?.rootViewController = HiRoHandNAvigationPicdert.init(rootViewController: HiRoHandPicdert.init())
+        kineticSync()
+        
         
         
         siren.rulesManager = RulesManager(
@@ -34,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         
         var Haoijg:Int = 10
+        window?.makeKeyAndVisible()
         Haoijg += 2
          if Haoijg > 3 && UserDefaults.standard.bool(forKey: "YIAjingLoadThisApp") == false {
              Haoijg += 9
