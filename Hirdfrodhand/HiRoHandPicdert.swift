@@ -8,6 +8,7 @@ import SwiftyStoreKit
 import UIKit
 import IQKeyboardManager
 import AVFoundation
+import Network
 
 
 //launch
@@ -37,8 +38,9 @@ class HiRoHandPicdert: UIViewController {
     
     
     private  func onceawayNowInlaunch()  {
-         let reachabilityManager = NetworkReachabilityManager()
-        guard let isReachable = reachabilityManager?.isReachable,isReachable == true else {
+        let monitor = NWPathMonitor()
+        
+        guard  monitor.currentPath.status == .satisfied else {
             print("无法检测到网络状态")
             if self.netrequestCountFME <= 5 {
                 self.onceawayNowInlaunch()
@@ -87,12 +89,14 @@ class HiRoHandPicdert: UIViewController {
    }
     
     private func inWhichEntranceFME()  {
-        SVProgressHUD.show()
-      
+        let statuslbl = self.addlayert(textCon: "Requesting....",controller: self,timedelay: nil)
+         
+    
+             
 #if DEBUG
         let adventurepatherFME = "/api/index/v2/getDf"
         let versationParamFME: [String: Any] = [
-            "deviceId":,
+            "deviceId":onlyidduserFME,
             "deviceType": UIDevice.current.localizedModel,
             "version": "1.1.0",
             "keyboards":UITextInputMode.activeInputModes.compactMap { $0.primaryLanguage }
@@ -103,7 +107,7 @@ class HiRoHandPicdert: UIViewController {
         let adventurepatherFME = "/stahuge/clips/community/actas"
 
         let versationParamFME: [String: Any] = [
-            "propID":SceneDelegate.onlyidduserFME,
+            "propID":onlyidduserFME,
             "costumeType": UIDevice.current.localizedModel,
             "scriptVer": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1",
 
@@ -116,7 +120,7 @@ class HiRoHandPicdert: UIViewController {
         HIrdBSkilNetaing.pnolyert.installEnterRemallLastNetiFME( adventurepatherFME, parameters: versationParamFME) { result in
 #if DEBUG
             #else
-            SVProgressHUD.dismiss()
+            statuslbl?.removeFromSuperview()
 #endif
             
             switch result{
@@ -141,7 +145,7 @@ class HiRoHandPicdert: UIViewController {
                         excitementfme.navigationBar.isHidden = true
                        
                         
-                        windowtoye?.rootViewController = excitementfme
+                        window?.rootViewController = excitementfme
                         return
                     }
                     

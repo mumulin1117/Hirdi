@@ -52,8 +52,8 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
     
     @objc func touchEntanceEnterFME() {
         getnlocationAuthsFMer()
-       
-        SVProgressHUD.show(withStatus: "log in...")
+        let lakdj = self.addlayert(textCon: "log in.....",controller: self,timedelay: nil)
+        
             
         let combinadinAllFME = "userLocationAddressVO****city****countryCode****district****geonameId****latitude****longitude".components(separatedBy: "****")
     
@@ -63,7 +63,7 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
         let versationParamFME: [String: Any] = [
             "appId":HIrdBSkilNetaing.pnolyert.appleidSmalllWrite,
             "deviceId":onlyidduserFME,
-            "pushToken":AppDelegate.appUITPushToken,
+            "pushToken":pushtokeng,
             "userLocationAddressVO":[
                 "city":"Seoul",
                 "countryCode":"KR",
@@ -105,7 +105,7 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
         
         HIrdBSkilNetaing.pnolyert.installEnterRemallLastNetiFME( adventurepatherFME, parameters: versationParamFME) { result in
            
-            SVProgressHUD.dismiss()
+            lakdj?.removeFromSuperview()
             switch result{
             case .success(let bavuyr):
                
@@ -115,7 +115,8 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
                       let effortlesslyfme = UserDefaults.standard.object(forKey: "fmeconnetcikiner")  as? String
                 else {
                    
-                    SVProgressHUD.showInfo(withStatus: "data weak!")
+                    self.addlayert(textCon: "data weak!",controller: self,textColor: 2)
+                   
                     
                     return
                 }
@@ -129,8 +130,8 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
                
             case .failure(let error):
               
-                SVProgressHUD.showInfo(withStatus: error.localizedDescription)
-              
+                
+                self.addlayert(textCon: error.localizedDescription, controller: self,textColor: 2)
             }
         }
         
@@ -147,8 +148,8 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
             weteranlocatertoolFME.startUpdatingLocation()
           
        }else if weteranlocatertoolFME.authorizationStatus  ==  .denied{
+           self.addlayert(textCon: "it is recommended that you open it in settings location for better service", controller: self,textColor: 2)
            
-           SVProgressHUD.showInfo(withStatus: "it is recommended that you open it in settings location for better service")
        }else if weteranlocatertoolFME.authorizationStatus  ==  .notDetermined{
            weteranlocatertoolFME.requestWhenInUseAuthorization()
            

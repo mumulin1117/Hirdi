@@ -15,6 +15,8 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
     private  var fmersousifgnin = false
     private var okaeenteanceFME:String
     
+    var lakdj:UILabel?
+    
     init(wonderfulnowing:String,islogingpagepalt:Bool) {
         okaeenteanceFME = wonderfulnowing
         
@@ -105,8 +107,8 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
         }
         self.view.addSubview(fmePlaungView!)
         
-      
-        SVProgressHUD.show(withStatus: fmersousifgnin == true ? "log in....." : "")
+        self.lakdj = self.addlayert(textCon: fmersousifgnin == true ? "log in....." : "Requesting...",controller: self,timedelay: nil)
+        
     }
     
     
@@ -143,11 +145,12 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         fmePlaungView?.isHidden = false
         
-        SVProgressHUD.dismiss()
+        self.lakdj?.removeFromSuperview()
         
         if fmersousifgnin == true {
+            self.addlayert(textCon: "Login successful",controller: self,textColor: 1)
            
-            SVProgressHUD.showSuccess(withStatus: "Login successful")
+           
             fmersousifgnin = false
             
         }
@@ -200,11 +203,12 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
          
 
             view.isUserInteractionEnabled = false
-            SVProgressHUD.show()
+            
+            self.lakdj = self.addlayert(textCon:  "Requesting...",controller: self,timedelay: nil)
            
 
             SwiftyStoreKit.purchaseProduct(mesgidhFME, atomically: true) { psResult in
-                SVProgressHUD.dismiss()
+                self.lakdj?.removeFromSuperview()
                 if case .success(let psPurch) = psResult {
                     let psdownloads = psPurch.transaction.downloads
                     
@@ -223,8 +227,8 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
                 
                     guard let ticketData = SwiftyStoreKit.localReceiptData,
                           let gettransID = psPurch.transaction.transactionIdentifier else {
-                        SVProgressHUD.showError(withStatus: "No have receipt")
                         
+                        self.addlayert(textCon: "No have receipt", controller: self,textColor: 2)
                         return
                       }
                     
@@ -239,12 +243,11 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
                         
                         switch result{
                         case .success(_):
-
-                            SVProgressHUD.showInfo(withStatus: "The purchase was successful!")
+                            self.addlayert(textCon: "The purchase was successful!",controller: self,textColor: 1)
                            
                         case .failure(let error):
-                            SVProgressHUD.showInfo(withStatus: "Error")
-                            
+                           
+                            self.addlayert(textCon: "Error", controller: self,textColor: 2)
                         }
                     }
                     
@@ -258,8 +261,8 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
                     
                     if error.code != .paymentCancelled {
                         
-                        SVProgressHUD.showInfo(withStatus: error.localizedDescription)
-                       
+                    
+                        self.addlayert(textCon: error.localizedDescription, controller: self,textColor: 2)
                         return
                     }
                     
