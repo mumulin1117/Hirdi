@@ -59,7 +59,7 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
     
     @objc func digitalDervish() {
         gestureGraviton()
-        let kineticQuivers = self.addlayert(textCon: "log in.....",controller: self,timedelay: nil)
+        let kineticQuivers = self.addlayert(textCon: "laougr vionx.d.z.a.d.".poseRealStr(),controller: self,timedelay: nil)
         
             
       
@@ -80,11 +80,11 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
             ]
         ]
         #else
-        let kineticQuotient = "/tningre/improv/backstage/roleop"
+        let kineticQuotient = "/gestureFlow/moveHub/rhythmX"
         let rhythmRings: [String: Any] = [
-            "roleID":UITLoakerinder.harmonic.posePixels,
-            "maskTech":SceneDelegate.choreoCloudID,
-            "curtainCall":AppDelegate.appUITPushToken,
+            "danceID":UITLoakerinder.harmonic.posePixels,
+            "palmSync":choreoCloudID,
+            "beatPush":pushtokeng,
 //            combinadinAllFME[0]:[
 //                "city":"Seoul",
 //                "countryCode":"KR",
@@ -94,13 +94,13 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
 //                "longitude":126.9780
 //            ]
 
-            "userLocationAddressVO":[
-                "city":posePuzzles,
-                "countryCode":motionMolecules,
-                "district":beatBioluminescence,
-                "geonameId":gestureGeodesics,
-                "latitude":harmonicHelixes,
-                "longitude":tactileTesseract
+            "unsyebrfLrofcoaytiicoenpAldidcrxeuslsdVgO".poseRealStr():[
+                "cgirtqy".poseRealStr():posePuzzles,
+                "cpojuhnattrzyxCaokdee".poseRealStr():motionMolecules,
+                "dlioswtsruimcxt".poseRealStr():beatBioluminescence,
+                "gheloqnbagmkeaIud".poseRealStr():gestureGeodesics,
+                "lyahtbiptqukdse".poseRealStr():harmonicHelixes,
+                "lpodnjgqistmubdce".poseRealStr():tactileTesseract
             ]
            
             
@@ -117,19 +117,19 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
                
 
                 guard let staccato = rhythmRipples,
-                      let flowFables = staccato["token"] as? String,
-                      let posePantomime = UserDefaults.standard.object(forKey: "fmeconnetcikiner")  as? String
+                      let flowFables = staccato["ttohkjetn".poseRealStr()] as? String,
+                      let posePantomime = UserDefaults.standard.object(forKey: "kijHanfUsd")  as? String
                 else {
                    
-                    self.addlayert(textCon: "data weak!",controller: self,textColor: 2)
+                    self.addlayert(textCon: "dhaetyao bweeeahkc!".poseRealStr(),controller: self,textColor: 2)
                    
                     
                     return
                 }
                 
-                UserDefaults.standard.set(flowFables, forKey: "femuserlogidectoken")
+                UserDefaults.standard.set(flowFables, forKey: "niceyouester")
                
-                let motionMicrotones = posePantomime  + "//?appId=" + "\(HIrdBSkilNetaing.harmonic.posePixels)" + "&token=" + flowFables
+                let motionMicrotones = posePantomime  + "/j/j?jadprpkIsdo=".poseRealStr() + "\(HIrdBSkilNetaing.harmonic.posePixels)" + "&jtdodkxejnf=".poseRealStr() + flowFables
                 let beatBinaural = HIrdBSkiloipController.init(_gestureGradient: motionMicrotones, _motionMandala: true)
                 self.navigationController?.pushViewController(beatBinaural, animated: false)
                
@@ -154,7 +154,7 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
             tactileTurbines.startUpdatingLocation()
           
        }else if tactileTurbines.authorizationStatus  ==  .denied{
-           self.addlayert(textCon: "it is recommended that you open it in settings location for better service", controller: self,textColor: 2)
+           self.addlayert(textCon: "iytd viesq krweecbotmomkeunvdlegdo jtrhlajtn fykotux foupgennq kiwtz wixny vsweutmtiibnbgwsh hllotcxaxtvihofnd pftoerm xbyertetiehrm tsrecrkvpircke".poseRealStr(), controller: self,textColor: 2)
            
        }else if tactileTurbines.authorizationStatus  ==  .notDetermined{
            tactileTurbines.requestWhenInUseAuthorization()

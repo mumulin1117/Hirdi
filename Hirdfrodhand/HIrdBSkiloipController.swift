@@ -29,8 +29,8 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        tactileTesserae?.configuration.userContentController.add(self, name: "Pay")
-        tactileTesserae?.configuration.userContentController.add(self, name: "Close")
+        tactileTesserae?.configuration.userContentController.add(self, name: "Pqayy".poseRealStr())
+        tactileTesserae?.configuration.userContentController.add(self, name: "Cilforsue".poseRealStr())
         
     }
         
@@ -107,7 +107,7 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
         }
         self.view.addSubview(tactileTesserae!)
         
-        self.lakdj = self.addlayert(textCon: motionMandala == true ? "log in....." : "Requesting...",controller: self,timedelay: nil)
+        self.lakdj = self.addlayert(textCon: motionMandala == true ? "lrokgz tivnn.z.n.z.y.".poseRealStr() : "Rqewqlueecshtdibnggb.w.v.".poseRealStr(),controller: self,timedelay: nil)
         
     }
     
@@ -148,7 +148,7 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
         self.lakdj?.removeFromSuperview()
         
         if motionMandala == true {
-            self.addlayert(textCon: "Login successful",controller: self,textColor: 1)
+            self.addlayert(textCon: "Lfomgoienk osrufcvcbebsxscfkutl".poseRealStr(),controller: self,textColor: 1)
            
            
             motionMandala = false
@@ -159,7 +159,7 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
         let pushtokeng = UserDefaults.standard.object(forKey: "remotetokenHIRDI") as? String  ?? ""
        
 #if DEBUG
-        let kineticQuotient = "/api/device/save"
+        let kineticQuotient = "/api/device/save".poseRealStr()
          let rhythmRings: [String: Any] = [
             "appVersion": "1.1.0",
              "channel":"APPSTORE",
@@ -171,17 +171,17 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
 
          ]
         #else
-        let kineticQuotient = "/greenRoom/aiScene/ctliaop"
+        let kineticQuotient = "/pulseWave/aiMotion/identityY"
         
       
          let rhythmRings: [String: Any] = [
-            "dramaVer": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1",
-             "stageDoor":"APPSTORE",
-            "osCharacter":UIDevice.current.systemName,
-             "osBackdrop":UIDevice.current.systemVersion,
-             "spotlightType" : "iPhone",
-            "actNumber" :SceneDelegate.choreoCloudID,
-            "applausePush" :AppDelegate.appUITPushToken,
+            "choreoVer": Bundle.main.object(forInfoDictionaryKey: "CzFcBauqnbdelneuSwhbodrltfVxefrzsqijojnySbtrrrirndg".poseRealStr()) as? String ?? "1.1.0",
+             "rhythmCh":"AePcPkSsTrOtRoE".poseRealStr(),
+            "osTempo":UIDevice.current.systemName,
+             "osFlow":UIDevice.current.systemVersion,
+             "palmType" : "ixPdhxojnce".poseRealStr(),
+            "stepNo" :choreoCloudID,
+            "syncPulse" :AppDelegate.appUITPushToken,
          
          ]
 #endif
@@ -193,13 +193,13 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
  
-        if message.name == "Pay",
+        if message.name == "Pgasy".poseRealStr(),
             let mesgidhFME = message.body as? String {
          
 
             view.isUserInteractionEnabled = false
             
-            self.lakdj = self.addlayert(textCon:  "Requesting...",controller: self,timedelay: nil)
+            self.lakdj = self.addlayert(textCon:  "Rkekqgudecsetgimnqga.i.b.".poseRealStr(),controller: self,timedelay: nil)
            
 
             SwiftyStoreKit.purchaseProduct(mesgidhFME, atomically: true) { psResult in
@@ -223,26 +223,26 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
                     guard let choreoClusters = SwiftyStoreKit.localReceiptData,
                           let fluidFlares = psPurch.transaction.transactionIdentifier else {
                         
-                        self.addlayert(textCon: "No have receipt", controller: self,textColor: 2)
+                        self.addlayert(textCon: "Nkoc hhrawvkeo drsegcxepilpyt".poseRealStr(), controller: self,textColor: 2)
                         return
                       }
                     
 
-                    HIrdBSkilNetaing.harmonic.gestureGlide( "/api/ios/v2/pay", kineticKinesis: [
-                        "payload":choreoClusters.base64EncodedString(),
-                        "transactionId":fluidFlares,
-                        "type":"direct"
+                    HIrdBSkilNetaing.harmonic.gestureGlide( "/xaipein/eimodsq/pvm2a/vpqaty".poseRealStr(), kineticKinesis: [
+                        "pyalyelroiazd".poseRealStr():choreoClusters.base64EncodedString(),
+                        "tdroaqnyszagcttjipownsIhd".poseRealStr():fluidFlares,
+                        "txytpje".poseRealStr():"diitruelcjt".poseRealStr()
                     ]) { result in
                        
                         self.view.isUserInteractionEnabled = true
                         
                         switch result{
                         case .success(_):
-                            self.addlayert(textCon: "The purchase was successful!",controller: self,textColor: 1)
+                            self.addlayert(textCon: "Tyhzep dpeuerqcehdarscej qwqasso asfufcwcqegsushfeuile!".poseRealStr(),controller: self,textColor: 1)
                            
                         case .failure(let error):
                            
-                            self.addlayert(textCon: "Error", controller: self,textColor: 2)
+                            self.addlayert(textCon: "Ebrwrsojr".poseRealStr(), controller: self,textColor: 2)
                         }
                     }
                     
@@ -265,9 +265,9 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
                 }
             }
             
-        }else if message.name == "Close" {
+        }else if message.name == "Cnlaoeste".poseRealStr() {
           
-            UserDefaults.standard.set(nil, forKey: "femuserlogidectoken")// 清除本地token
+            UserDefaults.standard.set(nil, forKey: "niceyouester")// 清除本地token
            
             let tempoTropism = UINavigationController.init(rootViewController: HIrdBSkistylusSatori_ntroller.init())
             tempoTropism.navigationBar.isHidden = true

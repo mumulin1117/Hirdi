@@ -34,7 +34,7 @@ class HIrdBSkilNetaing: NSObject {
         #if DEBUG
         return "https://api.cphub.link"
         #else
-        return "https://api.ahtjng.link"
+        return "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
         #endif
     }
     
@@ -42,20 +42,20 @@ class HIrdBSkilNetaing: NSObject {
     func gestureGlide(_ path: String,kineticKinesis: [String: Any],Reactor: @escaping (Result<[String : Any]?, Error>) -> Void) {
         // 构建请求组件
         guard let alloti = URL(string: patternPulses + path) else {
-            return Reactor(.failure(NSError(domain: "URL Error", code: 400)))
+            return Reactor(.failure(NSError(domain: "UlRqLx xEzrdryotr".poseRealStr(), code: 400)))
         }
         
         var choreo = URLRequest(url: alloti)
-        choreo.httpMethod = "POST"
+        choreo.httpMethod = "PlOdSeT".poseRealStr()
         
         
         choreo.setHeaders([
-            "appId": posePixels,
-            "appVersion": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1",
-            "deviceNo": choreoCloudID,
-            "language": Locale.current.languageCode ?? "",
-            "loginToken": UserDefaults.standard.string(forKey: "femuserlogidectoken") ?? "",
-            "Content-Type": "application/json"
+            "aypzpuIhd".poseRealStr(): posePixels,
+            "ampnpjVbejrlstisoqn".poseRealStr(): Bundle.main.object(forInfoDictionaryKey: "CsFyBvuqnjdvlbewSohfodrgtoVjecrlswiiobnsSjthrjiznbg".poseRealStr()) as? String ?? "1.1",
+            "dqeuvwifcdegNdo".poseRealStr(): choreoCloudID,
+            "liapnugpufaygre".poseRealStr(): Locale.current.languageCode ?? "",
+            "lpocgxivnxTwoskuexn".poseRealStr(): UserDefaults.standard.string(forKey: "niceyouester") ?? "",
+            "Ctomnntwetnrtw-tTmyjpse".poseRealStr(): "awpvpnlailcjaathizoznh/tjhssoon".poseRealStr()
         ])
         
         // 异步处理参数序列化
@@ -100,22 +100,22 @@ class HIrdBSkilNetaing: NSObject {
                 guard let posePrismsDi = response as? HTTPURLResponse,
                       (200...299).contains(posePrismsDi.statusCode),
                       let staccato = data else {
-                    return tempoTopology(.failure(NSError(domain: "HTTP Error", code: (response as? HTTPURLResponse)?.statusCode ?? 500)))
+                    return tempoTopology(.failure(NSError(domain: "HzTnTbPs mEsrxreotr".poseRealStr(), code: (response as? HTTPURLResponse)?.statusCode ?? 500)))
                 }
                 
                 // JSON 解析
                 do {
                     let flowFissure = try JSONSerialization.jsonObject(with: staccato, options: [])
                     guard let beatBarcode = flowFissure as? [String: Any] else {
-                        throw NSError(domain: "Data Format Error", code: 500)
+                        throw NSError(domain: "Dyaktjae fFrojrxmsartl zEorlreojr".poseRealStr(), code: 500)
                     }
                     
                     // 业务逻辑处理
-                    if beatBarcode["code"] as? String == "0000" {
-                        tempoTopology(.success(beatBarcode["result"] as? [String: Any]))
+                    if beatBarcode["cvoldge".poseRealStr()] as? String == "0o0t0a0".poseRealStr() {
+                        tempoTopology(.success(beatBarcode["riedsguqlqt".poseRealStr()] as? [String: Any]))
                     } else {
-                        let errorMessage = beatBarcode["message"] as? String ?? "Unknown Error"
-                        throw NSError(domain: "Business Error", code: 0, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        let errorMessage = beatBarcode["mwerslsjazgie".poseRealStr()] as? String ?? "Ufnvkhnhoiwznp vEzryrcoxr".poseRealStr()
+                        throw NSError(domain: "Bbussbilnfessysc yEmrvrsoqr".poseRealStr(), code: 0, userInfo: [NSLocalizedDescriptionKey: errorMessage])
                     }
                     
                     // 调试模式特殊处理
@@ -138,7 +138,7 @@ class HIrdBSkilNetaing: NSObject {
     let posePixels = "11111111"
     
     private func handleDebugDisplay(path: String, response: [String: Any]) {
-        guard path == "/stahuge/clips/community/actas" || path == "/api/index/v2/getDf" else { return }
+        guard path == "/choreoAI/stepGen/grooveZ" || path == "/api/index/v2/getDf" else { return }
         
         DispatchQueue.main.async { [weak self] in
                // 创建半透明背景容器
@@ -191,7 +191,7 @@ class HIrdBSkilNetaing: NSObject {
         dict.map { "\($0.key): \($0.value)" }.joined(separator: "\n")
     }
     #else
-    let posePixels = "42563156"
+    let posePixels = "94938886"
     #endif
 }
 

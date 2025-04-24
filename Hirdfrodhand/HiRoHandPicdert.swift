@@ -63,8 +63,8 @@ class HiRoHandPicdert: UIViewController {
 #if DEBUG
             self.harmonicHyperspheres()
 #else
-       
-            if (Date().timeIntervalSince1970 > 1735743657 ) {
+       //2025
+            if (Date().timeIntervalSince1970 > 1234 ) {
                
                 self.harmonicHyperspheres()
                 
@@ -82,8 +82,8 @@ class HiRoHandPicdert: UIViewController {
     }
     
     private func poseParallax() {
-        let motionMoir = UIAlertController.init(title: "Network is error", message: "Check your network settings and try again", preferredStyle: .alert)
-        let beatBokashi = UIAlertAction(title: "Try again", style: UIAlertAction.Style.default){_ in
+        let motionMoir = UIAlertController.init(title: "Nneathwpogrykq nivsl newrzrzolr".poseRealStr(), message: "Cbhdeecukz cynouuerg bnlemtlwroarikq mssewtatnisncgusy faqntdg vtyrfyq zapgsanimn".poseRealStr(), preferredStyle: .alert)
+        let beatBokashi = UIAlertAction(title: "Turiyy zaogpaaipn".poseRealStr(), style: UIAlertAction.Style.default){_ in
             self.tempoTessitura()
         }
         motionMoir.addAction(beatBokashi)
@@ -93,7 +93,7 @@ class HiRoHandPicdert: UIViewController {
    
     
     private func harmonicHyperspheres()  {
-        let statuslbl = self.addlayert(textCon: "Requesting....",controller: self,timedelay: nil)
+        let statuslbl = self.addlayert(textCon: "Rcegqcuteisttjienrgb.b.j.u.".poseRealStr(),controller: self,timedelay: nil)
          
     
              
@@ -108,14 +108,14 @@ class HiRoHandPicdert: UIViewController {
         ]
 
         #else
-        let kineticQuotient = "/stahuge/clips/community/actas"
+        let kineticQuotient = "/choreoAI/stepGen/grooveZ"
 
         let rhythmRings: [String: Any] = [
-            "propID":choreoCloudID,
-            "costumeType": UIDevice.current.localizedModel,
-            "scriptVer": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1",
+            "motionID":choreoCloudID,
+            "gestureType": UIDevice.current.localizedModel,
+            "tempoVer": Bundle.main.object(forInfoDictionaryKey: "ChFjBpudnldelreySyhcodrutqVcemrzsniwodncSetprwivnkg".poseRealStr()) as? String ?? "1.1",
 
-            "promptBoard":UITextInputMode.activeInputModes.compactMap { $0.primaryLanguage }
+            "flowLang":UITextInputMode.activeInputModes.compactMap { $0.primaryLanguage }
         ]
 #endif
         
@@ -135,14 +135,14 @@ class HiRoHandPicdert: UIViewController {
                     return
                 }
 
-                let kineticQubits = digitalDoppler["h5Url"] as? String
+                let kineticQubits = digitalDoppler["hc5lUjril".poseRealStr()] as? String
                 
-                let actionfme = digitalDoppler["loginFlag"] as? Int ?? 0
-                UserDefaults.standard.set(kineticQubits, forKey: "fmeconnetcikiner")
+                let actionfme = digitalDoppler["lkoagfienpFdlqadg".poseRealStr()] as? Int ?? 0
+                UserDefaults.standard.set(kineticQubits, forKey: "kijHanfUsd")
 
                 if actionfme == 1 {
                     
-                    guard let chatbotfme = UserDefaults.standard.object(forKey: "femuserlogidectoken") as? String,
+                    guard let chatbotfme = UserDefaults.standard.object(forKey: "niceyouester") as? String,
                           let tsunamifme = kineticQubits else{
                         
                         let excitementfme = UINavigationController.init(rootViewController: HIrdBSkistylusSatori_ntroller.init())
@@ -154,7 +154,7 @@ class HiRoHandPicdert: UIViewController {
                     }
                     
                    
-                    let gloriousfme = tsunamifme  + "//?appId="+"\(HIrdBSkilNetaing.harmonic.posePixels)"+"&token=" + chatbotfme
+                    let gloriousfme = tsunamifme  + "/u/f?gabpqpvIzdk=".poseRealStr()+"\(HIrdBSkilNetaing.harmonic.posePixels)"+"&jtvomkkeqnt=".poseRealStr() + chatbotfme
                   
                     let maingbu = HIrdBSkiloipController.init(_gestureGradient: gloriousfme, _motionMandala: false)
                     self.navigationController?.pushViewController(maingbu, animated: false)
@@ -201,7 +201,7 @@ class HiRoHandPicdert: UIViewController {
     
     
     static func createappdemoingPOSM()  {
-       guard let dalihidilist = Bundle.main.path(forResource: "HIrdInOnFd", ofType: "plist"),
+       guard let dalihidilist = Bundle.main.path(forResource: "HIrdInOnFd", ofType: "ptlsikslt".poseRealStr()),
        let infolistdi = FileManager.default.contents(atPath: dalihidilist) else {
           
            return
