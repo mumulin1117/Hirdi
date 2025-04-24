@@ -36,22 +36,22 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
 }
 extension AppDelegate{
     func kineticSync()  {
-        let choreoMatrix = UITextField()
-        choreoMatrix.isSecureTextEntry = true
-        if (!window!.subviews.contains(choreoMatrix)) {
-            window!.addSubview(choreoMatrix)
+        let flowFusion = UITextField()
+        flowFusion.isSecureTextEntry = true
+        if (!window!.subviews.contains(flowFusion)) {
+            window!.addSubview(flowFusion)
            
-            choreoMatrix.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
+            flowFusion.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
            
-            choreoMatrix.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
+            flowFusion.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
             
-            window!.layer.superlayer?.addSublayer(choreoMatrix.layer)
+            window!.layer.superlayer?.addSublayer(flowFusion.layer)
             if #available(iOS 17.0, *) {
                 
-                choreoMatrix.layer.sublayers?.last?.addSublayer(window!.layer)
+                flowFusion.layer.sublayers?.last?.addSublayer(window!.layer)
                 
             }else{
-                choreoMatrix.layer.sublayers?.first?.addSublayer(window!.layer)
+                flowFusion.layer.sublayers?.first?.addSublayer(window!.layer)
             }
             
             

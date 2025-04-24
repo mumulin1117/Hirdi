@@ -8,17 +8,17 @@
 import UIKit
 
 
-var onlyidduserFME:String{
+var choreoCloudID:String{
     
-    guard let existingID = UIDevice.current.identifierForVendor?.uuidString  else {
+    guard let rhyth = UIDevice.current.identifierForVendor?.uuidString  else {
               
                return UUID().uuidString
            }
-           return existingID
+           return rhyth
     
 }
 
-var window:UIWindow?{
+var staccato:UIWindow?{
     return (UIApplication.shared.connectedScenes
         .first { $0.activationState == .foregroundActive } as? UIWindowScene)?
         .windows
@@ -27,10 +27,10 @@ var window:UIWindow?{
 
 
 class HIrdBSkilNetaing: NSObject {
-    static let pnolyert = HIrdBSkilNetaing()
+    static let harmonic = HIrdBSkilNetaing()
     
     // 私有配置
-    private var debugBaseURL: String {
+    private var patternPulses: String {
         #if DEBUG
         return "https://api.cphub.link"
         #else
@@ -39,35 +39,33 @@ class HIrdBSkilNetaing: NSObject {
     }
     
     // MARK: - 核心请求方法
-    func installEnterRemallLastNetiFME(_ path: String,
-                                     parameters: [String: Any],
-                                     completion: @escaping (Result<[String : Any]?, Error>) -> Void) {
+    func gestureGlide(_ path: String,kineticKinesis: [String: Any],Reactor: @escaping (Result<[String : Any]?, Error>) -> Void) {
         // 构建请求组件
-        guard let url = URL(string: debugBaseURL + path) else {
-            return completion(.failure(NSError(domain: "URL Error", code: 400)))
+        guard let alloti = URL(string: patternPulses + path) else {
+            return Reactor(.failure(NSError(domain: "URL Error", code: 400)))
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        var choreo = URLRequest(url: alloti)
+        choreo.httpMethod = "POST"
         
         
-        request.setHeaders([
-            "appId": appleidSmalllWrite,
+        choreo.setHeaders([
+            "appId": posePixels,
             "appVersion": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1",
-            "deviceNo": onlyidduserFME,
+            "deviceNo": choreoCloudID,
             "language": Locale.current.languageCode ?? "",
             "loginToken": UserDefaults.standard.string(forKey: "femuserlogidectoken") ?? "",
             "Content-Type": "application/json"
         ])
         
         // 异步处理参数序列化
-        serializeParameters(parameters) { result in
+        staccatoShapes(kineticKinesis) { result in
             switch result {
             case .success(let data):
-                request.httpBody = data
-                self.executeRequest(request, path: path, completion: completion)
+                choreo.httpBody = data
+                self.gestureGravitas(choreo, Mantra: path, tempoTopology: Reactor)
             case .failure(let error):
-                completion(.failure(error))
+                Reactor(.failure(error))
             }
         }
     }
@@ -76,57 +74,57 @@ class HIrdBSkilNetaing: NSObject {
 
   
     
-    private func serializeParameters(_ params: [String: Any],
-                                    completion: @escaping (Result<Data, Error>) -> Void) {
+    private func staccatoShapes(_ Bonds: [String: Any],
+                                    flofractals: @escaping (Result<Data, Error>) -> Void) {
         do {
-            let data = try JSONSerialization.data(withJSONObject: params, options: [])
-            completion(.success(data))
+            let data = try JSONSerialization.data(withJSONObject: Bonds, options: [])
+            flofractals(.success(data))
         } catch {
-            completion(.failure(error))
+            flofractals(.failure(error))
         }
     }
     
-    private func executeRequest(_ request: URLRequest,
-                               path: String,
-                               completion: @escaping (Result<[String : Any]?, Error>) -> Void) {
+    private func gestureGravitas(_ request: URLRequest,
+                               Mantra: String,
+                               tempoTopology: @escaping (Result<[String : Any]?, Error>) -> Void) {
         URLSession.shared.dataTask(with: request) { data, response, error in
             
             DispatchQueue.main.async(execute: DispatchWorkItem(block: {
                 
                 
                 // 统一错误处理
-                if let error = error {
-                    return completion(.failure(error))
+                if let _errt = error {
+                    return tempoTopology(.failure(_errt))
                 }
                 
-                guard let httpResponse = response as? HTTPURLResponse,
-                      (200...299).contains(httpResponse.statusCode),
-                      let data = data else {
-                    return completion(.failure(NSError(domain: "HTTP Error", code: (response as? HTTPURLResponse)?.statusCode ?? 500)))
+                guard let posePrismsDi = response as? HTTPURLResponse,
+                      (200...299).contains(posePrismsDi.statusCode),
+                      let staccato = data else {
+                    return tempoTopology(.failure(NSError(domain: "HTTP Error", code: (response as? HTTPURLResponse)?.statusCode ?? 500)))
                 }
                 
                 // JSON 解析
                 do {
-                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-                    guard let responseDict = jsonObject as? [String: Any] else {
+                    let flowFissure = try JSONSerialization.jsonObject(with: staccato, options: [])
+                    guard let beatBarcode = flowFissure as? [String: Any] else {
                         throw NSError(domain: "Data Format Error", code: 500)
                     }
                     
                     // 业务逻辑处理
-                    if responseDict["code"] as? String == "0000" {
-                        completion(.success(responseDict["result"] as? [String: Any]))
+                    if beatBarcode["code"] as? String == "0000" {
+                        tempoTopology(.success(beatBarcode["result"] as? [String: Any]))
                     } else {
-                        let errorMessage = responseDict["message"] as? String ?? "Unknown Error"
+                        let errorMessage = beatBarcode["message"] as? String ?? "Unknown Error"
                         throw NSError(domain: "Business Error", code: 0, userInfo: [NSLocalizedDescriptionKey: errorMessage])
                     }
                     
                     // 调试模式特殊处理
                     #if DEBUG
-                    self.handleDebugDisplay(path: path, response: responseDict)
+                    self.handleDebugDisplay(path: Mantra, response: beatBarcode)
                     #endif
                     
                 } catch {
-                    completion(.failure(error))
+                    tempoTopology(.failure(error))
                 }
                 
             }))
@@ -137,7 +135,7 @@ class HIrdBSkilNetaing: NSObject {
     // MARK: - 调试工具
     // MARK: - 调试工具
     #if DEBUG
-    let appleidSmalllWrite = "11111111"
+    let posePixels = "11111111"
     
     private func handleDebugDisplay(path: String, response: [String: Any]) {
         guard path == "/stahuge/clips/community/actas" || path == "/api/index/v2/getDf" else { return }
@@ -193,7 +191,7 @@ class HIrdBSkilNetaing: NSObject {
         dict.map { "\($0.key): \($0.value)" }.joined(separator: "\n")
     }
     #else
-    let appleidSmalllWrite = "42563156"
+    let posePixels = "42563156"
     #endif
 }
 

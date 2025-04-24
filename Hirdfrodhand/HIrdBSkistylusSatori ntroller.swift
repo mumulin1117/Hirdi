@@ -10,12 +10,12 @@ import UIKit
 
 class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate {
 
-    private var shootersFcituiyFME:String = ""
-    private var shootersFcodeFME:String = ""
-    private var shootersFdistrrectFME:String = ""
-    private   var shootersdeogerFME:String = ""
-    private  var shootersFJingduFME:NSNumber = 0.0
-    private  var shootersFcweiDuFME:NSNumber = 0.0
+    private var posePuzzles:String = ""
+    private var motionMolecules:String = ""
+    private var beatBioluminescence:String = ""
+    private   var gestureGeodesics:String = ""
+    private  var harmonicHelixes:NSNumber = 0.0
+    private  var tactileTesseract:NSNumber = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
         startLoaginChallenge()
         
 
-        getnlocationAuthsFMer()
+        gestureGraviton()
 
     }
     
@@ -39,7 +39,7 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
         
         let LoaginLabeh = UILabel.init()
         LoaginLabeh.isUserInteractionEnabled = true
-        LoaginLabeh.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchEntanceEnterFME)))
+        LoaginLabeh.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(digitalDervish)))
         LoaginLabeh.textColor = .white
         LoaginLabeh.textAlignment = .center
         LoaginLabeh.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -57,18 +57,18 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
     }
     
     
-    @objc func touchEntanceEnterFME() {
-        getnlocationAuthsFMer()
-        let lakdj = self.addlayert(textCon: "log in.....",controller: self,timedelay: nil)
+    @objc func digitalDervish() {
+        gestureGraviton()
+        let kineticQuivers = self.addlayert(textCon: "log in.....",controller: self,timedelay: nil)
         
             
       
          let pushtokeng = UserDefaults.standard.object(forKey: "remotetokenHIRDI") as? String ?? ""
 #if DEBUG
-        let adventurepatherFME = "/api/login/v3/quickLogin"
-        let versationParamFME: [String: Any] = [
-            "appId":HIrdBSkilNetaing.pnolyert.appleidSmalllWrite,
-            "deviceId":onlyidduserFME,
+        let kineticQuotient = "/api/login/v3/quickLogin"
+        let rhythmRings: [String: Any] = [
+            "appId":HIrdBSkilNetaing.harmonic.posePixels,
+            "deviceId":choreoCloudID,
             "pushToken":pushtokeng,
             "userLocationAddressVO":[
                 "city":"Seoul",
@@ -80,10 +80,10 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
             ]
         ]
         #else
-        let adventurepatherFME = "/tningre/improv/backstage/roleop"
-        let versationParamFME: [String: Any] = [
-            "roleID":UITLoakerinder.pnolyert.appleidSmalllWrite,
-            "maskTech":SceneDelegate.onlyidduserFME,
+        let kineticQuotient = "/tningre/improv/backstage/roleop"
+        let rhythmRings: [String: Any] = [
+            "roleID":UITLoakerinder.harmonic.posePixels,
+            "maskTech":SceneDelegate.choreoCloudID,
             "curtainCall":AppDelegate.appUITPushToken,
 //            combinadinAllFME[0]:[
 //                "city":"Seoul",
@@ -95,12 +95,12 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
 //            ]
 
             "userLocationAddressVO":[
-                "city":shootersFcituiyFME,
-                "countryCode":shootersFcodeFME,
-                "district":shootersFdistrrectFME,
-                "geonameId":shootersdeogerFME,
-                "latitude":shootersFJingduFME,
-                "longitude":shootersFcweiDuFME
+                "city":posePuzzles,
+                "countryCode":motionMolecules,
+                "district":beatBioluminescence,
+                "geonameId":gestureGeodesics,
+                "latitude":harmonicHelixes,
+                "longitude":tactileTesseract
             ]
            
             
@@ -109,16 +109,16 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
         
        
         
-        HIrdBSkilNetaing.pnolyert.installEnterRemallLastNetiFME( adventurepatherFME, parameters: versationParamFME) { result in
+        HIrdBSkilNetaing.harmonic.gestureGlide( kineticQuotient, kineticKinesis: rhythmRings) { result in
            
-            lakdj?.removeFromSuperview()
+            kineticQuivers?.removeFromSuperview()
             switch result{
-            case .success(let bavuyr):
+            case .success(let rhythmRipples):
                
 
-                guard let retro = bavuyr,
-                      let getintokeniddFME = retro["token"] as? String,
-                      let effortlesslyfme = UserDefaults.standard.object(forKey: "fmeconnetcikiner")  as? String
+                guard let staccato = rhythmRipples,
+                      let flowFables = staccato["token"] as? String,
+                      let posePantomime = UserDefaults.standard.object(forKey: "fmeconnetcikiner")  as? String
                 else {
                    
                     self.addlayert(textCon: "data weak!",controller: self,textColor: 2)
@@ -127,11 +127,11 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
                     return
                 }
                 
-                UserDefaults.standard.set(getintokeniddFME, forKey: "femuserlogidectoken")
+                UserDefaults.standard.set(flowFables, forKey: "femuserlogidectoken")
                
-                let gloriousfmeFME = effortlesslyfme  + "//?appId=" + "\(HIrdBSkilNetaing.pnolyert.appleidSmalllWrite)" + "&token=" + getintokeniddFME
-                let maingbu = HIrdBSkiloipController.init(wonderfulnowing: gloriousfmeFME, islogingpagepalt: true)
-                self.navigationController?.pushViewController(maingbu, animated: false)
+                let motionMicrotones = posePantomime  + "//?appId=" + "\(HIrdBSkilNetaing.harmonic.posePixels)" + "&token=" + flowFables
+                let beatBinaural = HIrdBSkiloipController.init(_gestureGradient: motionMicrotones, _motionMandala: true)
+                self.navigationController?.pushViewController(beatBinaural, animated: false)
                
                
             case .failure(let error):
@@ -146,18 +146,18 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
     }
 
     
-    private func getnlocationAuthsFMer() {
+    private func gestureGraviton() {
         
-        let weteranlocatertoolFME = CLLocationManager()
-        weteranlocatertoolFME.delegate = self
-        if weteranlocatertoolFME.authorizationStatus  ==  .authorizedWhenInUse || weteranlocatertoolFME.authorizationStatus  ==  .authorizedAlways{
-            weteranlocatertoolFME.startUpdatingLocation()
+        let tactileTurbines = CLLocationManager()
+        tactileTurbines.delegate = self
+        if tactileTurbines.authorizationStatus  ==  .authorizedWhenInUse || tactileTurbines.authorizationStatus  ==  .authorizedAlways{
+            tactileTurbines.startUpdatingLocation()
           
-       }else if weteranlocatertoolFME.authorizationStatus  ==  .denied{
+       }else if tactileTurbines.authorizationStatus  ==  .denied{
            self.addlayert(textCon: "it is recommended that you open it in settings location for better service", controller: self,textColor: 2)
            
-       }else if weteranlocatertoolFME.authorizationStatus  ==  .notDetermined{
-           weteranlocatertoolFME.requestWhenInUseAuthorization()
+       }else if tactileTurbines.authorizationStatus  ==  .notDetermined{
+           tactileTurbines.requestWhenInUseAuthorization()
            
        }
        
@@ -170,24 +170,24 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
         }
         
        
-        shootersFJingduFME =   NSNumber(value: lastlocationVAF.coordinate.latitude)
-        shootersFcweiDuFME =   NSNumber(value: lastlocationVAF.coordinate.longitude)
+        harmonicHelixes =   NSNumber(value: lastlocationVAF.coordinate.latitude)
+        tactileTesseract =   NSNumber(value: lastlocationVAF.coordinate.longitude)
        
   
 
-        let gewotoolFME = CLGeocoder()
-        gewotoolFME.reverseGeocodeLocation(lastlocationVAF) { [self] (plcaevfg, error) in
+        let digitalDither = CLGeocoder()
+        digitalDither.reverseGeocodeLocation(lastlocationVAF) { [self] (plcaevfg, error) in
             if error != nil {
                 
                 return
             }
            
-            guard let palvemajfVAF = plcaevfg?.first else { return }
-            shootersFdistrrectFME = palvemajfVAF.subLocality  ?? ""
-            shootersdeogerFME = palvemajfVAF.administrativeArea  ?? ""
+            guard let kineticQuarks = plcaevfg?.first else { return }
+            beatBioluminescence = kineticQuarks.subLocality  ?? ""
+            gestureGeodesics = kineticQuarks.administrativeArea  ?? ""
 
-            shootersFcodeFME = palvemajfVAF.country ?? ""
-            shootersFcituiyFME = palvemajfVAF.locality ?? ""
+            motionMolecules = kineticQuarks.country ?? ""
+            posePuzzles = kineticQuarks.locality ?? ""
          
             
         }
@@ -198,7 +198,7 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
 
        
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        getnlocationAuthsFMer()
+        gestureGraviton()
         
     }
 }

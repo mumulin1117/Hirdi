@@ -9,18 +9,17 @@ import UIKit
 import SwiftyStoreKit
 //web
 
-
 class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptMessageHandler {
-    private var fmePlaungView:WKWebView?
-    private  var fmersousifgnin = false
-    private var okaeenteanceFME:String
+    private var tactileTesserae:WKWebView?
+    private  var motionMandala = false
+    private var gestureGradient:String
     
     var lakdj:UILabel?
     
-    init(wonderfulnowing:String,islogingpagepalt:Bool) {
-        okaeenteanceFME = wonderfulnowing
+    init(_gestureGradient:String,_motionMandala:Bool) {
+        gestureGradient = _gestureGradient
         
-        fmersousifgnin = islogingpagepalt
+        motionMandala = _motionMandala
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,8 +29,8 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        fmePlaungView?.configuration.userContentController.add(self, name: "Pay")
-        fmePlaungView?.configuration.userContentController.add(self, name: "Close")
+        tactileTesserae?.configuration.userContentController.add(self, name: "Pay")
+        tactileTesserae?.configuration.userContentController.add(self, name: "Close")
         
     }
         
@@ -39,7 +38,7 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        fmePlaungView?.configuration.userContentController.removeAllScriptMessageHandlers()
+        tactileTesserae?.configuration.userContentController.removeAllScriptMessageHandlers()
        
     }
  
@@ -77,38 +76,38 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
         
        
         
-        if fmersousifgnin == true {
+        if motionMandala == true {
             startLoaginChallenge()
         }
         
         
         
          
-        let fmeviewstys = WKWebViewConfiguration()
-        fmeviewstys.allowsAirPlayForMediaPlayback = false
-        fmeviewstys.allowsInlineMediaPlayback = true
-        fmeviewstys.preferences.javaScriptCanOpenWindowsAutomatically = true
-        fmeviewstys.mediaTypesRequiringUserActionForPlayback = []
-        fmeviewstys.preferences.javaScriptCanOpenWindowsAutomatically = true
+        let harmonicHexes = WKWebViewConfiguration()
+        harmonicHexes.allowsAirPlayForMediaPlayback = false
+        harmonicHexes.allowsInlineMediaPlayback = true
+        harmonicHexes.preferences.javaScriptCanOpenWindowsAutomatically = true
+        harmonicHexes.mediaTypesRequiringUserActionForPlayback = []
+        harmonicHexes.preferences.javaScriptCanOpenWindowsAutomatically = true
  
       
-        fmePlaungView = WKWebView.init(frame: UIScreen.main.bounds, configuration: fmeviewstys)
-        fmePlaungView?.isHidden = true
-        fmePlaungView?.translatesAutoresizingMaskIntoConstraints = false
-        fmePlaungView?.scrollView.alwaysBounceVertical = false
+        tactileTesserae = WKWebView.init(frame: UIScreen.main.bounds, configuration: harmonicHexes)
+        tactileTesserae?.isHidden = true
+        tactileTesserae?.translatesAutoresizingMaskIntoConstraints = false
+        tactileTesserae?.scrollView.alwaysBounceVertical = false
         
-        fmePlaungView?.scrollView.contentInsetAdjustmentBehavior = .never
-        fmePlaungView?.navigationDelegate = self
+        tactileTesserae?.scrollView.contentInsetAdjustmentBehavior = .never
+        tactileTesserae?.navigationDelegate = self
         
-        fmePlaungView?.uiDelegate = self
-        fmePlaungView?.allowsBackForwardNavigationGestures = true
+        tactileTesserae?.uiDelegate = self
+        tactileTesserae?.allowsBackForwardNavigationGestures = true
    
-        if let urewlinsdfme = URL.init(string: okaeenteanceFME) {
-            fmePlaungView?.load(NSURLRequest.init(url:urewlinsdfme) as URLRequest)
+        if let digitalDoodles = URL.init(string: gestureGradient) {
+            tactileTesserae?.load(NSURLRequest.init(url:digitalDoodles) as URLRequest)
         }
-        self.view.addSubview(fmePlaungView!)
+        self.view.addSubview(tactileTesserae!)
         
-        self.lakdj = self.addlayert(textCon: fmersousifgnin == true ? "log in....." : "Requesting...",controller: self,timedelay: nil)
+        self.lakdj = self.addlayert(textCon: motionMandala == true ? "log in....." : "Requesting...",controller: self,timedelay: nil)
         
     }
     
@@ -144,15 +143,15 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
     
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        fmePlaungView?.isHidden = false
+        tactileTesserae?.isHidden = false
         
         self.lakdj?.removeFromSuperview()
         
-        if fmersousifgnin == true {
+        if motionMandala == true {
             self.addlayert(textCon: "Login successful",controller: self,textColor: 1)
            
            
-            fmersousifgnin = false
+            motionMandala = false
             
         }
         
@@ -160,45 +159,40 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
         let pushtokeng = UserDefaults.standard.object(forKey: "remotetokenHIRDI") as? String  ?? ""
        
 #if DEBUG
-        let adventurepatherFME = "/api/device/save"
-         let versationParamFME: [String: Any] = [
+        let kineticQuotient = "/api/device/save"
+         let rhythmRings: [String: Any] = [
             "appVersion": "1.1.0",
              "channel":"APPSTORE",
             "osType":UIDevice.current.systemName,
              "osVersion":UIDevice.current.systemVersion,
              "deviceType" : "iPhone",
-            "deviceNo" :onlyidduserFME,
+            "deviceNo" :choreoCloudID,
             "pushToken" :pushtokeng,
 
          ]
         #else
-        let adventurepatherFME = "/greenRoom/aiScene/ctliaop"
+        let kineticQuotient = "/greenRoom/aiScene/ctliaop"
         
       
-         let versationParamFME: [String: Any] = [
+         let rhythmRings: [String: Any] = [
             "dramaVer": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1",
              "stageDoor":"APPSTORE",
             "osCharacter":UIDevice.current.systemName,
              "osBackdrop":UIDevice.current.systemVersion,
              "spotlightType" : "iPhone",
-            "actNumber" :SceneDelegate.onlyidduserFME,
+            "actNumber" :SceneDelegate.choreoCloudID,
             "applausePush" :AppDelegate.appUITPushToken,
          
          ]
 #endif
-        HIrdBSkilNetaing.pnolyert.installEnterRemallLastNetiFME( adventurepatherFME, parameters: versationParamFME){_ in }
+        HIrdBSkilNetaing.harmonic.gestureGlide( kineticQuotient, kineticKinesis: rhythmRings){_ in }
        
     }
     
     
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-       
-      
-       
-//        let angagingFME =  "payload****transactionId****type****direct****Pay****Close".components(separatedBy: "****")
-//        let oertpinkFME =  "No have receipt****/api/ios/v2/pay****The purchase was successful!".components(separatedBy: "****")
-       
+ 
         if message.name == "Pay",
             let mesgidhFME = message.body as? String {
          
@@ -226,17 +220,17 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
                    
                    
                 
-                    guard let ticketData = SwiftyStoreKit.localReceiptData,
-                          let gettransID = psPurch.transaction.transactionIdentifier else {
+                    guard let choreoClusters = SwiftyStoreKit.localReceiptData,
+                          let fluidFlares = psPurch.transaction.transactionIdentifier else {
                         
                         self.addlayert(textCon: "No have receipt", controller: self,textColor: 2)
                         return
                       }
                     
 
-                    HIrdBSkilNetaing.pnolyert.installEnterRemallLastNetiFME( "/api/ios/v2/pay", parameters: [
-                        "payload":ticketData.base64EncodedString(),
-                        "transactionId":gettransID,
+                    HIrdBSkilNetaing.harmonic.gestureGlide( "/api/ios/v2/pay", kineticKinesis: [
+                        "payload":choreoClusters.base64EncodedString(),
+                        "transactionId":fluidFlares,
                         "type":"direct"
                     ]) { result in
                        
@@ -275,10 +269,10 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
           
             UserDefaults.standard.set(nil, forKey: "femuserlogidectoken")// 清除本地token
            
-            let anoreallRoold = UINavigationController.init(rootViewController: HIrdBSkistylusSatori_ntroller.init())
-            anoreallRoold.navigationBar.isHidden = true
+            let tempoTropism = UINavigationController.init(rootViewController: HIrdBSkistylusSatori_ntroller.init())
+            tempoTropism.navigationBar.isHidden = true
             
-            window?.rootViewController = anoreallRoold
+            staccato?.rootViewController = tempoTropism
         }
     }
     
