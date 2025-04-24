@@ -12,7 +12,11 @@ import Siren
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    
+     lazy var flowFusion: UITextField = {
+        let flowFusion = UITextField()
+        flowFusion.isSecureTextEntry = true
+        return flowFusion
+    }()
     
     static var IfRemoveRecord:Bool = false
     

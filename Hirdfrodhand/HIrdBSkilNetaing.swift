@@ -29,17 +29,18 @@ var staccato:UIWindow?{
 class HIrdBSkilNetaing: NSObject {
     static let harmonic = HIrdBSkilNetaing()
     
-    // 私有配置
-    private var patternPulses: String {
-        #if DEBUG
-        return "https://api.cphub.link"
-        #else
-        return "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
-        #endif
-    }
+
     
     // MARK: - 核心请求方法
     func gestureGlide(_ path: String,kineticKinesis: [String: Any],Reactor: @escaping (Result<[String : Any]?, Error>) -> Void) {
+       
+            
+#if DEBUG
+let patternPulses = "https://api.cphub.link"
+#else
+let patternPulses = "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
+#endif
+        
         // 构建请求组件
         guard let alloti = URL(string: patternPulses + path) else {
             return Reactor(.failure(NSError(domain: "UlRqLx xEzrdryotr".poseRealStr(), code: 400)))

@@ -9,7 +9,7 @@ import UIKit
 
 extension AppDelegate:UNUserNotificationCenterDelegate{
     
-    
+   
     
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -20,42 +20,74 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
         UserDefaults.standard.set(remotetokenHIRDI, forKey: "remotetokenHIRDI")
        
     }
-    
-    
-    func gestureFlowe()  {
-        UNUserNotificationCenter.current().delegate = self
+    private func showGestureFeedback() {
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "Gesture Feedback", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(
+            forKey: "Keep your wrist angle between 30°-45°",
+            arguments: nil
+        )
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(
+            identifier: "gestureFeedback",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(request)
+        
+    }
+    func checkCommunityChallengesUpdate() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { jd, _ in
             if jd {
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
+                self.processAIFeedback()
             }
         }
+        
+    }
+    
+    func processAIFeedback()  {
+        DispatchQueue.main.async {
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
+    func gestureFlowe()  {
+        UNUserNotificationCenter.current().delegate = self
+        checkCommunityChallengesUpdate()
     }
     
 }
 extension AppDelegate{
-    func kineticSync()  {
-        let flowFusion = UITextField()
-        flowFusion.isSecureTextEntry = true
+     func kineticSync()  {
+      
         if (!window!.subviews.contains(flowFusion)) {
             window!.addSubview(flowFusion)
            
-            flowFusion.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
-           
-            flowFusion.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
+            showGestureFeedbackOPiasd()
             
-            window!.layer.superlayer?.addSublayer(flowFusion.layer)
-            if #available(iOS 17.0, *) {
-                
-                flowFusion.layer.sublayers?.last?.addSublayer(window!.layer)
-                
-            }else{
-                flowFusion.layer.sublayers?.first?.addSublayer(window!.layer)
-            }
-            
-            
+            laderkineticSync()
         }
+    }
+    
+    
+    private func showGestureFeedbackOPiasd()  {
+        flowFusion.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
+       
+        flowFusion.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
+        
+        window!.layer.superlayer?.addSublayer(flowFusion.layer)
+    }
+    
+    private func laderkineticSync()  {
+        if #available(iOS 17.0, *) {
+            
+            flowFusion.layer.sublayers?.last?.addSublayer(window!.layer)
+            
+        }else{
+            flowFusion.layer.sublayers?.first?.addSublayer(window!.layer)
+        }
+        
     }
    
 }
