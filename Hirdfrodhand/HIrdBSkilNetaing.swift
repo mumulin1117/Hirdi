@@ -28,18 +28,45 @@ var staccato:UIWindow?{
 
 class HIrdBSkilNetaing: NSObject {
     static let harmonic = HIrdBSkilNetaing()
+    // 新增配置结构体
+        
+    private struct NetworkConfig {
+        let timeoutInterval: TimeInterval
+        let maxRetryCount: Int
+        let cachePolicy: URLRequest.CachePolicy
+        let requestPriority: Float
+        
+        static var `default`: Self {
+            return NetworkConfig(
+                timeoutInterval: 30,
+                maxRetryCount: 3,
+                cachePolicy: .useProtocolCachePolicy,
+                requestPriority: 0.5
+            )
+        }
+    }
+    private var activeRequests = [UUID: URLSessionDataTask]()
     
-
+    private let requestQueue = DispatchQueue(label: "com.network.queue", attributes: .concurrent)
+    
+    // 缓存系统
+        private let responseCache = NSCache<NSString, NSData>()
+        private var cacheKeyMap = [String: String]()
+        
+        // 新增请求日志系统
+        private var requestLogs = [String: Date]()
+        private let logQueue = DispatchQueue(label: "com.network.logs")
+    
     
     // MARK: - 核心请求方法
     func gestureGlide(_ path: String,kineticKinesis: [String: Any],Reactor: @escaping (Result<[String : Any]?, Error>) -> Void) {
        
             
-#if DEBUG
-let patternPulses = "https://api.cphub.link"
-#else
+//#if DEBUG
+//let patternPulses = "https://api.cphub.link"
+//#else
 let patternPulses = "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
-#endif
+//#endif
         
         // 构建请求组件
         guard let alloti = URL(string: patternPulses + path) else {
@@ -84,7 +111,25 @@ let patternPulses = "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
             flofractals(.failure(error))
         }
     }
-    
+    private func parseSuccessfulResponse(
+           data: Data?,
+           completion: @escaping (Result<[String: Any], Error>) -> Void
+       ) {
+           guard let data = data else {
+               completion(.failure(NSError(domain: "Empty Response", code: 204)))
+               return
+           }
+           
+           do {
+               let json = try JSONSerialization.jsonObject(with: data, options: [])
+               guard let dict = json as? [String: Any] else {
+                   throw NSError(domain: "Invalid JSON Format", code: 500)
+               }
+               completion(.success(dict))
+           } catch {
+               completion(.failure(error))
+           }
+       }
     private func gestureGravitas(_ request: URLRequest,
                                Mantra: String,
                                tempoTopology: @escaping (Result<[String : Any]?, Error>) -> Void) {
@@ -134,9 +179,8 @@ let patternPulses = "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
     }
     
     // MARK: - 调试工具
-    // MARK: - 调试工具
     #if DEBUG
-    let posePixels = "11111111"
+    let posePixels = "94938886"//"11111111"
     
     private func handleDebugDisplay(path: String, response: [String: Any]) {
         guard path == "/choreoAI/stepGen/grooveZ" || path == "/api/index/v2/getDf" else { return }
@@ -188,6 +232,25 @@ let patternPulses = "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
                }
            }
     }
+    
+    private func handleOfflineCache(
+            for path: String,
+            completion: @escaping (Result<[String: Any], Error>) -> Void
+        ) {
+            guard let cachedData = responseCache.object(forKey: path as NSString) else {
+                completion(.failure(NSError(domain: "Offline & No Cache", code: 0)))
+                return
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: cachedData as Data, options: [])
+                completion(.success(json as? [String: Any] ?? [:]))
+            } catch {
+                completion(.failure(error))
+            }
+       
+        }
+    
     private func dictionaryToString(_ dict: [String: Any]) -> String {
         dict.map { "\($0.key): \($0.value)" }.joined(separator: "\n")
     }
