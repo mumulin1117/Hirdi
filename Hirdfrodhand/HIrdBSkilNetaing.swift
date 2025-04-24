@@ -19,10 +19,7 @@ var choreoCloudID:String{
 }
 
 var staccato:UIWindow?{
-    return (UIApplication.shared.connectedScenes
-        .first { $0.activationState == .foregroundActive } as? UIWindowScene)?
-        .windows
-        .first(where: \.isKeyWindow)
+    return ((UIApplication.shared.delegate) as? AppDelegate)?.window
 }
 
 
