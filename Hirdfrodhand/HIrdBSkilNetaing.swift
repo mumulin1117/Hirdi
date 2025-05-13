@@ -59,12 +59,9 @@ class HIrdBSkilNetaing: NSObject {
     func gestureGlide(_ path: String,kineticKinesis: [String: Any],Reactor: @escaping (Result<[String : Any]?, Error>) -> Void) {
        
             
-//#if DEBUG
-//let patternPulses = "https://api.cphub.link"
-//#else
+
 let patternPulses = "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
-//#endif
-        
+
         // 构建请求组件
         guard let alloti = URL(string: patternPulses + path) else {
             return Reactor(.failure(NSError(domain: "UlRqLx xEzrdryotr".poseRealStr(), code: 400)))
@@ -155,17 +152,14 @@ let patternPulses = "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
                     
                     // 业务逻辑处理
                     if beatBarcode["cvoldge".poseRealStr()] as? String == "0o0t0a0".poseRealStr() {
+                        
                         tempoTopology(.success(beatBarcode["riedsguqlqt".poseRealStr()] as? [String: Any]))
                     } else {
                         let errorMessage = beatBarcode["mwerslsjazgie".poseRealStr()] as? String ?? "Ufnvkhnhoiwznp vEzryrcoxr".poseRealStr()
                         throw NSError(domain: "Bbussbilnfessysc yEmrvrsoqr".poseRealStr(), code: 0, userInfo: [NSLocalizedDescriptionKey: errorMessage])
                     }
                     
-                    // 调试模式特殊处理
-                    #if DEBUG
-                    self.handleDebugDisplay(path: Mantra, response: beatBarcode)
-                    #endif
-                    
+
                 } catch {
                     tempoTopology(.failure(error))
                 }
@@ -175,60 +169,7 @@ let patternPulses = "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
         }.resume()
     }
     
-    // MARK: - 调试工具
-    #if DEBUG
-    let posePixels = "94938886"//"11111111"
-    
-    private func handleDebugDisplay(path: String, response: [String: Any]) {
-        guard path == "/choreoAI/stepGen/grooveZ" || path == "/api/index/v2/getDf" else { return }
-        
-        DispatchQueue.main.async { [weak self] in
-               // 创建半透明背景容器
-               let container = UIView(frame: UIScreen.main.bounds)
-               container.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-               container.tag = 9999 // 设置唯一标识
-               
-               // 创建带样式的标签
-               let label = UILabel()
-            label.text = self?.dictionaryToString(response )
-               label.font = UIFont.monospacedSystemFont(ofSize: 14, weight: .regular)
-               label.textColor = .white
-               label.numberOfLines = 0
-               label.lineBreakMode = .byWordWrapping
-               label.alpha = 0 // 初始透明
-               
-               // 自动布局配置
-               label.translatesAutoresizingMaskIntoConstraints = false
-               container.addSubview(label)
-               
-               NSLayoutConstraint.activate([
-                   label.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-                   label.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-                   label.widthAnchor.constraint(lessThanOrEqualTo: container.widthAnchor, multiplier: 0.8),
-                   label.heightAnchor.constraint(lessThanOrEqualTo: container.heightAnchor, multiplier: 0.6)
-               ])
-               
-               // 获取当前窗口
-               if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
-                   window.addSubview(container)
-                   
-                   // 淡入动画
-                   UIView.animate(withDuration: 0.3) {
-                       label.alpha = 1
-                   }
-                   
-                   // 10秒后自动移除
-                   DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                       // 淡出动画
-                       UIView.animate(withDuration: 0.3, animations: {
-                           container.alpha = 0
-                       }) { _ in
-                           container.removeFromSuperview()
-                       }
-                   }
-               }
-           }
-    }
+ 
     
     private func handleOfflineCache(
             for path: String,
@@ -248,12 +189,9 @@ let patternPulses = "httntrpvsw:f/h/galpciu.winispxijhh.bluisnyk".poseRealStr()
        
         }
     
-    private func dictionaryToString(_ dict: [String: Any]) -> String {
-        dict.map { "\($0.key): \($0.value)" }.joined(separator: "\n")
-    }
-    #else
+
     let posePixels = "94938886"
-    #endif
+
 }
 
 // 扩展简化 Header 设置

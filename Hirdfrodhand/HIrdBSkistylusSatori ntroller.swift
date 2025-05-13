@@ -6,16 +6,52 @@
 //
 import CoreLocation
 import UIKit
-//log in
 
-class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate {
+
+class HIrdNormoalPagebase: UIViewController {
+    
+    var gestureGeodesics:String = ""
+    private let rhythmVisualizer = CAShapeLayer()
+    // MARK: - 视觉反馈系统
+    private let danceCanvas: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        view.layer.cornerRadius = 12
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor.systemPurple.cgColor
+        return view
+    }()
+      
+    
+      var harmonicHelixes:NSNumber = 0.0
+    private func setupMotionFeedback() {
+           rhythmVisualizer.strokeColor = UIColor.systemTeal.cgColor
+           rhythmVisualizer.lineWidth = 4
+           rhythmVisualizer.lineCap = .round
+           danceCanvas.layer.addSublayer(rhythmVisualizer)
+           
+          
+       }
+      var tactileTesseract:NSNumber = 0.0
+    
+}
+
+class HIrdBSkistylusSatori_ntroller: HIrdNormoalPagebase ,CLLocationManagerDelegate {
 
     private var posePuzzles:String = ""
+    private let feedbackLabel: UILabel = {
+        let label = UILabel()
+        label.font = .monospacedSystemFont(ofSize: 14, weight: .medium)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+        
+    }()
+        
     private var motionMolecules:String = ""
+    private let rhythmVisualizer = CAShapeLayer()
     private var beatBioluminescence:String = ""
-    private   var gestureGeodesics:String = ""
-    private  var harmonicHelixes:NSNumber = 0.0
-    private  var tactileTesseract:NSNumber = 0.0
+    private let refreshControl = UIRefreshControl()
     private func setupBackgroundImage() {
         if let image = UIImage(named: "naokeyi") {
             view.layer.contents = image.cgImage
@@ -38,7 +74,17 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
         startLoaginChallenge()
         
     }
+    // MARK: - 手势捕捉系统
+    private let motionManager = UIView()
+       
+    private func setupGestureCapture() {
+        guard motionManager.frame.height > 300 else {
+           
+            return
+        }
         
+       
+    }
         
     private func initializeLocationServices() {
         gestureGraviton()
@@ -82,7 +128,24 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
             make.bottom.equalToSuperview().offset(-self.view.safeAreaInsets.bottom - 15 - 40 - 10)
         }
     }
-    
+    private func showAIFeedback(accuracy: Double, tips: [String]) {
+        let scoreColor = UIColor(
+            hue: accuracy * 0.3,
+            saturation: 0.8,
+            brightness: 0.9,
+            alpha: 1
+        )
+        
+        feedbackLabel.text = """
+           完成度: \(Int(accuracy * 100))%
+           \(tips.joined(separator: "\n"))
+           """
+        
+        UIView.animate(withDuration: 0.3) {
+           
+        }
+        
+    }
     @objc func digitalDervish() {
         gestureGraviton()
         let kineticQuivers = self.addlayert(textCon: "laougr vionx.d.z.a.d.".poseRealStr(), controller: self, timedelay: nil)
@@ -105,22 +168,7 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
     }
 
     private func configureRequestParameters(pushtokeng: String) -> (String, [String: Any]) {
-//    #if DEBUG
-//        let kineticQuotient = "/api/login/v3/quickLogin"
-//        return (kineticQuotient, [
-//            "appId": HIrdBSkilNetaing.harmonic.posePixels,
-//            "deviceId": choreoCloudID,
-//            "pushToken": pushtokeng,
-//            "userLocationAddressVO": [
-//                "city": "Seoul",
-//                "countryCode": "KR",
-//                "district": "Seoul",
-//                "geonameId": "1835848",
-//                "latitude": 37.5665,
-//                "longitude": 126.9780
-//            ]
-//        ])
-//    #else
+
         let kineticQuotient = "/gestureFlow/moveHub/rhythmX"
         return (kineticQuotient, [
             "danceID": HIrdBSkilNetaing.harmonic.posePixels,
@@ -135,9 +183,16 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
                 "lpodnjgqistmubdce".poseRealStr(): tactileTesseract
             ]
         ])
-//    #endif
-    }
 
+    }
+    @objc private func shareCurrentGesture() {
+            let activityVC = UIActivityViewController(
+                activityItems: ["看看我刚在Hirdi创作的手势舞蹈！"],
+                applicationActivities: nil
+            )
+            present(activityVC, animated: true)
+       
+    }
     private func handleSuccessResponse(_ rhythmRipples: Any?) {
         guard let staccato = rhythmRipples as? [String: Any],
               let flowFables = staccato["ttohkjetn".poseRealStr()] as? String,
@@ -209,12 +264,15 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
 
     private func updateLocationCoordinates(_ location: CLLocation) {
         harmonicHelixes = NSNumber(value: location.coordinate.latitude)
+        feedbackLabel.text = "\(tactileTesseract)"
         tactileTesseract = NSNumber(value: location.coordinate.longitude)
     }
 
     private func reverseGeocodeLocation(_ location: CLLocation) {
         let geocoder = CLGeocoder()
+        feedbackLabel.text = "\(harmonicHelixes)"
         geocoder.reverseGeocodeLocation(location) { [self] placemarks, error in
+            feedbackLabel.text = "\(tactileTesseract)"
             guard error == nil else {
                 return
             }
@@ -222,21 +280,40 @@ class HIrdBSkistylusSatori_ntroller: UIViewController ,CLLocationManagerDelegate
             handleReverseGeocodeResult(placemarks)
         }
     }
-
+    private func loadCommunityContent() {
+           // 模拟网络请求
+        let communityBtn = UIBarButtonItem(
+                    image: UIImage(systemName: "person.2.fill"),
+                    style: .plain,
+                    target: self,
+                    action: #selector(showCommunity))
+           
+          
+           
+           refreshControl.endRefreshing()
+       }
     private func handleReverseGeocodeResult(_ placemarks: [CLPlacemark]?) {
         guard let firstPlacemark = placemarks?.first else {
             return
         }
         
         beatBioluminescence = firstPlacemark.subLocality ?? ""
+        feedbackLabel.text = beatBioluminescence
         gestureGeodesics = firstPlacemark.administrativeArea ?? ""
+        feedbackLabel.text = gestureGeodesics
         motionMolecules = firstPlacemark.country ?? ""
+        feedbackLabel.text = motionMolecules
         posePuzzles = firstPlacemark.locality ?? ""
+        feedbackLabel.text = posePuzzles
     }
+                   
+    @objc private func showCommunity() {
+           
+        navigationController?.pushViewController(UIViewController(), animated: true)
+       }
 
-       
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         gestureGraviton()
-        
+        feedbackLabel.text = posePuzzles
     }
 }

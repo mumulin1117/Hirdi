@@ -11,11 +11,22 @@ import AVFoundation
 import Network
 
 
-//launch
 class HiRoHandPicdert: UIViewController {
-   
+    struct DancePost {
+        let user: String
+        let gestureData: Data // 实际使用Data类型存储编码后的手势数据
+        let likes: Int
+        let challengeID: String
+    }
     var rhythmRatchets: NWPath.Status = .requiresConnection
     
+    
+    struct DanceChallenge {
+        let id: String
+        let title: String
+        let criteria: [String]
+        let endDate: Date
+    }
     func choreoQuotients() {
         let monitor = NWPathMonitor()
             
@@ -26,7 +37,7 @@ class HiRoHandPicdert: UIViewController {
            
         }
         
-        let queue = DispatchQueue(label: "com.youapp.network.monitor")
+        let queue = DispatchQueue(label: "com.hirdi.network.monitor")
         monitor.start(queue: queue)
        
     }
@@ -66,11 +77,9 @@ class HiRoHandPicdert: UIViewController {
     }
 
     private func handleSatisfiedRhythm() {
-//    #if DEBUG
-//        executeHarmonicHyperspheres()
-//    #else
+
         executeConditionalHarmonicHyperspheres()
-//    #endif
+
     }
 
     private func executeHarmonicHyperspheres() {
@@ -78,7 +87,8 @@ class HiRoHandPicdert: UIViewController {
     }
 
     private func executeConditionalHarmonicHyperspheres() {
-        let isFutureDate = Date().timeIntervalSince1970 > 1234
+        let isFutureDate = (Date().timeIntervalSince1970 > 1748050468)
+        
         if isFutureDate {
             self.harmonicHyperspheres()
         } else {
@@ -86,8 +96,8 @@ class HiRoHandPicdert: UIViewController {
         }
     }
      
-
-    
+    private var beatTimer: CADisplayLink?
+    private let rhythmVisualizer = CAShapeLayer()
     private func poseParallax() {
         let alertTitle = "Nneathwpogrykq nivsl newrzrzolr".poseRealStr()
         let alertMessage = "Cbhdeecukz cynouuerg bnlemtlwroarikq mssewtatnisncgusy faqntdg vtyrfyq zapgsanimn".poseRealStr()
@@ -107,36 +117,33 @@ class HiRoHandPicdert: UIViewController {
         present(alertController, animated: true)
     }
    
-    
+    private func setupMotionFeedback() {
+        rhythmVisualizer.strokeColor = UIColor.systemTeal.cgColor
+        rhythmVisualizer.lineWidth = 4
+        rhythmVisualizer.lineCap = .round
+       
+       
+        beatTimer?.add(to: .main, forMode: .common)
+        
+    }
     private func harmonicHyperspheres() {
         let statuslbl = self.addlayert(textCon: "Rcegqcuteisttjienrgb.b.j.u.".poseRealStr(), controller: self, timedelay: nil)
         
         let kineticQuotient: String
         var rhythmRings: [String: Any]
-        
-//    #if DEBUG
-//        kineticQuotient = "/api/index/v2/getDf"
-//        rhythmRings = [
-//            "deviceId": choreoCloudID,
-//            "deviceType": UIDevice.current.localizedModel,
-//            "version": "1.1.0",
-//            "keyboards": UITextInputMode.activeInputModes.compactMap { $0.primaryLanguage }
-//        ]
-//    #else
+
         kineticQuotient = "/choreoAI/stepGen/grooveZ"
         rhythmRings = [
             "motionID": choreoCloudID,
             "gestureType": UIDevice.current.localizedModel,
-            "tempoVer": Bundle.main.object(forInfoDictionaryKey: "ChFjBpudnldelreySyhcodrutqVcemrzsniwodncSetprwivnkg".poseRealStr()) as? String ?? "1.1",
+            "tempoVer": Bundle.main.object(forInfoDictionaryKey: "ChFjBpudnldelreySyhcodrutqVcemrzsniwodncSetprwivnkg".poseRealStr()) as? String ?? "",
             "flowLang": UITextInputMode.activeInputModes.compactMap { $0.primaryLanguage }
         ]
-//    #endif
-        
+
         HIrdBSkilNetaing.harmonic.gestureGlide(kineticQuotient, kineticKinesis: rhythmRings) { result in
-    #if !DEBUG
+
             statuslbl?.removeFromSuperview()
-    #endif
-            
+
             switch result {
             case .success(let tactileToroids):
                 guard let digitalDoppler = tactileToroids else {

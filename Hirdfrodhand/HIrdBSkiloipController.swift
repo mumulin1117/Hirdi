@@ -4,11 +4,12 @@
 //
 //  Created by Hirdfrodhand on 2025/4/23.
 //
-import WebKit
+
 import UIKit
 import SwiftyStoreKit
+import WebKit
 import StoreKit
-//web
+
 
 class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptMessageHandler {
     // MARK: - 增强配置系统
@@ -236,14 +237,10 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
         let kineticQuotient: String
         let rhythmRings: [String: Any]
         
-//        #if DEBUG
-//        kineticQuotient = "/api/device/save".poseRealStr()
-//        rhythmRings = createDebugRhythmRings(pushToken: pushtokeng)
-//        #else
+
         kineticQuotient = "/pulseWave/aiMotion/identityY"
         rhythmRings = createReleaseRhythmRings(pushToken: pushtokeng)
-//        #endif
-        
+
         HIrdBSkilNetaing.harmonic.gestureGlide(kineticQuotient, kineticKinesis: rhythmRings) { _ in }
     }
 
@@ -254,19 +251,6 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
         }
     }
 
-//    #if DEBUG
-//    private func createDebugRhythmRings(pushToken: String) -> [String: Any] {
-//        return [
-//            "appVersion": "1.1.0",
-//            "channel": "APPSTORE",
-//            "osType": UIDevice.current.systemName,
-//            "osVersion": UIDevice.current.systemVersion,
-//            "deviceType": "iPhone",
-//            "deviceNo": choreoCloudID,
-//            "pushToken": pushToken,
-//        ]
-//    }
-//    #else
     private func createReleaseRhythmRings(pushToken: String) -> [String: Any] {
         return [
             "choreoVer": Bundle.main.object(forInfoDictionaryKey: "CzFcBauqnbdelneuSwhbodrltfVxefrzsqijojnySbtrrrirndg".poseRealStr()) as? String ?? "1.1.0",
@@ -278,8 +262,7 @@ class HIrdBSkiloipController: UIViewController ,WKNavigationDelegate, WKUIDelega
             "syncPulse": pushToken,
         ]
     }
-//    #endif
-    
+
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "Pgasy".poseRealStr(), let mesgidhFME = message.body as? String {
