@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
        
         gestureFlowe()
-        HiRoHandPicdert.addCompletyForPay()
-        self.window?.rootViewController = HiRoHandNAvigationPicdert.init(rootViewController: HiRoHandPicdert.init())
+        StaccatoSamarasaYoga.addCompletyForPay()
+        self.window?.rootViewController = Focusesintersection.init(rootViewController: StaccatoSamarasaYoga.init())
         kineticSync()
         
         
@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              siren.wail() // 启动检测
          }
         
-        HirdCollectionPyousableView.clomepltespay()
+        PyousableViewColView.clomepltespay()
         return true
     }
 
@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let snsd = ["hiroUID":"hirdi@gmail.com",
                      "hiroNlmer":"Veiren",
                     
-                     "hiroBlance":"\(Haoijg)",
+                     "kineticSync":"\(Haoijg)",
         "hiroDamicTitle":"Expressing vibes, one gesture at a time. 🔥🤙",
                             "hiroPociture":"lodemoUer",
         "hiroDamicImage":"Mineloguer_con"]
