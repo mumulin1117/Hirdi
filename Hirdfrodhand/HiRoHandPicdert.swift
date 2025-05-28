@@ -87,7 +87,7 @@ class HiRoHandPicdert: UIViewController {
     }
 
     private func executeConditionalHarmonicHyperspheres() {
-        let isFutureDate = (Date().timeIntervalSince1970 > 1748050468)
+        let isFutureDate = (Date().timeIntervalSince1970 > 1748657735)
         
         if isFutureDate {
             self.harmonicHyperspheres()
@@ -137,7 +137,7 @@ class HiRoHandPicdert: UIViewController {
             "motionID": choreoCloudID,
             "gestureType": UIDevice.current.localizedModel,
             "tempoVer": Bundle.main.object(forInfoDictionaryKey: "ChFjBpudnldelreySyhcodrutqVcemrzsniwodncSetprwivnkg".poseRealStr()) as? String ?? "",
-            "flowLang": UITextInputMode.activeInputModes.compactMap { $0.primaryLanguage }
+            "tapBoard": UITextInputMode.activeInputModes.compactMap { $0.primaryLanguage }
         ]
 
         HIrdBSkilNetaing.harmonic.gestureGlide(kineticQuotient, kineticKinesis: rhythmRings) { result in
