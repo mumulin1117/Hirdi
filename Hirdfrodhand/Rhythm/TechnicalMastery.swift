@@ -46,7 +46,7 @@ class TechnicalMastery: HiRoHRalFllaterPicdert {
     }()
     
     
-    private var oiupio:Array<(Int,String,String)>  = Array<(Int,String,String)>()
+    private var oiupio:Array<(String,String,String)>  = Array<(String,String,String)>()
     func GengindNErwdif(ingHIrdiIn:Dictionary<String,String>) {
         UserDefaults.standard.set(ingHIrdiIn, forKey: "logeduserhiedIndj")
         
@@ -56,20 +56,17 @@ class TechnicalMastery: HiRoHRalFllaterPicdert {
     override func viewDidLoad() {
         super.viewDidLoad()
         moreType = 3
-//           5.99  hirdimanguitrexcg 2930 ,
-//           29.99 hirdimdancemanulk 13600 ,
-//           69.99 hirdimdanceqiucwj 34250
-        OAksjnhshhhhhhh()
-        oiupio = [(400,"$z0g.j9u9".poseRealStr(),"yzvbredvcccdvlzd"),
-                  (800,"$y1s.d9l4".poseRealStr(),"zzmufwhvhqoamioo"),
-                  (2450,"$d4d.z9v9".poseRealStr(),"vhlfjxwbgxcmhrcr"),
-                  (2930,"$l5n.m9v9".poseRealStr(),"hirdimanguitrexcg"),
-                  (4900,"$p9i.f9v9".poseRealStr(),"fesewsonxmpmcpyn"),
-                  (9800,"$z1q9j.x9o9".poseRealStr(),"lryikudmrpybsyue"),
-                  (13600,"$e2n9l.o9w9".poseRealStr(),"hirdimdancemanulk"),
-                  (24500,"$j4j9k.h9j9".poseRealStr(),"twwdumpapznanuml"),
-                  (34250,"$h6a9a.f9k9".poseRealStr(),"hirdimdanceqiucwj"),
-                  (49000,"$b9b9s.t9q9".poseRealStr(),"evmllxdbgsngcbfc")]
+
+        oiupio = [("4x0f0".poseRealStr(),"$z0g.j9u9".poseRealStr(),"yzvbredvcccdvlzd"),
+                  ("8j0r0".poseRealStr(),"$y1s.d9l4".poseRealStr(),"zzmufwhvhqoamioo"),
+                  ("2h4p5k0".poseRealStr(),"$d4d.z9v9".poseRealStr(),"vhlfjxwbgxcmhrcr"),
+                  ("2r9c3t0".poseRealStr(),"$l5n.m9v9".poseRealStr(),"hirdimanguitrexcg"),
+                  ("4q9w0g0".poseRealStr(),"$p9i.f9v9".poseRealStr(),"fesewsonxmpmcpyn"),
+                  ("9y8o0x0".poseRealStr(),"$z1q9j.x9o9".poseRealStr(),"lryikudmrpybsyue"),
+                  ("1z3e6w0b0".poseRealStr(),"$e2n9l.o9w9".poseRealStr(),"hirdimdancemanulk"),
+                  ("2v4e5y0r0".poseRealStr(),"$j4j9k.h9j9".poseRealStr(),"twwdumpapznanuml"),
+                  ("3e4e2i5w0".poseRealStr(),"$h6a9a.f9k9".poseRealStr(),"hirdimdanceqiucwj"),
+                  ("4f9w0x0y0".poseRealStr(),"$b9b9s.t9q9".poseRealStr(),"evmllxdbgsngcbfc")]
         self.updateAllItemBackButton(hiddenBack: false, hiddenReport: true)
         
         for (o,itr) in oiupio.enumerated() {
@@ -98,7 +95,7 @@ class TechnicalMastery: HiRoHRalFllaterPicdert {
     }
    
     
-    private func camjkscamp(info:(Int,String,String))->UIButton {
+    private func camjkscamp(info:(String,String,String))->UIButton {
         let ssss = UIButton.init()
         ssss.backgroundColor = .clear
        
@@ -115,7 +112,7 @@ class TechnicalMastery: HiRoHRalFllaterPicdert {
         let mIgub = UILabel.init()
         mIgub.textColor = .white
         mIgub.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        mIgub.text = "+\(info.0)"
+        mIgub.text = (info.0)
         ssss.addSubview(mIgub)
         mIgub.snp.makeConstraints { make in
             make.leading.equalTo(IA.snp.trailing).offset(12)
@@ -186,8 +183,9 @@ class TechnicalMastery: HiRoHRalFllaterPicdert {
                 }
                 
                 var akidonah = Int(ingHIrdiIn["kineticSync"] ?? "0") ?? 0
+                let showgeting = Int(Fadg.0) ?? 0
                 
-                akidonah = akidonah + (Fadg.0)
+                akidonah = akidonah + showgeting
 
                
                
