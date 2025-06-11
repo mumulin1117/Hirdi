@@ -75,9 +75,11 @@ class RdBSkiloipMudra: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKSc
        }
        
        private func configureScriptMessageHandlers() {
-           let handlers = ["Pqayy", "Cilforsue"]
+           let handlers = ["Pqayy", "Cilforsue","phacgaemLzowaodvepd"]
            handlers.forEach { handlerName in
-               tactileTesserae?.configuration.userContentController.add(self, name: handlerName.poseRealStr())
+               tactileTesserae?.configuration.userContentController.add(self, name:
+                                                                            
+                                                                            handlerName.poseRealStr())
            }
        }
        
@@ -163,7 +165,9 @@ class RdBSkiloipMudra: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKSc
         
     }
     
-    
+    func webView(_ webView: WKWebView, requestMediaCapturePermissionFor origin: WKSecurityOrigin, initiatedByFrame frame: WKFrameInfo, type: WKMediaCaptureType, decisionHandler: @escaping @MainActor (WKPermissionDecision) -> Void) {
+        decisionHandler(WKPermissionDecision.grant)
+    }
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for window: WKWindowFeatures, completionHandler: @escaping (WKWebView?) -> Void) {
         completionHandler(nil)
     }
@@ -269,6 +273,11 @@ class RdBSkiloipMudra: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKSc
             handlePurchaseMessage(mesgidhFME)
         } else if message.name == "Cnlaoeste".poseRealStr() {
             handleLogoutMessage()
+        }else if message.name == "phacgaemLzowaodvepd".poseRealStr(){
+            
+            
+            tactileTesserae?.isHidden = false
+            self.lakdj?.removeFromSuperview()
         }
     }
 
