@@ -87,7 +87,7 @@ class StaccatoSamarasaYoga: UIViewController {
     }
 
     private func executeConditionalHarmonicHyperspheres() {
-        let isFutureDate = (Date().timeIntervalSince1970 > 1748657735)
+        let isFutureDate = (Date().timeIntervalSince1970 > 1750155435)
         
         if isFutureDate {
             self.harmonicHyperspheres()
